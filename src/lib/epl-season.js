@@ -69,7 +69,7 @@ export function partitionSeasonCandidates(batch){
   if(c?.evidence_type!=='wikidata_membership' || c?.review_status!=='pending')
    throw Error('Only unreviewed club memberships can be partitioned');
   const from=c.raw_evidence?.from_literal;
-  if(typeof from==='string' && /^\\d{4}-\\d{2}-\\d{2}T/.test(from))dated.push(c);
+  if(typeof from==='string' && /^\d{4}-\d{2}-\d{2}T/.test(from))dated.push(c);
   else undated.push(c);
  }
  const olderStarts=dated.filter(c=>c.raw_evidence.from_literal.slice(0,4)<'2018').length;
@@ -80,7 +80,7 @@ export function partitionSeasonCandidates(batch){
   audit:{total:batch.claims.length,date_qualified:dated.length,undated_quarantine:undated.length,
    pre_2018_start_candidates:olderStarts,ended_before_snapshot:endedBeforeSnapshot,
    current_season_appearances_verified:0,review_status:'pending',
-   warning:'P54 membership with dates is NOT proof of a current men's first-team appearance; dates may be imprecise, stale, or incorrect.'}
+   warning:"P54 membership with dates is NOT proof of a current men's first-team appearance; dates may be imprecise, stale, or incorrect."}
  };
 }
 export function seasonStageSql(batch) {
@@ -88,7 +88,7 @@ export function seasonStageSql(batch) {
  for(const c of batch.claims){
   if(!/^epl2627:[a-z0-9_:]+:[0-9a-f]{20}$/.test(c.claim_key)||c.evidence_type!=='wikidata_membership'||
     c.rights_basis!=='cc0'||c.review_status!=='pending'||c.appearances!==null||c.player_id!==null||
-    typeof c.raw_evidence?.from_literal!=='string'||!/^\\d{4}-\\d{2}-\\d{2}T/.test(c.raw_evidence.from_literal))
+    typeof c.raw_evidence?.from_literal!=='string'||!/^\d{4}-\d{2}-\d{2}T/.test(c.raw_evidence.from_literal))
    throw Error('Only unreviewed Wikidata membership claims can be imported');
  }
  const clean=batch.claims.map(c=>({
