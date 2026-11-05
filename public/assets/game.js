@@ -100,14 +100,15 @@ function buildQuestion(q){
 }
 const questions=BANK.questions.map(buildQuestion);
 const Match=globalThis.FOOTY_MATCH;
-const Goals=globalThis.FOOTY_GOALS;
-if(!Match||!Goals)throw Error('Match or goal cinematics engine failed to load');
+const Goals=globalThis.FOOTY_GOALS,Experience=globalThis.FOOTY_EXPERIENCE,Counters=globalThis.FOOTY_COUNTERS;
+if(!Match||!Goals||!Experience||!Counters)throw Error('FOOTY gameplay modules failed to load');
 const $=id=>document.getElementById(id);
 let deck=[],index=0,total=0,results=[],remaining=25,lastTick=0,ticker=null,phase='home',locked=false,mode='practice',dailyKey=null,dailyRecord=null,roundDeadline=0;
 const TROPHY_KEY='footy_deep_cuts_trophy_v1';
 function matchSummary(){return Match.summaryFromResults(results)}
 function renderScoreboard(){const m=matchSummary();$('goalsfor').textContent=m.forGoals;$('goalsagainst').textContent=m.againstGoals;const board=$('matchscoreboard');board.setAttribute('aria-label',`Your club ${m.forGoals}, opposition ${m.againstGoals}`);board.classList.toggle('perfect',m.forGoals===7&&m.againstGoals===0)}
-let matchTrophies=0,revealTimers=[];
+let matchTrophies=0,revealTimers=[],counterDeadline=0,counterTicker=null,activeCounter=null,matchStartedAt=null;
+function clearCounter(){clearInterval(counterTicker);counterTicker=null;activeCounter=null;counterDeadline=0;}
 function clearReveals(){
  for(const timer of revealTimers)clearTimeout(timer);
  revealTimers=[];
@@ -117,7 +118,21 @@ function later(fn,ms){revealTimers.push(setTimeout(fn,ms))}
 function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function shuffle(a){const copy=[...a];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
 function show(id){for(const el of ['home','play','end'])$(el).classList.toggle('hidden',el!==id)}
-function drawLevels(){const m=matchSummary();$('siderating').textContent=m.rating.toFixed(1);$('matchlog').innerHTML=m.events.length?m.events.map(e=>`<div class="match-log-row"><span>${e.event==='goal'?'⚽':e.event==='conceded'?'✕':'–'} ${String(e.round).padStart(2,'0')}'</span><strong>${e.event==='goal'?'GOAL':e.event==='conceded'?'MISSED':'NO GOAL'}</strong></div>`).join(''):'Kick off to begin your seven attacks.';}
+function drawLevels(){
+ const m=matchSummary();
+ $('siderating').textContent=m.rating.toFixed(1);
+ $('matchlog').innerHTML=results.length?results.map((r,i)=>`<div class="match-log-row"><span>${r.event==='goal'?'⚽':r.event==='conceded'?'🔴':r.counter?.outcome==='pending'?'⚡':'🛡'} ${String(i+1).padStart(2,'0')}'</span><strong>${r.event==='goal'?'GOAL':r.event==='conceded'?'CONCEDED':r.counter?.outcome==='pending'?'COUNTER':'SAVED'}</strong></div>`).join(''):'Kick off to begin your seven attacks.';
+ renderMomentum();
+}
+function renderMomentum(){
+ const momentum=Experience.momentum(results);
+ $('momentumvalue').textContent=momentum+'%';
+ $('momentumfill').style.width=momentum+'%';
+ $('momentumball').style.left=momentum+'%';
+ const last=Experience.timeline(results).at(-1);
+ $('momentumnote').textContent=last?(last.delta>0?'+':'')+last.delta+' FROM LAST ATTACK':'KICKOFF · EVEN MATCH';
+}
+
 const DAILY_STORE='footy_daily_v11';
 function todayUTC(){return new Date().toISOString().slice(0,10)}
 function dayBefore(date){const d=new Date(date+'T00:00:00Z');d.setUTCDate(d.getUTCDate()-1);return d.toISOString().slice(0,10)}
@@ -134,27 +149,29 @@ function renderDailyHome(){const date=todayUTC(),data=readDaily(),rec=data.recor
  $('startdaily').disabled=rec?.status==='complete';
  $('dailystatus').innerHTML=rec?.status==='complete'?`<strong>Today: ${Match.summaryFromResults(rec.results||[]).forGoals}–${Match.summaryFromResults(rec.results||[]).againstGoals} · ${Match.summaryFromResults(rec.results||[]).rating.toFixed(1)}/10</strong> · Tomorrow's lineup unlocks at 00:00 UTC.`:rec?.status==='active'?`Daily in progress · Round ${Math.min(7,(rec.results?.length||0)+1)} of 7. Your attempt is saved.`:'Finish today’s seven rounds to extend your streak.';
 }
-function saveDaily(status){if(mode!=='daily'||!dailyKey)return;const data=readDaily();const rec={status,date:dailyKey,questionIds:deck.map(q=>q.id),results:results.map(r=>({...r})),score:total,cups:matchTrophies,updatedAt:Date.now(),roundDeadline:phase==='play'?roundDeadline:0};data.records[dailyKey]=rec;dailyRecord=rec;writeDaily(data)}
+function saveDaily(status){if(mode!=='daily'||!dailyKey)return;const data=readDaily();const rec={status,date:dailyKey,questionIds:deck.map(q=>q.id),results:results.map(r=>({...r})),score:total,cups:matchTrophies,updatedAt:Date.now(),roundDeadline:phase==='play'?roundDeadline:0,counterDeadline:phase==='counter'?counterDeadline:0};data.records[dailyKey]=rec;dailyRecord=rec;writeDaily(data)}
 function beginDaily(){const date=todayUTC(),data=readDaily(),rec=data.records[date];if(rec?.status==='complete'){renderDailyHome();return}
- clearInterval(ticker);clearReveals();mode='daily';dailyKey=date;
+ clearInterval(ticker);clearCounter();clearReveals();mode='daily';dailyKey=date;matchStartedAt=rec?.startedAt||new Date().toISOString();
  deck=rec?.questionIds?.length===7?rec.questionIds.map(id=>questions.find(q=>q.id===id)):dailyDeck(date);
  if(deck.some(q=>!q)){deck=dailyDeck(date)}
  results=Array.isArray(rec?.results)?rec.results.slice(0,7):[];
  index=results.length;total=results.reduce((sum,r)=>sum+(Number(r.points)||0),0);
  matchTrophies=rec?.cups||0;
- if(index>=7){saveDaily('complete');end();return}
+ const pending=results.length>0&&results.at(-1)?.counter?.outcome==='pending';
+ if(pending){index=results.length-1;phase='counter';show('play');drawLevels();startCounter(rec?.counterDeadline||Date.now());return}
+ if(index>=7){end();return}
  phase='play';show('play');drawLevels();load(rec?.roundDeadline||null);saveDaily('active');
 }
-function home(){clearInterval(ticker);clearReveals();phase='home';mode='practice';show('home');renderDailyHome()}
+function home(){clearInterval(ticker);clearCounter();clearReveals();phase='home';mode='practice';show('home');renderDailyHome();renderHistory()}
 function balancedDeck(){
   // 2 classic/general + 2 iconic league squads + 2 European finals + 1 World Cup final.
   // The original 7-round rules, timer, rarity reel and trophy wins are unchanged.
   const pick=(kind,n)=>shuffle(questions.filter(q=>q.kind===kind)).slice(0,n);
   return shuffle([...pick('classic',2),...pick('squad',2),...pick('europe',2),...pick('world',1)]);
 }
-function start(){mode='practice';dailyKey=null;dailyRecord=null;clearInterval(ticker);clearReveals();deck=balancedDeck();index=0;total=0;matchTrophies=0;results=[];phase='play';show('play');drawLevels();load()}
+function start(){mode='practice';dailyKey=null;dailyRecord=null;clearInterval(ticker);clearCounter();clearReveals();deck=balancedDeck();index=0;total=0;matchTrophies=0;results=[];matchStartedAt=new Date().toISOString();phase='play';show('play');drawLevels();load()}
 function load(existingDeadline=null){
-  clearReveals();locked=false;phase='play';$('questionview').classList.remove('hidden');$('reveal').classList.add('hidden');
+  clearReveals();clearCounter();locked=false;phase='play';$('questionview').classList.remove('hidden');$('counterview').classList.add('hidden');$('reveal').classList.add('hidden');
   let q=deck[index];$('round').textContent=`ATTACK ${String(index+1).padStart(2,'0')} / 07`;
   $('roundpips').innerHTML=Array.from({length:7},(_,i)=>`<span class="pip ${i<index?'done':i===index?'current':''}"></span>`).join('');
   $('score').textContent=`${matchSummary().rating.toFixed(1)} MATCH RATING`;renderScoreboard();drawLevels();
