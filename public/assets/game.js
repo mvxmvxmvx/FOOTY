@@ -352,7 +352,7 @@ function end(){
    $('goalawardtitle').textContent=best.shot.name;
    $('goalawardmeta').textContent=`Attack ${best.round} · ${best.answer} · Goal flair is based on provisional rarity, not a measured popularity percentage.`;
    const preview=$('goalreplay');preview.replaceChildren($('shotscene').cloneNode(true));
-   const clone=preview.firstElementChild;clone.removeAttribute('id');
+   const clone=preview.firstElementChild;clone.removeAttribute('id');clone.classList.remove('hidden');
    animateScene(clone,best.shot,true);
    $('replaygoal').onclick=()=>{ $('goalawardtitle').textContent=best.shot.name;animateScene(clone,best.shot,true); };
    const lab=$('goaltestchoices');
