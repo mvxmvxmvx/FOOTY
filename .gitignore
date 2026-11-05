@@ -6,3 +6,5 @@ node_modules/
 *.sqlite-wal
 *.sqlite-shm
 .DS_Store
+# Research output may contain large upstream JSON; keep it out of Git.
+data/staging/
