@@ -31,7 +31,7 @@ Reference sources:
 
 - Detailed animation polish and a One-in-a-Million movie-style cinematic; do not interrupt gameplay engineering for this.
 - Four training variants (Friendly, Derby Day, European Night, Legends Only).
-- Meaningful momentum-driven special opportunities and defensive difficulty, with balancing; no hidden modifiers in v0.1.15.
+- Additional special opportunity types and momentum-driven defensive difficulty, with balancing; **no hidden question-difficulty modifiers** in v0.1.15. One optional Moment of Magic Practice opportunity is now implemented.
 - Rewards, achievements, limited kits, profile showcase, custom boots/crowns, gallery and inventory.
 - Downloadable/shareable match highlight videos; event-log foundations exist now.
 - Multiplayer/ranked/tournaments; proper server-side gameplay authorization and anti-cheat.
@@ -60,3 +60,25 @@ Reference sources:
 - Momentum now states which team has the initiative and describes the last swing using the answer/goal style or the missed attack, while transparently explaining that momentum currently affects atmosphere and the story, not question difficulty, correctness or actual counterattack odds.
 - Goal-of-the-Match replay is explicitly made visible after a last-round defensive outcome.
 - The current CSS/SVG graphic treatment remains a prototype; visual browser QA is essential. Further anime-style cinematic polish stays deferred as agreed.
+
+## Momentum → Moment of Magic (implemented in this branch)
+
+- In **Practice only**, reaching **80+ momentum** after an attack and before the final round unlocks a **one-time optional** offer *before* the next attack's 25-second clock starts.
+- **Take the challenge:** an unused verified European-final or World Cup-final question replaces the upcoming normal attack. The replacement is drawn from the existing curated answer database, and only questions with at least one verified Rare+ answer are eligible.
+- **Decline:** play the originally scheduled question without penalty. The one-time opportunity is then spent.
+- During the challenge any verified answer still scores exactly **one goal**. The **Moment of Magic** accolade requires a verified answer with the current provisional editorial rarity of at least **60**. A more familiar verified answer still scores, but does not win that accolade.
+- Wrong/no answer still means a missed attack and the existing **five-second counterattack**; no additional shot, no extra rating deduction, and never an eighth round.
+- Successful accolade is called out in the post-round reveal, full-time report, sharing text and structured local match history, including `momentOfMagic: 'earned'` and the `'moment-of-magic'` accolade ID. This is *match-history recognition*, not a functional collectibles inventory.
+- Daily challenge lineup, match rating, and general Knowledge Grade thresholds remain unchanged. Momentum never automatically changes question difficulty; this one optional choice is the only momentum-enabled question swap.
+- Out of scope: special edition item drops, unlockable kits/boots, multiple special opportunity varieties, dynamic difficulty, One-in-a-Million full cinematic, video download.
+
+### Moment of Magic QA to add to manual run
+
+- [ ] Reach 80 via rarity; offer appears before next attacking round, not during the countdown
+- [ ] Decline: normal question and no second offer, even if momentum stays at 80+
+- [ ] Accept: verified special question replaces exactly one attack, 25-second clock begins after choice
+- [ ] Common verified answer: one normal goal but no accolade; Rare+ (60+) answer: one goal plus local accolade
+- [ ] Miss special question: normal defensive counterattack, no extra round or punishment
+- [ ] Reach 80 on attack seven: no phantom eighth round
+- [ ] Daily never offers choice or alters its fixed question lineup
+- [ ] Full-time results and local saved event show whether special opportunity was earned or merely attempted
