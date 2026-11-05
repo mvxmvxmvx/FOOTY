@@ -17,10 +17,13 @@ jobs:
       - run: npm test
       - name: Export bounded player careers from Wikidata
         run: node scripts/fetch-wikidata.js --out data/staging/claims.json --sql-out data/staging/stage.sql
+      - name: Collect English team names for unresolved Wikidata IDs
+        run: node scripts/resolve-wikidata-teams.js --input data/staging/claims.json --out data/staging/team-candidates.json
       - uses: actions/upload-artifact@v4
         with:
           name: wikidata-review-sample
           path: |
             data/staging/claims.json
             data/staging/stage.sql
+            data/staging/team-candidates.json
           retention-days: 7
