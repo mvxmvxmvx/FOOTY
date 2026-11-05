@@ -16,7 +16,7 @@ async function withServer(options,callback){
 }
 
 test('V13 browser bootstrap loads in local development only',async()=>{
- await withServer({host:'127.0.0.1',production:false},async(base)=>{
+ await withServer({host:'127.0.0.1',production:false,localPreview:true},async(base)=>{
   const res=await fetch(base+'/api/v1/bootstrap');
   assert.equal(res.status,200);
   assert.equal(res.headers.get('cache-control'),'no-store');
@@ -29,7 +29,9 @@ test('V13 browser bootstrap loads in local development only',async()=>{
 });
 
 test('full answer bank is blocked in production and on nonloopback bind',async()=>{
- for(const options of [{host:'0.0.0.0',production:false},{host:'127.0.0.1',production:true}]){
+ for(const options of [{host:'0.0.0.0',production:false,localPreview:true},
+  {host:'127.0.0.1',production:true,localPreview:true},
+  {host:'127.0.0.1',production:false,localPreview:false}]){
   await withServer(options,async(base)=>{
    const res=await fetch(base+'/api/v1/bootstrap');
    assert.equal(res.status,403);
@@ -54,5 +56,12 @@ test('server-side verification still accepts curated answers and daily plan has 
   const lists=await (await fetch(base+'/api/v1/questions')).json();
   assert.equal(lists.length,39);
   assert.equal(lists.some(x=>'answers' in x),false);
+ });
+});
+
+test('obsolete static answer-bank asset is never publicly served',async()=>{
+ await withServer({host:'127.0.0.1',production:false,localPreview:true},async(base)=>{
+  const res=await fetch(base+'/assets/bank.js');
+  assert.equal(res.status,404);
  });
 });
