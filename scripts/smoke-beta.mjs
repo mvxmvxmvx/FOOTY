@@ -4,6 +4,8 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const API='https://emcgyjlzxfpedxwlspfo.supabase.co/functions/v1/footy-beta';
+const PLAY='https://emcgyjlzxfpedxwlspfo.supabase.co/functions/v1/footy-play';
+const ORIGIN='https://emcgyjlzxfpedxwlspfo.supabase.co';
 const bank=JSON.parse(fs.readFileSync(new URL('../data/curated-bank.json',import.meta.url),'utf8'));
 const entities=new Map(bank.entities.map(e=>[e.id,e]));
 const relations=new Map();
@@ -12,14 +14,21 @@ async function call(payload){
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
  try{
   const response=await fetch(API,{method:'POST',headers:{
-   'Content-Type':'application/json','Origin':'https://mvxmvxmvx.github.io'
+   'Content-Type':'application/json','Origin':ORIGIN
   },body:JSON.stringify(payload),signal:controller.signal});
   const data=await response.json();
   if(!response.ok)throw Error('HTTP '+response.status+': '+(data.error||'unknown'));
-  assert.equal(response.headers.get('access-control-allow-origin'),'https://mvxmvxmvx.github.io');
+  assert.equal(response.headers.get('access-control-allow-origin'),ORIGIN);
   return data;
  }finally{clearTimeout(timer);}
 }
+const site=await fetch(PLAY,{signal:AbortSignal.timeout(12000)});
+assert.equal(site.status,200,'Supabase-hosted play page is unavailable');
+assert.match(site.headers.get('content-type')??'',/text\/html/i);
+const page=await site.text();
+assert.ok(page.includes('FOOTY')&&page.includes('KNOW BALL.'));
+assert.ok(page.includes('footy-beta')&&page.includes('guess-form'));
+assert.ok(!page.includes('SUPABASE_SERVICE_ROLE_KEY'));
 const started=await call({action:'start'});
 assert.equal(started.ok,true);
 assert.ok(typeof started.sessionId==='string'&&typeof started.token==='string');
@@ -51,4 +60,4 @@ assert.equal(completed.done,true);
 assert.equal(completed.completed,7);
 assert.equal(completed.score,score);
 console.log(JSON.stringify({result:'PASS',completedRounds:7,verifiedAcceptedAnswers:accepted,
- badAnswersRejected:6,score,backend:'Supabase Edge Function',answersLeaked:false}));
+ badAnswersRejected:6,score,backend:'Supabase Edge Function',site:'Supabase-hosted public play page',answersLeaked:false}));
