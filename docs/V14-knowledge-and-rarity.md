@@ -26,8 +26,8 @@ In a later phase, move cross-season evidence into a canonical global evidence ta
 
 ## Example filter rules (prototype: `src/lib/eligibility.js`)
 
-- **2026/27 Arsenal senior appearance**: eligible only if `club_id='club_arsenal'`, the snapshot matches, the record is `reviewed`, evidence type is `competitive_appearance`, `appearances >= 1`, a canonical `player_id` exists, and the evidence date is on or before the question's as-of date. No extrapolation from missing P54 dates.
-- **Summer 2026 arrivals**: approved transfer event to the specified club and transfer window. **Open-ended mode stays disabled until the entire window/club cohort passes coverage review**. A specific, fully verified Transfer Trail prompt may launch earlier without assuming complete league coverage.
+- **2026/27 Arsenal senior appearance**: eligible only if `club_id='club_arsenal'`, the snapshot matches, the record is `reviewed`, evidence type is `competitive_appearance`, `appearances >= 1`, a canonical `player_id` exists, the verified evidence date falls **within the actual season** and on or before the question's as-of date, and source metadata explicitly matches **Premier League** + **men's first team**. No extrapolation from missing P54 dates or youth/women's club associations.
+- **Summer 2026 arrivals**: approved transfer event to the specified club, with announcement date **inside the window's exact date range**, and a matching window label. **Open-ended mode stays disabled until the entire window/club cohort passes coverage review**. A specific, fully verified Transfer Trail prompt may launch earlier without assuming complete league coverage.
 - **Senior vs academy / reserves / international / women's divisions**: each is a different relationship, and only an explicitly matching question includes it.
 - **Loans**: a verified senior competitive appearance for the loan club counts; a loan contract alone is not proof of an appearance.
 - **Historical anything-ever**: consult the canonical reviewed player-club evidence, not just the 2026/27 research archive.
