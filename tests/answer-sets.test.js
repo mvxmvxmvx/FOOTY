@@ -66,7 +66,7 @@ test('open-ended transfer arrivals require complete coverage and verified window
   window:'summer_2026',windowStart:'2026-06-15',windowEnd:'2026-09-01'};
  const rec=player_id=>({
   snapshot_id:filters.snapshotId,to_club_id:filters.toClubId,transfer_window:filters.window,
-  review_status:'reviewed',player_id,player_label:player_id,source_url:'https://example.org/transfer',
+  review_status:'reviewed',deal_type:'permanent',player_id,player_label:player_id,source_url:'https://example.org/transfer',
   announced_on:'2026-08-21'
  });
  const result=materializeReviewedAnswers({...question,kind:'transfer_arrival',filters,
