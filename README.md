@@ -93,3 +93,12 @@ See [the verified November development handoff](docs/V14-development-session-202
 - The animated pitch is shown as a compact attacking preview while answering, then as an animated shot after a successful answer or miss. Animations respect reduced-motion preferences. The old rarity spin and editorial-point UI are removed.
 - The curated database keeps its historical points for migration and research, but those points no longer affect match rating, goal events or visible results. Old locally saved daily challenge results continue to work.
 - Penalty shootouts, club customization and multiplayer are deferred. Visual and full Node test-suite QA are required before merging.
+
+## v0.1.14 — Goal cinematics test iteration
+
+- A correct verified answer still scores exactly one goal, independently of rarity; the 6.0–10.0 rating remains accuracy-based.
+- Six cosmetic goal presentations now use the existing *provisional* curated answer tiers: 10 tap-in; 15 driven; 30 finesse; 60 volley; 85 screamer; 100 bicycle kick. There is no random lottery reveal or point-based gameplay bonus.
+- Solo mode uses a new SVG player, pitch, goalkeeper, goal net, ball trajectories, and style-specific motions. Each ball passes into the area bounded by the net, and the net reacts; reduced-motion settings are supported.
+- **Goal of the Match (TEST)** selects the highest-tier verified goal of that match (first scored goal wins ties). At full time, replay it or preview all six finishing styles in the temporary animation test lab. Matches without goals have no award.
+- Rarity tiers are still editorial placeholders. They communicate presentation flair, **not statistical player rarity**. Do not mistake a visual effect for a verified popularity rate.
+- Full local/browser smoke testing is still required before merging the feature branch.
