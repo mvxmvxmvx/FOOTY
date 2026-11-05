@@ -57,7 +57,7 @@ test('undated historical memberships are retained as unverified research',()=>{
  assert.equal(partition.audit.current_season_appearances_verified,0);
  const sql=seasonStageSql(batch);
  assert.match(sql,/insert into footy.research_team_memberships/i);
- assert.match(sql,/on conflict\\(provider,statement_uri\\) do nothing/i);
+ assert.match(sql,/on conflict\(provider,statement_uri\) do nothing/i);
   assert.match(sql,/insert into footy.season_player_evidence/i);
  assert.match(sql,/Q99999999/);
  assert.match(sql,/Q45901/);
