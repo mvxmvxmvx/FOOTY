@@ -1,0 +1,146 @@
+{
+  "id": "epl_2026_27_prejan_20261104",
+  "seasonId": "epl_2026_27",
+  "competition": "Premier League",
+  "label": "2026/27",
+  "phase": "pre_january",
+  "asOf": "2026-11-04",
+  "summerTransferWindow": {
+    "opens": "2026-06-15",
+    "closes": "2026-09-01"
+  },
+  "status": "research",
+  "eligiblePlayerCriterion": "confirmed_senior_competitive_appearance",
+  "sourceReferences": [
+    "https://www.premierleague.com/en/news/4365156",
+    "https://www.nbcsportsbayarea.com/soccer/premier-league-teams-2026-27/1957114/"
+  ],
+  "warnings": [
+    "The 20 clubs are confirmed; no complete first-team appearance roster is licensed/imported.",
+    "QIDs are only present when individually verified from prior FOOTY mappings.",
+    "Wikidata P54 indicates team membership claims, NOT an independently verified senior competitive appearance.",
+    "Summer 2026 transfer mode remains disabled until full coverage review."
+  ],
+  "clubs": [
+    {
+      "id": "club_afc_bournemouth",
+      "name": "AFC Bournemouth",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_arsenal",
+      "name": "Arsenal",
+      "wikidataQid": "Q9617",
+      "qidStatus": "verified"
+    },
+    {
+      "id": "club_aston_villa",
+      "name": "Aston Villa",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_brentford",
+      "name": "Brentford",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_brighton_hove_albion",
+      "name": "Brighton & Hove Albion",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_chelsea",
+      "name": "Chelsea",
+      "wikidataQid": "Q9616",
+      "qidStatus": "verified"
+    },
+    {
+      "id": "club_coventry_city",
+      "name": "Coventry City",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_crystal_palace",
+      "name": "Crystal Palace",
+      "wikidataQid": "Q19467",
+      "qidStatus": "verified"
+    },
+    {
+      "id": "club_everton",
+      "name": "Everton",
+      "wikidataQid": "Q5794",
+      "qidStatus": "verified"
+    },
+    {
+      "id": "club_fulham",
+      "name": "Fulham",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_hull_city",
+      "name": "Hull City",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_ipswich_town",
+      "name": "Ipswich Town",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_leeds_united",
+      "name": "Leeds United",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_liverpool",
+      "name": "Liverpool",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_manchester_city",
+      "name": "Manchester City",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_manchester_united",
+      "name": "Manchester United",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_newcastle_united",
+      "name": "Newcastle United",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_nottingham_forest",
+      "name": "Nottingham Forest",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_sunderland",
+      "name": "Sunderland",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    },
+    {
+      "id": "club_tottenham_hotspur",
+      "name": "Tottenham Hotspur",
+      "wikidataQid": null,
+      "qidStatus": "unmapped"
+    }
+  ]
+}
