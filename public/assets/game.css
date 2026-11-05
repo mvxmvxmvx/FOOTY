@@ -303,3 +303,68 @@ background:repeating-linear-gradient(180deg,#276e46 0,#276e46 43px,#205b3a 43px,
  .history-row{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.momentum-ball,.momentum-track div{transition:none}}
+
+/* v0.1.15 feedback pass — distinct defensive cinematics and clear momentum */
+.outcome-stage{position:relative;max-width:680px;margin:0 auto 12px;padding:11px;border:1px solid #517963;border-radius:14px;background:radial-gradient(circle at 50% 0%,#22563b,#0b251b 75%);overflow:hidden}
+.outcome-stage.outcome-saved{border-color:#64d7a3;background:radial-gradient(circle at 50% 0%,#1d5548,#10291f 78%)}
+.outcome-stage.outcome-conceded{border-color:#b65356;background:radial-gradient(circle at 50% 0%,#592f38,#17221e 78%)}
+.outcome-stage.outcome-signature{border-color:#e7c966;box-shadow:0 0 0 1px #d7b35b,0 0 30px #d2a94a24}
+.outcome-eyebrow{font-size:10px;font-weight:900;letter-spacing:2px;color:#cce7d5;text-align:center;margin:3px 0 10px}
+.outcome-saved .outcome-eyebrow{color:#b4f5d1}
+.outcome-conceded .outcome-eyebrow{color:#ffc0b9}
+.defense-scene{width:100%;overflow:hidden;border-radius:9px}
+.defense-scene.hidden,.shot-scene.hidden,.signature-overlay.hidden{display:none!important}
+.defense-stadium{height:254px;position:relative;overflow:hidden;background:linear-gradient(#102938 0%,#1d353b 27%,#184b3b 27%,#23633d 100%)}
+.defense-stadium:before{content:"";position:absolute;top:19%;left:0;width:100%;height:30px;background:repeating-linear-gradient(90deg,#f5edbd 0 5px,#425b58 5px 8px,#c3b6a4 8px 12px,#465b5d 12px 18px);opacity:.48}
+.defense-field{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 20%,#ffffff07 20% 40%)}
+.defense-field:before{content:"";position:absolute;left:10%;right:10%;bottom:-55px;height:160px;border:2px solid #e3f1d799;border-radius:50%}
+.defense-goal{position:absolute;top:46px;left:50%;width:190px;height:100px;transform:translateX(-50%);border:5px solid #f4fff1;border-radius:4px;background:repeating-linear-gradient(0deg,#ffffff34 0px 1px,transparent 1px 12px),repeating-linear-gradient(90deg,#ffffff38 0px 1px,transparent 1px 13px),#0b332d99;box-shadow:0 8px 18px #001c154f}
+.defense-goalline{position:absolute;bottom:0;left:0;right:0;border-bottom:2px solid #f8fff8}
+.defense-keeper{position:absolute;left:50%;top:108px;width:45px;height:83px;transform:translateX(-50%);z-index:3;transform-origin:center 65%}
+.keeper-head{position:absolute;top:0;left:13px;width:19px;height:19px;border-radius:50%;background:#e4b18c;box-shadow:0 -5px 0 #172c2e}
+.keeper-body{position:absolute;top:21px;left:7px;width:31px;height:42px;border-radius:10px 10px 5px 5px;border:2px solid #e8f5e3;background:#eac44c;box-shadow:-7px 39px 0 -2px #223e49,9px 39px 0 -2px #223e49}
+.keeper-hand{position:absolute;top:29px;width:12px;height:40px;border-radius:8px;border:3px solid #d1e5de;background:#e3b491}
+.keeper-hand.left{left:-11px;transform:rotate(16deg)}
+.keeper-hand.right{right:-11px;transform:rotate(-16deg)}
+.defense-ball{position:absolute;left:50%;top:223px;font-size:37px;z-index:5;transform:translate(-50%,0);filter:drop-shadow(0 4px 4px #071c15)}
+.defense-stop,.defense-score{position:absolute;top:38%;left:50%;transform:translate(-50%,0) scale(.65);font:900 clamp(43px,8vw,70px)/1 Impact,'Barlow Condensed',sans-serif;letter-spacing:2px;opacity:0;z-index:8;text-shadow:0 5px 0 #123025,0 0 25px #071a14}
+.defense-stop{color:#d6fc69}.defense-score{color:#ffb2a1}
+.defense-wave{position:absolute;top:53%;left:57%;border:3px solid #d7ff8a;border-radius:50%;width:35px;height:35px;opacity:0;z-index:7}
+.defense-scene.defense-saved.defense-playing .defense-ball{animation:defense-ball-saved 1.35s cubic-bezier(.2,.3,.32,1) both}
+.defense-scene.defense-conceded.defense-playing .defense-ball{animation:defense-ball-goal 1.3s cubic-bezier(.3,.1,.5,1) both}
+.defense-scene.defense-saved.defense-playing .defense-keeper{animation:defense-keeper-save 1.35s ease-out both}
+.defense-scene.defense-conceded.defense-playing .defense-keeper{animation:defense-keeper-beaten 1.3s ease-out both}
+.defense-scene.defense-saved.defense-playing .defense-stop{animation:defense-title .72s .9s both}
+.defense-scene.defense-conceded.defense-playing .defense-score{animation:defense-title .72s .87s both}
+.defense-scene.defense-saved.defense-playing .defense-wave{animation:defense-wave .45s .74s both}
+.defense-scene.defense-conceded.defense-playing .defense-goal{animation:cin-net-impact .5s .85s}
+@keyframes defense-ball-saved{0%{left:50%;top:223px;transform:translate(-50%,0) scale(1)}52%{left:58%;top:135px;transform:translate(-50%,0) scale(.76)}69%{left:60%;top:120px;transform:translate(-50%,0) scale(.67)}100%{left:64%;top:136px;transform:translate(-50%,0) scale(.67);opacity:.55}}
+@keyframes defense-ball-goal{0%{left:50%;top:223px;transform:translate(-50%,0) scale(1)}54%{left:36%;top:129px;transform:translate(-50%,0) scale(.76)}77%,100%{left:35%;top:77px;transform:translate(-50%,0) scale(.57)}}
+@keyframes defense-keeper-save{0%,28%{transform:translateX(-50%) rotate(0)}58%{transform:translate(10px,-21px) rotate(31deg)}76%,100%{transform:translate(27px,-23px) rotate(60deg)}}
+@keyframes defense-keeper-beaten{0%,24%{transform:translateX(-50%) rotate(0)}77%,100%{transform:translate(56px,0px) rotate(65deg)}}
+@keyframes defense-title{0%{opacity:0;transform:translate(-50%,18px) scale(.6)}60%{opacity:1;transform:translate(-50%,-7px) scale(1.1)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes defense-wave{0%{opacity:.8;transform:scale(.3)}100%{opacity:0;transform:scale(2.6)}}
+.signature-overlay{position:relative;margin-top:8px;min-height:145px;padding:20px 11px;background:radial-gradient(circle at center,#5e4228,#1b2720 74%);border:1px solid #d2aa58;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;text-align:center;overflow:hidden}
+.signature-overlay:before,.signature-overlay:after{content:"";position:absolute;inset:-50%;background:repeating-conic-gradient(from 0deg,transparent 0deg 22deg,#f5ca6340 22deg 25deg,transparent 25deg 45deg);animation:signature-rotate 12s linear infinite;pointer-events:none;opacity:.45}
+.signature-overlay:after{animation-direction:reverse;opacity:.25}
+.signature-overlay>*{position:relative;z-index:1}
+.signature-kicker{font-size:10px;color:#fbe6a0;font-weight:900;letter-spacing:2px}
+.signature-overlay strong{font:900 clamp(33px,7vw,58px)/1 Impact,'Barlow Condensed',sans-serif;color:#fff6cd;text-shadow:0 3px 0 #47341e,0 0 25px #f3c75e}
+.signature-overlay #signaturecaption{font-size:11px;letter-spacing:1.2px;color:#f7dba1;font-weight:900}
+.signature-crowd{font-size:18px;color:#fff2b8;letter-spacing:12px;animation:signature-pulse 1s ease-in-out infinite alternate}
+@keyframes signature-rotate{to{transform:rotate(360deg)}}
+@keyframes signature-pulse{to{transform:scale(1.17);opacity:.66}}
+.momentum-status{display:flex;flex-direction:column;gap:5px;margin:0 0 12px}
+.momentum-status strong{font-size:14px;color:#d6fc69;letter-spacing:1px}
+.momentum-status span{font-size:12px;line-height:1.5;color:#c7ddcb}
+.momentum-help{display:flex;flex-direction:column;gap:6px;margin-top:13px;padding-top:12px;border-top:1px solid #446853}
+.momentum-help span:first-child{font-size:11px;font-weight:900;color:#d6fc69}
+.momentum-help span:last-child{font-size:10px;line-height:1.5;color:#9fbca9}
+@media(prefers-reduced-motion:reduce){
+.defense-scene.defense-playing .defense-ball,.defense-scene.defense-playing .defense-keeper,.defense-scene.defense-playing .defense-stop,.defense-scene.defense-playing .defense-score,.defense-scene.defense-playing .defense-wave,.defense-scene.defense-playing .defense-goal,.signature-overlay:before,.signature-overlay:after,.signature-crowd{animation:none!important}
+.defense-saved .defense-keeper{transform:translate(27px,-23px) rotate(60deg)}
+.defense-conceded .defense-keeper{transform:translate(56px,0) rotate(65deg)}
+.defense-saved .defense-ball{left:64%;top:136px}
+.defense-conceded .defense-ball{left:35%;top:77px}
+.defense-saved .defense-stop,.defense-conceded .defense-score{opacity:1;transform:translate(-50%,0) scale(1)}
+}
