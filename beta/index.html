@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1913">
+  <meta name="description" content="FOOTY Deep Cuts: 7 football questions. 25 seconds. Rarer answers win.">
+  <title>FOOTY — Deep Cuts | Friends Beta</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <div class="shell">
+    <header class="masthead">
+      <div class="wordmark">FOOTY<span>.</span><small>DEEP CUTS</small></div>
+      <div class="label">FRIENDS BETA <span class="dot"></span> V14</div>
+    </header>
+    <main>
+      <section id="home" class="page" aria-labelledby="home-title">
+        <p class="eyebrow">THE FOOTBALL KNOWLEDGE GAME</p>
+        <h1 id="home-title">KNOW BALL.<br><em>THINK DEEPER.</em></h1>
+        <p class="intro">Seven prompts. Twenty-five seconds each. Pick an answer the obvious fans won't think of.</p>
+        <div class="rules">
+          <div><strong>07</strong><span>ROUNDS</span></div>
+          <div><strong>25<span class="unit">s</span></strong><span>PER ANSWER</span></div>
+          <div><strong>100</strong><span>MAX POINTS</span></div>
+        </div>
+        <button id="start" class="primary">PLAY A ROUND <span aria-hidden="true">↗</span></button>
+        <p class="footnote">Verified answers · Provisional rarity scores · No account required</p>
+      </section>
+      <section id="game" class="page hidden" aria-label="FOOTY question">
+        <div class="game-top">
+          <span id="round-number" class="eyebrow">ROUND 1 / 7</span>
+          <span id="timer" class="timer" aria-live="off">25<span>s</span></span>
+        </div>
+        <div id="progress" class="progress" aria-label="Round progress"></div>
+        <p id="category" class="category">FOOTBALL KNOWLEDGE</p>
+        <h2 id="prompt">Loading question…</h2>
+        <form id="guess-form" autocomplete="off">
+          <label for="guess">YOUR ANSWER</label>
+          <input id="guess" maxlength="160" required autocomplete="off" spellcheck="false" placeholder="Enter a player, club or country…" />
+          <button id="submit" type="submit" class="primary">LOCK IN ANSWER <span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="game-bottom"><span>CURRENT SCORE</span><strong id="score">0</strong></div>
+        <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+      </section>
+      <section id="finish" class="page hidden" aria-labelledby="finish-title">
+        <p class="eyebrow">FULL TIME</p>
+        <h2 id="finish-title" class="end-heading">FINAL WHISTLE.</h2>
+        <p class="intro">Your seven-round FOOTY score</p>
+        <div class="final-score"><strong id="final-score">0</strong><span>POINTS</span></div>
+        <p id="finish-note" class="intro">Every deep cut counts.</p>
+        <button id="again" class="primary">PLAY AGAIN <span aria-hidden="true">↗</span></button>
+      </section>
+      <div id="notice" class="notice hidden" role="alert"></div>
+    </main>
+    <footer><span>BUILT FOR PEOPLE WHO KNOW BALL.</span><span>POWERED BY GITHUB + SUPABASE</span></footer>
+  </div>
+</body>
+</html>
