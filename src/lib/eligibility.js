@@ -26,18 +26,21 @@ export function eligibleClubAppearances({clubId,snapshotId,seasonStart,asOf,comp
  }
  return [...players.values()];
 }
-export function eligibleTransferArrivals({snapshotId,toClubId,window,windowStart,windowEnd,coverageReviewed},records){
+export function eligibleTransferArrivals({snapshotId,toClubId,window,windowStart,windowEnd,coverageReviewed,dealTypes=['permanent','loan','free']},records){
  if(!SNAPSHOT.test(snapshotId??'')||!ID.test(toClubId??'')||
     !['summer_2026','winter_2027'].includes(window)||
     !/^\d{4}-\d{2}-\d{2}$/.test(windowStart??'')||
     !/^\d{4}-\d{2}-\d{2}$/.test(windowEnd??'')||windowStart>windowEnd||
-    !Array.isArray(records))
+    !Array.isArray(records)||!Array.isArray(dealTypes)||dealTypes.length===0||
+    dealTypes.some(x=>!['permanent','loan','loan_return','free','unknown'].includes(x))||
+    new Set(dealTypes).size!==dealTypes.length)
   throw Error('Invalid transfer question filters');
  if(coverageReviewed!==true) return []; // no open-ended question on incomplete answers
  const found=new Map();
  for(const r of records){
   if(r.snapshot_id!==snapshotId||r.to_club_id!==toClubId||
-     r.transfer_window!==window||r.review_status!=='reviewed'||
+     r.transfer_window!==window||!dealTypes.includes(r.deal_type)||
+     r.review_status!=='reviewed'||
      !/^player_[a-z0-9_]+$/.test(r.player_id??'')||
      typeof r.announced_on!=='string'||r.announced_on<windowStart||r.announced_on>windowEnd)continue;
   if(!found.has(r.player_id))found.set(r.player_id,{player_id:r.player_id,
