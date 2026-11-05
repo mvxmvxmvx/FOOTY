@@ -73,3 +73,20 @@ test('open-ended transfer arrivals require complete coverage and verified window
   records:[rec('player_alex'),rec('player_blair'),{...rec('player_poor'),announced_on:'2027-01-01'}],rarityByPlayer});
  assert.equal(result.answers.length,2);
 });
+
+test('publication cutoff rejects future season evidence even if coverage is marked reviewed',()=>{
+ assert.throws(()=>materializeReviewedAnswers({
+  ...question,filters:{...question.filters,asOf:'2026-12-01'},records,rarityByPlayer
+ }),/cutoff cannot be after publication/);
+ assert.throws(()=>materializeReviewedAnswers({
+  ...question,filters:{...question.filters,asOf:'2026-02-30'},records,rarityByPlayer
+ }),/cutoff cannot be after publication/);
+});
+test('transfer questions cannot silently use future window dates',()=>{
+ const filters={snapshotId:'epl_2026_27_prejan_20261104',
+  toClubId:'club_arsenal',window:'winter_2027',
+  windowStart:'2027-01-01',windowEnd:'2027-01-31'};
+ assert.throws(()=>materializeReviewedAnswers({
+  ...question,kind:'transfer_arrival',filters,records:[],rarityByPlayer
+ }),/cutoff cannot be after publication/);
+});
