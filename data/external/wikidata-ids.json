@@ -16,5 +16,10 @@
     "Q8682": "club_real_madrid",
     "Q15789": "club_bayern_munich",
     "Q1422": "club_juventus"
+  },
+  "nationalTeams": {
+    "Q47774": "France men's national football team",
+    "Q47762": "England men's national football team",
+    "Q175309": "Cameroon men's national football team"
   }
 }
