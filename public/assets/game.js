@@ -122,6 +122,7 @@ function show(id){for(const el of ['home','play','end'])$(el).classList.toggle('
 function drawLevels(){
  const m=matchSummary();
  $('siderating').textContent=m.rating.toFixed(1);
+ $('sideknowledge').textContent=Experience.knowledge(results).grade;
  $('matchlog').innerHTML=results.length?results.map((r,i)=>`<div class="match-log-row"><span>${r.event==='goal'?'⚽':r.event==='conceded'?'🔴':r.counter?.outcome==='pending'?'⚡':'🛡'} ${String(i+1).padStart(2,'0')}'</span><strong>${r.event==='goal'?'GOAL':r.event==='conceded'?'CONCEDED':r.counter?.outcome==='pending'?'COUNTER':'SAVED'}</strong></div>`).join(''):'Kick off to begin your seven attacks.';
  renderMomentum();
 }
