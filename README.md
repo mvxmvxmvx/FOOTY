@@ -85,3 +85,11 @@ See [the verified November development handoff](docs/V14-development-session-202
 - Tests exercise match aggregation, 7–0, legacy daily data, and future draw compatibility.
 - A seven-round binary goal/concession model never ties. Penalty shootouts are **deferred** pending a real neutral-round or alternative match rule; club customizer, live multiplayer, tournaments and ranked play are not part of this release.
 - All scoring and answer keys remain **development-preview only**. Use `npm run dev` locally, not the unrestricted public internet; server-authoritative scoring is still required before launch.
+
+## v0.1.14 match presentation update — match ratings and shooting pitch
+
+- Solo matches begin at **6.0**. Each accepted answer contributes **+4/7** raw rating points; every skipped/timed-out attack contributes **−0.25**. The cumulative rating is clamped between **3.0 and 10.0** and displayed to one decimal. Seven correct answers yield **10.0**, regardless of the answer's provisional rarity data.
+- A verified answer always scores one goal. A timeout or skip is a missed attack, receives a rating penalty, and (under the current single-player match model) concedes a goal. An unrecognized/ambiguous guess does not finish the round while time remains.
+- The animated pitch is shown as a compact attacking preview while answering, then as an animated shot after a successful answer or miss. Animations respect reduced-motion preferences. The old rarity spin and editorial-point UI are removed.
+- The curated database keeps its historical points for migration and research, but those points no longer affect match rating, goal events or visible results. Old locally saved daily challenge results continue to work.
+- Penalty shootouts, club customization and multiplayer are deferred. Visual and full Node test-suite QA are required before merging.
