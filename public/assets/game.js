@@ -154,7 +154,7 @@ function balancedDeck(){
 function start(){mode='practice';dailyKey=null;dailyRecord=null;clearInterval(ticker);clearReveals();deck=balancedDeck();index=0;total=0;matchTrophies=0;results=[];phase='play';show('play');drawLevels();load()}
 function load(existingDeadline=null){
   clearReveals();locked=false;phase='play';$('questionview').classList.remove('hidden');$('reveal').classList.add('hidden');
-  let q=deck[index];$('round').textContent=`ROUND ${String(index+1).padStart(2,'0')} / 07`;
+  let q=deck[index];$('round').textContent=`ATTACK ${String(index+1).padStart(2,'0')} / 07`;
   $('roundpips').innerHTML=Array.from({length:7},(_,i)=>`<span class="pip ${i<index?'done':i===index?'current':''}"></span>`).join('');
   $('score').textContent=`${matchSummary().rating.toFixed(1)} MATCH RATING`;renderScoreboard();drawLevels();
   $('category').textContent=q.category;$('question').textContent=q.prompt;
@@ -197,6 +197,7 @@ function finish(a,verdict,matchInfo=null){
   const before=matchSummary().rating;const pts=a?.points||0;total+=pts;const event=a?'goal':'conceded';results.push({question:deck[index].prompt,answer:a?.name||'No answer',points:pts,event,verdict});renderScoreboard();drawLevels();if(mode==='daily')saveDaily('active');
   $('questionview').classList.add('hidden');$('reveal').classList.remove('hidden');
   const now=matchSummary().rating;
+  $('revealboard').textContent=`YOUR CLUB ${matchSummary().forGoals} – ${matchSummary().againstGoals} OPPOSITION`;
   $('verdict').textContent=a?'SHOT ON TARGET':'ATTACK BROKEN DOWN';
   $('matchevent').textContent=a?'⚽ GOOOOAL!':'✕ NO GOAL';
   $('earned').textContent=`${now>=before?'+':''}${(now-before).toFixed(1)} RATING · ${now.toFixed(1)} / 10.0`;
