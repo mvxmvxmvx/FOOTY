@@ -1,0 +1,43 @@
+name: EPL 2026-27 data research
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        description: "Choose candidate discovery or staged membership research"
+        required: true
+        default: discover_teams
+        options:
+          - discover_teams
+          - discover_players
+      club_id:
+        type: string
+        description: "For discover_players, a mapped club ID (default Arsenal)"
+        required: false
+        default: club_arsenal
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      FOOTY_MODE: ${{ inputs.mode }}
+      FOOTY_CLUB: ${{ inputs.club_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - run: npm run qa
+      - name: Collect reusable research candidates
+        run: node scripts/research-epl-2026-27.js --mode="$FOOTY_MODE" --club="$FOOTY_CLUB" --out=data/staging/epl-2026-27
+      - uses: actions/upload-artifact@v4
+        with:
+          name: epl-2026-27-research-${{ inputs.mode }}
+          path: data/staging/epl-2026-27/
+          retention-days: 7
