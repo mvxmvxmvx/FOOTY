@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {validateSnapshot,teamQidProposal,wdqsQuery,parseWdqsBatch,seasonStageSql} from '../src/lib/epl-season.js';
+import {validateSnapshot,teamQidProposal,wdqsQuery,parseWdqsBatch,partitionSeasonCandidates,seasonStageSql} from '../src/lib/epl-season.js';
 const config=JSON.parse(fs.readFileSync(new URL('../data/seasons/epl-2026-27-prejanuary.json',import.meta.url),'utf8'));
 const arsenal=config.clubs.find(c=>c.id==='club_arsenal');
 const binding=(player,statement,from=null,to=null)=>({
@@ -44,9 +44,25 @@ test('a P54 membership is pending and never a senior appearance',()=>{
  const unverified={...config.clubs.find(c=>c.id==='club_leeds_united'),wikidataQid:null,qidStatus:'unmapped'};
  assert.throws(()=>parseWdqsBatch(fixture,unverified,config,3),/unverified team/);
 });
+test('undated historical memberships are quarantined, not staged as current',()=>{
+ const batch=parseWdqsBatch({results:{bindings:[
+  binding('Q45901','Q45901-ABCD','2025-07-01T00:00:00Z'),
+  binding('Q99999999','Q99999999-ABCD'),
+  binding('Q43913','Q43913-ABCD','1939-01-01T00:00:00Z')
+ ]}},arsenal,config);
+ const partition=partitionSeasonCandidates(batch);
+ assert.equal(partition.dated.length,2);
+ assert.equal(partition.undated.length,1);
+ assert.equal(partition.audit.pre_2018_start_candidates,1);
+ assert.equal(partition.audit.current_season_appearances_verified,0);
+ assert.throws(()=>seasonStageSql(batch),/Only unreviewed/);
+ const sql=seasonStageSql({claims:partition.dated});
+ assert.match(sql,/insert into footy.season_player_evidence/i);
+ assert.doesNotMatch(sql,/Q99999999/);
+});
 test('staging SQL never grants scored-game eligibility',()=>{
- const batch=parseWdqsBatch({results:{bindings:[binding('Q45901','Q45901-ABCD')]}},arsenal,config);
- const sql=seasonStageSql(batch);
+ const batch=parseWdqsBatch({results:{bindings:[binding('Q45901','Q45901-ABCD','2025-07-01T00:00:00Z')]}},arsenal,config);
+ const sql=seasonStageSql({claims:partitionSeasonCandidates(batch).dated});
  assert.match(sql,/insert into footy.season_player_evidence/i);
  assert.match(sql,/join footy.season_club_participants/i);
  assert.doesNotMatch(sql,/insert into footy.facts/i);
