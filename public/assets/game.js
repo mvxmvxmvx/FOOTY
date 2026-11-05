@@ -128,7 +128,7 @@ function renderMomentum(){
  const momentum=Experience.momentum(results);
  $('momentumvalue').textContent=momentum+'%';
  $('momentumfill').style.width=momentum+'%';
- $('momentumball').style.left=momentum+'%';
+ $('momentumball').style.left=(6+momentum*.88)+'%';
  const last=Experience.timeline(results).at(-1);
  $('momentumnote').textContent=last?(last.delta>0?'+':'')+last.delta+' FROM LAST ATTACK':'KICKOFF · EVEN MATCH';
 }
@@ -147,7 +147,7 @@ function renderDailyHome(){const date=todayUTC(),data=readDaily(),rec=data.recor
  $('dailydate').textContent=date+' UTC';$('dailycurrent').textContent=stats.current;$('dailybest').textContent=stats.best;$('dailytotal').textContent=stats.played;
  $('startdaily').textContent=rec?.status==='complete'?'DAILY COMPLETE ✓':rec?.status==='active'?'RESUME DAILY →':"PLAY TODAY'S DAILY →";
  $('startdaily').disabled=rec?.status==='complete';
- $('dailystatus').innerHTML=rec?.status==='complete'?`<strong>Today: ${Match.summaryFromResults(rec.results||[]).forGoals}–${Match.summaryFromResults(rec.results||[]).againstGoals} · ${Match.summaryFromResults(rec.results||[]).rating.toFixed(1)}/10</strong> · Tomorrow's lineup unlocks at 00:00 UTC.`:rec?.status==='active'?`Daily in progress · Round ${Math.min(7,(rec.results?.length||0)+1)} of 7. Your attempt is saved.`:'Finish today’s seven rounds to extend your streak.';
+ $('dailystatus').innerHTML=rec?.status==='complete'?`<strong>Today: ${Match.summaryFromResults(rec.results||[]).forGoals}–${Match.summaryFromResults(rec.results||[]).againstGoals} · ${Match.summaryFromResults(rec.results||[]).rating.toFixed(1)}/10</strong> · Tomorrow's lineup unlocks at 00:00 UTC.`:rec?.status==='active'?(rec.results?.at(-1)?.counter?.outcome==='pending'?'Counterattack pending · Resume to defend. The timer continues while away.':`Daily in progress · Round ${Math.min(7,(rec.results?.length||0)+1)} of 7. Your attempt is saved.`):'Finish today’s seven rounds to extend your streak.';
 }
 function saveDaily(status){if(mode!=='daily'||!dailyKey)return;const data=readDaily();const rec={status,date:dailyKey,questionIds:deck.map(q=>q.id),results:results.map(r=>({...r})),score:total,cups:matchTrophies,startedAt:matchStartedAt||new Date().toISOString(),updatedAt:Date.now(),roundDeadline:phase==='play'?roundDeadline:0,counterDeadline:phase==='counter'?counterDeadline:0};data.records[dailyKey]=rec;dailyRecord=rec;writeDaily(data)}
 function beginDaily(){const date=todayUTC(),data=readDaily(),rec=data.records[date];if(rec?.status==='complete'){renderDailyHome();return}
@@ -288,7 +288,7 @@ function readProfile(){
 function storeMatch(){
  const profile=readProfile(),m=matchSummary(),knowledge=Experience.knowledge(results);
  const id=mode==='daily'?'daily:'+dailyKey:'practice:'+String(matchStartedAt||new Date().toISOString());
- if(profile.matches.some(match=>match.id===id))return true;
+ if(profile.matches.some(match=>match?.id===id))return true;
  const timeline=Experience.timeline(results);
  const history={
   id,mode,startedAt:matchStartedAt||new Date().toISOString(),finishedAt:new Date().toISOString(),
@@ -306,7 +306,7 @@ function storeMatch(){
  try{localStorage.setItem(PROFILE_STORE,JSON.stringify(profile));return true}catch{return false}
 }
 function renderHistory(){
- const recent=readProfile().matches.slice(0,5);
+ const recent=readProfile().matches.filter(match=>match?.score&&match?.mode&&match?.date).slice(0,5);
  $('homehistory').innerHTML=recent.length?recent.map(match=>`<div class="history-row"><span>${escapeHTML(match.mode.toUpperCase())} · ${escapeHTML(match.date)}</span><strong>${match.score.for}–${match.score.against}</strong><span>${Number(match.rating).toFixed(1)} · ${escapeHTML(match.knowledge?.grade||'FOUNDATION')}</span></div>`).join(''):'No matches completed yet. Your last 50 matches will be kept on this device.';
 }
 function end(){
