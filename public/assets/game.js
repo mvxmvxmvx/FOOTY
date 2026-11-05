@@ -420,6 +420,9 @@ function reportMissing(){if(phase!=='play')return;
  copyToClipboard(JSON.stringify(report,null,2),()=>{$('reportstatus').textContent='Report copied. Paste it into our chat for review; this offline game does not automatically send reports.'});
 }
 $('magicaccept').onclick=()=>chooseMagic(true);$('magicdecline').onclick=()=>chooseMagic(false);
+$('navdaily').onclick=()=>{home();document.getElementById('dailytitle')?.scrollIntoView({behavior:'smooth',block:'center'});};
+$('navpractice').onclick=start;
+$('navhistory').onclick=()=>{home();document.getElementById('homehistory')?.scrollIntoView({behavior:'smooth',block:'center'});};
 $('brandhome').onclick=home;$('start').onclick=start;$('startdaily').onclick=beginDaily;$('again').onclick=start;$('homebtn').onclick=home;$('next').onclick=advance;$('skip').onclick=()=>finish(null,'ROUND SKIPPED');
 $('answerform').addEventListener('submit',e=>{e.preventDefault();submit()});$('submitanswer').addEventListener('click',submit);
 $('answer').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();submit()}});
