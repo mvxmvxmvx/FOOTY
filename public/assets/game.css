@@ -170,3 +170,11 @@ background:repeating-linear-gradient(180deg,#276e46 0,#276e46 43px,#205b3a 43px,
 .shot-scene.goal .shot-burst{animation:none;opacity:1;transform:translate(-50%,-9px)}
 .shot-scene .shot-player,.shot-scene .shot-keeper,.shot-scene .shot-net{animation:none!important}
 }
+
+/* Live build-up play */
+.attack-preview{height:83px;margin:12px 0 14px;position:relative;border-radius:10px;border:1px solid #5a9b6d;overflow:hidden;background:repeating-linear-gradient(90deg,#245e3d 0,#245e3d 55px,#1a5235 55px,#1a5235 110px)}
+.attack-preview:before{content:"";position:absolute;inset:7px;border:1px solid #ffffff8a;border-radius:3px}
+.attack-preview-goal{position:absolute;width:90px;height:16px;top:7px;left:50%;transform:translateX(-50%);border:2px solid #eaf5e7;background:repeating-linear-gradient(90deg,#ffffff22 0 1px,transparent 1px 9px)}
+.attack-preview-ball{position:absolute;left:50%;bottom:7px;transform:translateX(-50%);font-size:22px}
+.attack-preview span{position:absolute;left:12px;bottom:8px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#e0f5d9;text-shadow:0 2px 3px #061b13}
+.reveal-board{font-weight:900;letter-spacing:1.4px;color:#e6f8d9;text-align:center;margin-bottom:13px;font-size:13px}
