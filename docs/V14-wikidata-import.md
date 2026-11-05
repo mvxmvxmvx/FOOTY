@@ -73,6 +73,20 @@ Official references:
 - https://www.wikidata.org/wiki/Q43913
 - https://www.wikidata.org/wiki/Q1255625
 
+## Import checkpoint: 32-statement GitHub Actions sample
+
+The first successful manually triggered research archive (`wikidata-review-sample.zip`) contained 32 unique P54 statement IDs across four player QIDs. It has now been staged in private Supabase alongside the earlier 13 manually inspected claims.
+
+- **32/32** API claims have their complete original `raw_claim` JSON stored.
+- **21/32** have one or more references embedded in their statement.
+- **27/32** still lack a mapped FOOTY club ID; these are pending identity and type classification. The remainder have mapped IDs but are still unreviewed.
+- **2** are marked with loan indicators.
+- No new player-club observations or scored crossover questions were published from this sample.
+
+The initial importer used `ON CONFLICT DO NOTHING`, which preserved the claims but could not repair missing `raw_claim` details on re-import. That is now corrected to **fill missing original JSON only**, without overwriting already stored raw statements or changing review approval.
+
+A **successful fetch is not a completeness review**. Many Wikidata P54 statements lack direct references and some team QIDs represent national/youth/reserve teams. Future batches must resolve those separately before scoring.
+
 ## Next milestone
 
 Fetch a fresh API sample in GitHub Actions, compare its raw P54 statements to the manually reviewed batch, map further club QIDs, then stage progressively larger batches. Only after a sampled dataset passes coverage audits do we consider new scored question formats.
