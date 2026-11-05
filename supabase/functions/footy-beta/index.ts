@@ -18,6 +18,7 @@ const db=PROJECT_URL&&SECRET ? createClient(PROJECT_URL,SECRET,{
 }) : null;
 const ALLOWED_ORIGINS=new Set([
   "https://mvxmvxmvx.github.io",
+  "https://emcgyjlzxfpedxwlspfo.supabase.co",
   "http://localhost:4173","http://127.0.0.1:4173",
   "http://localhost:5500","http://127.0.0.1:5500"
 ]);
