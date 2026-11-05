@@ -125,12 +125,19 @@ function drawLevels(){
  renderMomentum();
 }
 function renderMomentum(){
- const momentum=Experience.momentum(results);
+ const momentum=Experience.momentum(results),last=Experience.timeline(results).at(-1);
  $('momentumvalue').textContent=momentum+'%';
  $('momentumfill').style.width=momentum+'%';
  $('momentumball').style.left=(6+momentum*.88)+'%';
- const last=Experience.timeline(results).at(-1);
- $('momentumnote').textContent=last?(last.delta>0?'+':'')+last.delta+' FROM LAST ATTACK':'KICKOFF · EVEN MATCH';
+ const state=momentum>=75?'YOU ARE DOMINATING':momentum>=58?'YOU HAVE THE INITIATIVE':momentum>=43?'EVEN MATCH':momentum>=25?'OPPOSITION PRESSING':'UNDER SERIOUS PRESSURE';
+ $('momentumstate').textContent=state;
+ $('momentumexplain').textContent=momentum>=58?'Your team is pushing toward the opposition goal.':momentum<43?'The opposition has pushed play toward your goal.':'Neither side has control. The next answer can change that.';
+ $('momentumnote').textContent=last?(last.delta>0?'+':'')+last.delta+' LAST ATTACK':'KICKOFF · EVEN MATCH';
+ if(!last){$('momentumreason').textContent='Rare answers create bigger momentum swings; misses lose ground.';return}
+ const previous=results.at(-1);
+ $('momentumreason').textContent=previous?.event==='goal'?
+   `${previous.answer||'Verified answer'} · ${Goals.forPoints(previous.points)?.name||'Goal'} · +${last.delta} pressure`:
+   `Missed attack · ${last.delta} pressure · ${previous?.counter?.outcome==='saved'?'counterattack stopped':'opposition counterattack'}`;
 }
 
 const DAILY_STORE='footy_daily_v11';
@@ -215,26 +222,53 @@ function startShotAnimation(answer){
  $('shotdescription').textContent=style?`${style.name.toUpperCase()} · PROVISIONAL GOAL FLAIR`:'MISSED ATTACK';
  animateScene($('shotscene'),style,Boolean(answer));
 }
+function renderOutcomeScene(kind,points){
+ const stage=$('outcomestage'),shoot=$('shotscene'),defense=$('defensescene'),signature=$('signatureoverlay');
+ stage.className='outcome-stage outcome-'+kind;
+ shoot.classList.toggle('hidden',kind!=='goal');
+ defense.className='defense-scene'+(kind==='goal'?' hidden':'');
+ signature.classList.add('hidden');
+ $('outcomeeyebrow').textContent=kind==='goal'?'YOUR ATTACK · FINISH':kind==='saved'?'YOUR DEFENCE · BIG STOP':'OPPOSITION COUNTERATTACK · GOAL';
+ if(kind==='goal'){
+  const style=Goals.forPoints(points);
+  $('shotdescription').textContent=(style?.name||'GOAL').toUpperCase()+' · ATTACK CONVERTED';
+  animateScene(shoot,style,true);
+  if(points>=85){
+   signature.classList.remove('hidden');
+   stage.classList.add('outcome-signature');
+   $('signatureheadline').textContent=points>=100?'ONE IN A MILLION':'YOU KNOW BALL!';
+   $('signaturecaption').textContent=points>=100?'THE STADIUM CANNOT BELIEVE THAT ANSWER':'WHAT A SHOUT · A DEEP-CUT MASTERCLASS';
+  }
+ }else{
+  $('shotdescription').textContent=kind==='saved'?'GOALKEEPER SAVE · CLEAN SHEET PROTECTED':'OPPOSITION FINISH · BALL IN THE NET';
+  defense.classList.add(kind==='saved'?'defense-saved':'defense-conceded');
+  // Restart authored keeper and ball action on every counterattack.
+  void defense.offsetWidth;
+  defense.classList.add('defense-playing');
+ }
+}
 function showRoundReveal(a,verdict,matchInfo=null){
  phase='reveal';$('questionview').classList.add('hidden');$('counterview').classList.add('hidden');$('reveal').classList.remove('hidden');
  const latest=results.at(-1),m=matchSummary(),points=a?.points||0;
+ const kind=a?'goal':latest.counter?.outcome==='saved'?'saved':'conceded';
  $('revealboard').textContent=`YOUR CLUB ${m.forGoals} – ${m.againstGoals} OPPOSITION`;
- $('verdict').textContent=a?'SHOT ON TARGET':latest.counter?.outcome==='saved'?'COUNTERATTACK STOPPED':'OPPOSITION SCORES';
- $('matchevent').textContent=a?'⚽ GOOOOAL!':latest.counter?.outcome==='saved'?'🛡 DEFENSIVE SAVE!':'🔴 COUNTERATTACK GOAL';
+ $('verdict').textContent=kind==='goal'?'YOUR ATTACK CONVERTED':kind==='saved'?'YOUR GOALKEEPER DELIVERS':'OPPOSITION SCORES ON THE BREAK';
+ $('matchevent').textContent=kind==='goal'?'⚽ GOAL!':kind==='saved'?'🧤 WHAT A SAVE!':'🔴 COUNTERATTACK GOAL!';
  const ratingBefore=Match.summaryFromResults(results.slice(0,-1)).rating;
  $('earned').textContent=`${m.rating>=ratingBefore?'+':''}${(m.rating-ratingBefore).toFixed(1)} RATING · ${m.rating.toFixed(1)} / 10.0`;
  $('earned').classList.toggle('negative',!a);
- $('revealanswer').textContent=a?'Correct answer: '+a.name:latest.counter?.outcome==='saved'?'You defended the counterattack. No goal conceded.':'Your attack broke down and the opposition scored.';
+ $('revealanswer').textContent=kind==='goal'?'CORRECT · '+a.name:kind==='saved'?'DEFENSIVE ANSWER · '+(Counters.QUESTIONS.find(q=>q.id===latest.counter?.questionId)?.answer||'Correct'):'YOUR DEFENCE WAS BEATEN';
  const shot=Goals.forPoints(points);
- $('matchnote').textContent=a?(shot?.name||'Goal')+' · +'+Experience.momentumDelta(latest)+' momentum'+(points>=85?' · SIGNATURE MOMENT':''):latest.counter?.outcome==='saved'?'Saved your goal after missing the attack.':'The opposition converted its five-second chance.';
+ $('matchnote').textContent=kind==='goal'?(`${shot?.name||'Goal'} · +${Experience.momentumDelta(latest)} momentum`)+(points>=85?' · SIGNATURE MOMENT':''):kind==='saved'?'The keeper denies the breakaway. No opposition goal.':'The opposition beat the keeper. One goal conceded.';
  if(a&&matchInfo?.kind==='autocorrect')$('matchnote').textContent+=` · Matched “${matchInfo.typed}” to ${a.name}`;
  $('next').textContent=index===6?'FINAL WHISTLE →':'NEXT ATTACK →';
  $('fullanswers').classList.add('hidden');$('fullanswers').innerHTML=answerListHTML(deck[index]);
  $('showanswers').textContent=`SHOW ACCEPTED ANSWERS (${deck[index].answers.length}) ↓`;
- startShotAnimation(a);
+ renderOutcomeScene(kind,points);
  renderScoreboard();drawLevels();
  if(mode==='daily')saveDaily('active');
 }
+
 function startCounter(deadline=Date.now()+Counters.DURATION_MS){
  const latest=results.at(-1);
  if(!latest||latest.counter?.outcome!=='pending')return;
