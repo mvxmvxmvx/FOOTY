@@ -215,24 +215,71 @@ function startShotAnimation(answer){
  $('shotdescription').textContent=style?`${style.name.toUpperCase()} · PROVISIONAL GOAL FLAIR`:'MISSED ATTACK';
  animateScene($('shotscene'),style,Boolean(answer));
 }
-function finish(a,verdict,matchInfo=null){
-  if(locked)return;locked=true;phase='reveal';clearInterval(ticker);
-  const before=matchSummary().rating;const pts=a?.points||0;total+=pts;const event=a?'goal':'conceded';results.push({question:deck[index].prompt,answer:a?.name||'No answer',points:pts,event,verdict});renderScoreboard();drawLevels();if(mode==='daily')saveDaily('active');
-  $('questionview').classList.add('hidden');$('reveal').classList.remove('hidden');
-  const now=matchSummary().rating;
-  $('revealboard').textContent=`YOUR CLUB ${matchSummary().forGoals} – ${matchSummary().againstGoals} OPPOSITION`;
-  $('verdict').textContent=a?'SHOT ON TARGET':'ATTACK BROKEN DOWN';
-  $('matchevent').textContent=a?'⚽ GOOOOAL!':'✕ NO GOAL';
-  $('earned').textContent=`${now>=before?'+':''}${(now-before).toFixed(1)} RATING · ${now.toFixed(1)} / 10.0`;
-  $('earned').classList.toggle('negative',!a);
-  $('revealanswer').textContent=a?'Correct answer: '+a.name:'No accepted answer this round';
-  $('matchnote').textContent=matchInfo?.kind==='autocorrect'?`✓ Autocorrected “${matchInfo.typed}” → “${a.name}”`:matchInfo?.kind==='exact'&&normalize(matchInfo.typed)!==normalize(a.name)?`✓ Matched “${matchInfo.typed}” to ${a.name}`:'';
-  $('next').textContent=index===6?'FINAL WHISTLE →':'NEXT ATTACK →';
-  $('fullanswers').classList.add('hidden');$('fullanswers').innerHTML=answerListHTML(deck[index]);
-  $('showanswers').textContent=`SHOW ACCEPTED ANSWERS (${deck[index].answers.length}) ↓`;
-  startShotAnimation(a);
+function showRoundReveal(a,verdict,matchInfo=null){
+ phase='reveal';$('questionview').classList.add('hidden');$('counterview').classList.add('hidden');$('reveal').classList.remove('hidden');
+ const latest=results.at(-1),m=matchSummary(),points=a?.points||0;
+ $('revealboard').textContent=`YOUR CLUB ${m.forGoals} – ${m.againstGoals} OPPOSITION`;
+ $('verdict').textContent=a?'SHOT ON TARGET':latest.counter?.outcome==='saved'?'COUNTERATTACK STOPPED':'OPPOSITION SCORES';
+ $('matchevent').textContent=a?'⚽ GOOOOAL!':latest.counter?.outcome==='saved'?'🛡 DEFENSIVE SAVE!':'🔴 COUNTERATTACK GOAL';
+ const ratingBefore=Match.summaryFromResults(results.slice(0,-1)).rating;
+ $('earned').textContent=`${m.rating>=ratingBefore?'+':''}${(m.rating-ratingBefore).toFixed(1)} RATING · ${m.rating.toFixed(1)} / 10.0`;
+ $('earned').classList.toggle('negative',!a);
+ $('revealanswer').textContent=a?'Correct answer: '+a.name:latest.counter?.outcome==='saved'?'You defended the counterattack. No goal conceded.':'Your attack broke down and the opposition scored.';
+ const shot=Goals.forPoints(points);
+ $('matchnote').textContent=a?(shot?.name||'Goal')+' · +'+Experience.momentumDelta(latest)+' momentum'+(points>=85?' · SIGNATURE MOMENT':''):latest.counter?.outcome==='saved'?'Saved your goal after missing the attack.':'The opposition converted its five-second chance.';
+ if(a&&matchInfo?.kind==='autocorrect')$('matchnote').textContent+=` · Matched “${matchInfo.typed}” to ${a.name}`;
+ $('next').textContent=index===6?'FINAL WHISTLE →':'NEXT ATTACK →';
+ $('fullanswers').classList.add('hidden');$('fullanswers').innerHTML=answerListHTML(deck[index]);
+ $('showanswers').textContent=`SHOW ACCEPTED ANSWERS (${deck[index].answers.length}) ↓`;
+ startShotAnimation(a);
+ renderScoreboard();drawLevels();
+ if(mode==='daily')saveDaily('active');
 }
-function advance(){clearReveals();if(index===6){end();return}index++;load()}
+function startCounter(deadline=Date.now()+Counters.DURATION_MS){
+ const latest=results.at(-1);
+ if(!latest||latest.counter?.outcome!=='pending')return;
+ clearCounter();phase='counter';locked=true;
+ activeCounter=Counters.QUESTIONS.find(q=>q.id===latest.counter.questionId)||Counters.forRound(deck[index].id,index+1);
+ counterDeadline=deadline;
+ $('questionview').classList.add('hidden');$('reveal').classList.add('hidden');$('counterview').classList.remove('hidden');
+ $('counterprompt').textContent=activeCounter.prompt;
+ $('counteroptions').replaceChildren();
+ for(const option of activeCounter.options){
+  const btn=document.createElement('button');btn.type='button';btn.className='counter-option';btn.textContent=option;
+  btn.onclick=()=>resolveCounter(option);$('counteroptions').appendChild(btn);
+ }
+ if(mode==='daily')saveDaily('active');
+ const tickCounter=()=>{
+  if(phase!=='counter')return;
+  const ms=Math.max(0,counterDeadline-Date.now());
+  $('counterclock').textContent=Math.ceil(ms/1000);
+  $('counterfill').style.width=(ms/Counters.DURATION_MS*100)+'%';
+  if(ms<=0)resolveCounter(null);
+ };
+ counterTicker=setInterval(tickCounter,50);tickCounter();
+}
+function resolveCounter(choice){
+ if(phase!=='counter')return;
+ // A late click cannot beat the persisted wall-clock deadline.
+ const saved=Date.now()<counterDeadline&&Counters.judge(activeCounter,choice)==='saved';
+ const latest=results.at(-1);
+ latest.counter.outcome=saved?'saved':'conceded';
+ latest.counter.choice=choice||null;
+ latest.event=saved?'neutral':'conceded';
+ clearCounter();
+ showRoundReveal(null,saved?'COUNTERATTACK SAVED':'COUNTERATTACK CONCEDED');
+}
+function finish(a,verdict,matchInfo=null){
+ if(locked||phase!=='play')return;
+ locked=true;clearInterval(ticker);
+ const points=a?.points||0;total+=points;
+ const entry={questionId:deck[index].id,question:deck[index].prompt,answer:a?.name||'No answer',points,event:a?'goal':'neutral',verdict,at:Date.now()};
+ if(!a){const defensive=Counters.forRound(deck[index].id,index+1);entry.counter={questionId:defensive.id,outcome:'pending',choice:null};}
+ results.push(entry);renderScoreboard();drawLevels();
+ if(!a){startCounter();return}
+ showRoundReveal(a,verdict,matchInfo);
+}
+function advance(){if(phase!=='reveal')return;clearReveals();if(index===6){end();return}index++;load()}
 function end(){
   clearReveals();phase='end';if(mode==='daily')saveDaily('complete');show('end');
   const m=matchSummary();
