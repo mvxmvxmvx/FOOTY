@@ -64,3 +64,36 @@ test('distinct outcome classifications never render counter as own missed shot',
  assert.equal(X.outcomeKind({event:'conceded',counter:{outcome:'conceded'}}),'conceded');
  assert.equal(X.outcomeKind({event:'neutral',counter:{outcome:'pending'}}),'pending');
 });
+
+test('Moment of Magic only becomes available once mid-Practice match at momentum 80+',()=>{
+ assert.equal(X.MAGIC_THRESHOLD,80);
+ assert.equal(X.MAGIC_RARITY_MIN,60);
+ assert.equal(X.canOfferMagic('practice',[],false),false);
+ assert.equal(X.canOfferMagic('practice',[goal(10)],false),false);
+ assert.equal(X.canOfferMagic('practice',[goal(100)],false),true);
+ assert.equal(X.canOfferMagic('daily',[goal(100)],false),false);
+ assert.equal(X.canOfferMagic('practice',[goal(100)],true),false);
+ assert.equal(X.canOfferMagic('practice',Array.from({length:7},()=>goal(100)),false),false);
+});
+test('Moment of Magic question only selects unused verified European or World finals with rare options',()=>{
+ const q=[
+  {id:'base',kind:'europe',answers:[{points:100}]},
+  {id:'hard',kind:'world',answers:[{points:60},{points:10}]},
+  {id:'easy',kind:'europe',answers:[{points:15},{points:30}]},
+  {id:'wrong',kind:'classic',answers:[{points:100}]}
+ ];
+ const found=X.eligibleMagicQuestions(q,[q[0]]);
+ assert.equal(found.length,1);
+ assert.equal(found[0].id,'hard');
+});
+test('only rare+ verified success in the opted-in attack earns the local accolade',()=>{
+ assert.equal(X.earnsMagicAccolade('moment-of-magic',60),true);
+ assert.equal(X.earnsMagicAccolade('moment-of-magic',100),true);
+ assert.equal(X.earnsMagicAccolade('moment-of-magic',30),false);
+ assert.equal(X.earnsMagicAccolade('moment-of-magic',0),false);
+ assert.equal(X.earnsMagicAccolade(null,100),false);
+ const normal=M.summaryFromResults([goal(60)]);
+ const special=M.summaryFromResults([{...goal(60),special:'moment-of-magic',specialSuccess:true}]);
+ assert.equal(normal.rating,special.rating);
+ assert.equal(normal.forGoals,special.forGoals);
+});
