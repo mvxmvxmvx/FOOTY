@@ -26,11 +26,26 @@ test('Wikidata membership, youth/registration and wrong club do not qualify',()=
 });
 test('open-ended summer arrival answer set requires completed and reviewed coverage',()=>{
  const arrival={snapshot_id:q.snapshotId,to_club_id:q.clubId,transfer_window:'summer_2026',
- review_status:'reviewed',player_id:'player_example',player_label:'Example Player',
+ review_status:'reviewed',deal_type:'permanent',player_id:'player_example',player_label:'Example Player',
  announced_on:'2026-08-20',source_url:'https://example.org/transfer'};
  const question={snapshotId:q.snapshotId,toClubId:q.clubId,window:'summer_2026',windowStart:'2026-06-15',windowEnd:'2026-09-01',coverageReviewed:false};
  assert.deepEqual(eligibleTransferArrivals(question,[arrival]),[]);
  assert.equal(eligibleTransferArrivals({...question,coverageReviewed:true},[arrival]).length,1);
  assert.deepEqual(eligibleTransferArrivals({...question,coverageReviewed:true},[{...arrival,review_status:'pending'}]),[]);
  assert.deepEqual(eligibleTransferArrivals({...question,coverageReviewed:true},[{...arrival,announced_on:'2027-01-18'}]),[]);
+});
+
+test('loan and permanent arrivals count but returning loans need explicit inclusion',()=>{
+ const baseArrival={snapshot_id:q.snapshotId,to_club_id:q.clubId,transfer_window:'summer_2026',
+  review_status:'reviewed',player_id:'player_example',player_label:'Example Player',
+  announced_on:'2026-08-20',source_url:'https://example.org/transfer'};
+ const filters={snapshotId:q.snapshotId,toClubId:q.clubId,window:'summer_2026',
+  windowStart:'2026-06-15',windowEnd:'2026-09-01',coverageReviewed:true};
+ assert.equal(eligibleTransferArrivals(filters,[{...baseArrival,deal_type:'loan'}]).length,1);
+ assert.equal(eligibleTransferArrivals(filters,[{...baseArrival,deal_type:'permanent'}]).length,1);
+ assert.equal(eligibleTransferArrivals(filters,[{...baseArrival,deal_type:'free'}]).length,1);
+ assert.equal(eligibleTransferArrivals(filters,[{...baseArrival,deal_type:'loan_return'}]).length,0);
+ assert.equal(eligibleTransferArrivals({...filters,dealTypes:['loan_return']},
+  [{...baseArrival,deal_type:'loan_return'}]).length,1);
+ assert.throws(()=>eligibleTransferArrivals({...filters,dealTypes:['invalid']},[]),/Invalid transfer/);
 });
