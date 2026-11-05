@@ -37,14 +37,44 @@ The 17 club statements include 5 existing mappings from the original import, 5 n
 | [Q513840](https://www.wikidata.org/wiki/Q513840) | Konyaspor | senior_club | Not yet mapped | Eto'o — club not yet in FOOTY |
 | [Q1051203](https://www.wikidata.org/wiki/Q1051203) | Qatar SC | senior_club | Not yet mapped | Eto'o — club not yet in FOOTY |
 
-## Product-owner decision (recommended defaults)
+## Product-owner eligibility policy — agreed 2026-11-04
 
-- Loans: **count** as playing for the loan club if the player featured for its senior team. Do not infer a permanent transfer.
-- Academy/youth team: **do not count** as playing for the senior club unless the question explicitly includes youth football.
-- Reserve/B team: **do not automatically count** toward first-team club crossover questions; e.g., playing for Real Madrid Castilla alone is not the same as playing for Real Madrid's first team.
-- National and age-group representative teams: **separate from clubs**. They can drive national-team questions but not two-*club* crossovers.
+**Core rule: For an unqualified question asking which *clubs* a player "played for," require at least one verifiable senior first-team competitive appearance for that club.** Include domestic league, domestic cup and international club competition appearances. Exclude training, trials, purely being under contract, unused-bench listings and friendlies. Being in a club's youth system, reserve side or national side is not by itself proof of a senior first-team appearance.
 
-Ask the product owner to confirm or challenge these before generating scored crossovers.
+| Relationship | Default for "played for [club]" | Reason |
+|---|---|---|
+| Permanent senior first-team appearance | **Count** | The player featured competitively for the club |
+| Senior competitive appearance while on loan | **Count** for the borrowing club | Loan does not reduce the level of competition; do not label as permanent transfer |
+| Loan contract but no confirmed senior competitive appearance | **Do not automatically count** | Contract / registration alone does not establish an appearance |
+| Academy or youth-only appearance | **Do not count** | A youth association is a different relationship |
+| Reserve or B-team-only appearance | **Do not automatically count for the first team** | The reserve entity and first team have different eligibility |
+| Later senior return to a former youth club | **Count the confirmed senior spell** | A player can have two distinct relationships with the same parent club |
+| Senior national-team appearance | **Not a club** | Eligible only for appropriate international representation questions |
+| Underage national-team appearances (U15–U21, etc.) | **Ignore for default game** | Separate international-youth category, not club academy development |
+
+### Examples established by the product owner
+
+- **Ashley Cole / Crystal Palace:** his loan qualifies when supported by a senior competitive appearance, regardless of the loan contract's temporary nature.
+- **Arjen Robben / FC Groningen:** earlier academy history does not count; his later senior appearances **do** count. Store youth and senior spells distinctly, never overwrite one with the other. Earlier senior football, if verified, also counts independently of the later return.
+- **Samuel Eto'o / Real Madrid Castilla:** a Castilla-only appearance does not make a Real Madrid first-team appearance. If a separate Real Madrid first-team appearance is verified, that independently qualifies.
+- **Thierry Henry / France U21:** U21 football is not club football. We don't need youth national-team facts for present game formats.
+
+### Future optional category: academy upbringing
+
+Potential explicit question: **"Name a player who came through Chelsea's youth academy."** This is separate from senior appearances and could include players who never made a Chelsea first-team appearance, provided an objective academy-membership definition, time coverage and reliable evidence are agreed before publishing.
+
+Youth *national* teams are not interchangeable with *club academies*. Never infer a Chelsea academy relationship from England U19 or vice versa.
+
+### Evidence and publication gates
+
+1. Source P54 "member of sports team" is **membership evidence**, not by itself proof of competitive match participation. It remains a staged claim until match/appearance evidence is established.
+2. Match-level or authoritative appearance statistics are needed to confirm senior eligibility. A season/squad roster is insufficient unless the question explicitly says "named in squad" or the source documents actual appearances.
+3. Store claim type and review status separately: `senior_competitive_appearance`, `loan_membership`, `academy_membership`, `reserve_appearance`, `national_senior`, `national_youth`, and `unconfirmed_team_membership` are conceptual evidence categories, **not yet implemented database enum values**.
+4. A player's eligibility for a first team does not transfer automatically from its academy, B team, or reserves, and vice versa.
+5. Questions must state any unusual inclusion rule (e.g. "including academy players" or "including friendlies") explicitly. No silent exceptions.
+6. Do not release a crossover question from this partial dataset. Even several verified correct answers cannot prove every other valid answer is represented.
+
+**Status:** agreed as product policy and documented for the V14 implementation. This does **not** mean eligibility scoring is already running in the engine or that all underlying source claims have been individually reviewed.
 
 ## Engineering follow-up
 
