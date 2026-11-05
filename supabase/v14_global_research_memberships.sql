@@ -18,6 +18,7 @@ create table if not exists footy.research_team_memberships (
  review_status text not null default 'pending' check(review_status in ('pending','reviewed','rejected')),
  collected_at timestamptz not null default now(),
  reviewed_at timestamptz,
+ review_note text,
  unique(provider,statement_uri),
  check(raw_evidence->>'team_qid'=team_external_id)
 );
