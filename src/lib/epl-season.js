@@ -92,7 +92,9 @@ export function seasonStageSql(batch) {
     !QID.test(c.external_player_id)||c.snapshot_id!=='epl_2026_27_prejan_20261104'||
     !/^club_[a-z0-9_]+$/.test(c.club_id)||c.source_id!=='wikidata_cc0'||
     c.raw_evidence?.source!=='Wikidata Query Service'||
-    typeof c.raw_evidence?.statement_uri!=='string')
+    !QID.test(c.raw_evidence?.team_qid??'')||
+    !/^https?:\\/\\/www\\.wikidata\\.org\\/entity\\/statement\\//.test(c.raw_evidence?.statement_uri??'')||
+    c.source_url!=='https://www.wikidata.org/wiki/'+c.external_player_id+'#P54')
    throw Error('Only unreviewed Wikidata membership claims can be imported');
  }
  const clean=batch.claims.map(c=>({
@@ -101,21 +103,39 @@ export function seasonStageSql(batch) {
   raw_evidence:c.raw_evidence,rights_basis:'cc0'
  }));
  const escaped=JSON.stringify(clean).replaceAll("'","''");
- return `-- ALL Wikidata observations are preserved as pending research, even undated ones.
--- No senior appearances asserted; no new scored trivia. The snapshot is the import context, not a claim that the player appeared in 2026/27.
+ return `-- ARCHIVE and snapshot staging, both pending. No reviewed decisions overwritten.
+-- The snapshot is research collection context, NOT proof of 2026/27 play.
 with incoming as (
  select * from jsonb_to_recordset('${escaped}'::jsonb) as i(
  claim_key text,snapshot_id text,club_id text,player_label text,external_player_id text,
  evidence_type text,source_id text,source_url text,raw_evidence jsonb,rights_basis text
- ))
+ )),
+allowed as (
+ select i.* from incoming i
+ join footy.season_club_participants sc
+   on sc.snapshot_id=i.snapshot_id and sc.club_id=i.club_id
+ ),
+archive as (
+ insert into footy.research_team_memberships(
+ observation_key,provider,statement_uri,player_external_id,team_external_id,
+ player_label,local_team_id,source_id,source_url,claimed_from_raw,claimed_to_raw,
+ raw_evidence,collection_snapshot_id,review_status)
+ select i.claim_key,'wikidata',i.raw_evidence->>'statement_uri',
+  i.external_player_id,i.raw_evidence->>'team_qid',
+  i.player_label,i.club_id,i.source_id,i.source_url,
+  i.raw_evidence->>'from_literal',i.raw_evidence->>'to_literal',
+  i.raw_evidence,i.snapshot_id,'pending'
+ from allowed i
+ on conflict(provider,statement_uri) do nothing
+ returning observation_key
+)
 insert into footy.season_player_evidence(
  claim_key,snapshot_id,club_id,player_id,external_player_id,player_label,evidence_type,
  evidence_date,appearances,source_id,source_url,raw_evidence,rights_basis,review_status)
 select i.claim_key,i.snapshot_id,i.club_id,null,i.external_player_id,i.player_label,i.evidence_type,
  null,null,i.source_id,i.source_url,i.raw_evidence,i.rights_basis,'pending'
-from incoming i
-join footy.season_club_participants sc on sc.snapshot_id=i.snapshot_id and sc.club_id=i.club_id
+from allowed i
 on conflict(claim_key) do update set
- raw_evidence = coalesce(footy.season_player_evidence.raw_evidence,excluded.raw_evidence);
+ raw_evidence=coalesce(footy.season_player_evidence.raw_evidence,excluded.raw_evidence);
 `;
 }
