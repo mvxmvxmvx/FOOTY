@@ -26,12 +26,18 @@
   const signatures=(results||[]).filter(r=>r?.event==='goal'&&Number(r.points)>=85).length;
   return Object.freeze({points,average,grade,rare,signatures});
  }
+ function outcomeKind(result){
+  if(result?.event==='goal')return 'goal';
+  if(result?.counter?.outcome==='saved')return 'saved';
+  if(result?.counter?.outcome==='conceded'||result?.event==='conceded')return 'conceded';
+  return 'pending';
+ }
  function resultEvent(result){
   if(result.event==='goal')return 'goal';
   if(result.counter?.outcome==='conceded'||result.event==='conceded')return 'conceded';
   return 'neutral';
  }
- const api=Object.freeze({RARITY_MOMENTUM,START_MOMENTUM,MISS_MOMENTUM,momentumDelta,timeline,momentum,knowledge,resultEvent});
+ const api=Object.freeze({RARITY_MOMENTUM,START_MOMENTUM,MISS_MOMENTUM,momentumDelta,timeline,momentum,knowledge,resultEvent,outcomeKind});
  root.FOOTY_EXPERIENCE=api;
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
