@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {validateSnapshot,teamQidProposal,wdqsQuery,parseWdqsBatch,partitionSeasonCandidates,seasonStageSql} from '../src/lib/epl-season.js';
 const flags=Object.fromEntries(process.argv.slice(2).filter(a=>a.startsWith('--')&&a.includes('=')).map(a=>a.slice(2).split(/=(.*)/s).slice(0,2)));
-const mode=flags.mode||'discover_teams';
+const mode=flags.mode||'discover_players';
 if(!['discover_teams','discover_players'].includes(mode))throw Error('Use --mode=discover_teams or --mode=discover_players');
 const config=validateSnapshot(JSON.parse(await fs.readFile(new URL('../data/seasons/epl-2026-27-prejanuary.json',import.meta.url),'utf8')));
 const outputDir=flags.out||'data/staging/epl-2026-27';
@@ -49,9 +49,9 @@ if(mode==='discover_teams'){
  await fs.writeFile(dataFile,JSON.stringify(batch,null,2)+'\n','utf8');
  await fs.writeFile(reviewFile,JSON.stringify({manifest:{...batch.manifest,...partitions.audit},claims:partitions.dated},null,2)+'\n','utf8');
  await fs.writeFile(quarantineFile,JSON.stringify({manifest:{...batch.manifest,...partitions.audit},claims:partitions.undated},null,2)+'\n','utf8');
- await fs.writeFile(sqlFile,seasonStageSql({claims:partitions.dated}),'utf8');
+ await fs.writeFile(sqlFile,seasonStageSql(batch),'utf8');
  console.log(JSON.stringify({mode,club:club.id,claims:batch.manifest.candidate_rows,
   dated_review:partitions.dated.length,quarantined_undated:partitions.undated.length,
   truncated:batch.manifest.possibly_truncated,files:[dataFile,reviewFile,quarantineFile,sqlFile],
-  IMPORTANT:'P54 claims are NOT proven current senior appearances. Only date-qualified records produce pending staging SQL. No Supabase writes.'},null,2));
+  IMPORTANT:'All P54 claims, including undated historical records, go to pending staging SQL. Review buckets are informational; none proves 2026/27 senior appearances. No Supabase writes.'},null,2));
 }
