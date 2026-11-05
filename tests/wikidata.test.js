@@ -37,7 +37,8 @@ test('P54 claims stay in review staging, preserve loan and unresolved teams',()=
 test('SQL exporter only inserts into staging and prevents accidental publication',()=>{
  const sql=stagingSql(extractClaimRows(fixture,maps));
  assert.match(sql,/insert into footy.external_career_claims/i);
- assert.match(sql,/on conflict\(claim_key\) do nothing/i);
+ assert.match(sql,/on conflict\(claim_key\) do update/i);
+ assert.match(sql,/raw_claim\s*=\s*coalesce/i);
  assert.doesNotMatch(sql,/insert into footy.question_templates/i);
  assert.doesNotMatch(sql,/2007-01-01/);
  assert.throws(()=>stagingSql([{player_external_id:'bad'}]),/Invalid claim/);
