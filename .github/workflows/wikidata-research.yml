@@ -1,0 +1,26 @@
+name: Wikidata career research sample
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  harvest-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - name: Export bounded player careers from Wikidata
+        run: node scripts/fetch-wikidata.js --out data/staging/claims.json --sql-out data/staging/stage.sql
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wikidata-review-sample
+          path: |
+            data/staging/claims.json
+            data/staging/stage.sql
+          retention-days: 7
