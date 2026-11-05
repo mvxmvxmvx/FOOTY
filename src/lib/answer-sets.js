@@ -19,6 +19,12 @@ export function materializeReviewedAnswers({
     !['club_appearance','transfer_arrival'].includes(kind)||
     !validDate(publishDate)||!cleanById(filters)||!Array.isArray(records)||
     !cleanById(rarityByPlayer)) throw Error('Invalid answer-set configuration');
+ // Prevent future match or transfer evidence from entering a question published
+ // before that evidence could have existed. A reviewed dataset is not a time machine.
+ if(kind==='club_appearance'&&(!validDate(filters.asOf)||filters.asOf>publishDate))
+  throw Error('Appearance question cutoff cannot be after publication');
+ if(kind==='transfer_arrival'&&(!validDate(filters.windowEnd)||filters.windowEnd>publishDate))
+  throw Error('Transfer window cutoff cannot be after publication');
  if(coverage?.status!=='reviewed_complete'||!ID.test(coverage.reviewId??'')||
     !validDate(coverage.reviewedAt)||coverage.reviewedAt>publishDate)
   throw Error('Complete documented coverage review required before materializing an open-ended question');
