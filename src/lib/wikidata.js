@@ -32,8 +32,16 @@ function extractClaimRows(response,mappings) {
       const start = timeQualifier(statement.qualifiers,"P580");
       const end = timeQualifier(statement.qualifiers,"P582");
       const loan = (statement.qualifiers?.P1642 ?? []).some(x=>qidFromSnak(x)==="Q2914547") ? true : null;
-      const needsClassification = Boolean(statement.qualifiers?.P2094?.length);
-      const clubId = mappedClubs[teamQid] ?? null;
+      // P2094 is "competition class", not a generic youth-team property.
+      // Only its explicit youth-sports value (Q599867) is enough to flag youth.
+      const competitionClass = (statement.qualifiers?.P2094 ?? []).map(qidFromSnak);
+      const youth = competitionClass.includes('Q599867');
+      const hasOtherCompetitionClass = competitionClass.some(q=>q&&q!=='Q599867');
+      const national = Boolean(mappings?.nationalTeams?.[teamQid]);
+      const clubId = !national && !youth ? (mappedClubs[teamQid] ?? null) : null;
+      const classification = national ? 'national_team'
+        : youth ? 'youth' : hasOtherCompetitionClass ? 'unknown'
+        : clubId ? 'senior_candidate' : 'unknown';
       out.push({
         claim_key:"wikidata:statement:"+id,
         provider:"wikidata",player_external_id:personQid,club_external_id:teamQid,
@@ -42,7 +50,7 @@ function extractClaimRows(response,mappings) {
         source_url:"https://www.wikidata.org/wiki/"+personQid+"#P54",
         observed_from:start.value,observed_to:end.value,
         from_precision:start.precision,to_precision:end.precision,
-        team_classification:clubId&&!needsClassification ? "senior_candidate" : "unknown",
+        team_classification:classification,
         loan_flag:loan,provenance:"wikidata_api",review_status:"pending",
         raw_claim:statement
       });
