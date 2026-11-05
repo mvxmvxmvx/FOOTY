@@ -385,3 +385,153 @@ background:repeating-linear-gradient(180deg,#276e46 0,#276e46 43px,#205b3a 43px,
 .magic-round-status{margin:12px auto;padding:12px 16px;max-width:670px;border:1px solid #c8a45f;border-radius:9px;background:#393321;color:#ffe5a8;font-weight:900;font-size:13px;line-height:1.5;text-align:center}
 .magic-result{margin:17px 0;padding:16px 20px;border:1px solid #caa75b;border-radius:11px;background:linear-gradient(125deg,#3b3521,#1e3525);color:#ffe2a2;font-size:14px;font-weight:900;line-height:1.55}
 @media(max-width:600px){.magic-actions{flex-direction:column}.magic-actions button{min-width:0}.magic-offer{padding:22px 15px}}
+
+/* v0.1.15 Large (Refined) — actual playable layout, not a screenshot.
+   Desktop composition: stadium frame / centered scoreboard / compact challenge /
+   live rating / slim functional momentum bar. Mobile stacks gracefully.
+   Keep free-text verified answer entry; multiple choice remains counter-only. */
+:root{--refined-green:#b8ff59;--refined-line:#548b64}
+body{background:#06120f radial-gradient(ellipse at 50% 0%,#15372b 0%,#071713 68%,#050e0c 100%)}
+.wrap{max-width:1440px;padding:22px clamp(16px,2.8vw,42px) 42px}
+.top{position:relative;min-height:68px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin:0 0 16px;padding:8px 20px;background:linear-gradient(180deg,#061713ef,#06110ef4);border:1px solid #335c4a;border-radius:17px;box-shadow:0 10px 34px #0004}
+.nav-left{display:flex;align-items:center;gap:clamp(15px,2.2vw,34px);min-width:0}
+.top .brand-home{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.top .logo{font:900 28px/1 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.7px;color:#fff}
+.top .brand-icon{font-size:24px;filter:drop-shadow(0 0 6px #b8ff5940)}
+.primary-nav{display:flex;gap:clamp(8px,1.4vw,22px);align-items:center}
+.primary-nav button{appearance:none;border:0;background:transparent;color:#cfddd1;font:800 12px 'DM Sans',system-ui,sans-serif;padding:10px 3px;white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent}
+.primary-nav button:hover,.primary-nav button:focus-visible{color:var(--lime);border-color:var(--lime)}
+.top .masthead{font:900 clamp(27px,3.2vw,38px)/1 'Barlow Condensed',Impact,sans-serif;color:#fff;letter-spacing:.5px}
+.top .site-toplinks{justify-self:end;display:flex;align-items:center;gap:10px}
+.top .version-indicator{color:#91a999;font-size:10px;letter-spacing:1.1px;font-weight:800}
+.top .tag{font-size:10px;padding:8px 11px}
+#play{position:relative;isolation:isolate;padding:22px clamp(14px,4vw,46px) 21px;border:1px solid #426b57;border-radius:22px;overflow:hidden;background:
+ radial-gradient(ellipse at 50% 102%,#2d6c2e 0%,#18452d 21%,transparent 49%),
+ linear-gradient(175deg,#06151bec 0%,#091e23ec 28%,#11282bdb 44%,#0a2520d9 60%,#143721e8 100%);
+ box-shadow:0 25px 65px #0009,inset 0 0 35px #07120ca8}
+#play:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.74;background:
+ radial-gradient(ellipse at 8% 31%,#b2e5e947,transparent 17%),
+ radial-gradient(ellipse at 95% 29%,#b2e5e944,transparent 17%),
+ repeating-linear-gradient(172deg,transparent 0 47px,#8eb2a719 48px 49px,transparent 50px 73px),
+ linear-gradient(175deg,transparent 0% 37%,#192f37 37% 39%,#31465a 39% 40%,#142a39 40% 42%,transparent 44%),
+ radial-gradient(ellipse at 50% 95%,#4a84337d,transparent 48%)}
+#play:after{content:"";position:absolute;inset:auto 5% 8px;z-index:-1;height:18%;pointer-events:none;border-radius:100% 100% 0 0;border-top:1px solid #add8ac78;opacity:.7;background:repeating-linear-gradient(90deg,#0e421c55 0 45px,#2d652847 46px 90px)}
+#play .game-intro{margin:0 auto 10px;padding:0 3px 5px;max-width:1150px;font-size:10px;color:#bcd3bf}
+#play .gamegrid{display:grid;grid-template-columns:minmax(0,1fr) 160px;grid-template-rows:auto auto;align-items:start;gap:14px 18px;max-width:1150px;margin:auto}
+#play .match-hud{grid-column:1;grid-row:1;display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0;padding:4px 0 0}
+#play .match-hud .match-scoreboard{display:flex;align-items:center;justify-content:center;gap:clamp(25px,4.3vw,65px);margin:0;padding:4px 18px;border:0;border-radius:0;background:transparent;box-shadow:none}
+#play .match-scoreboard>div{display:flex;align-items:center;flex-direction:column;gap:2px;min-width:100px}
+#play .match-scoreboard small{font-size:11px;letter-spacing:1.2px;color:#eef5e7}
+#play .match-scoreboard strong{font:900 clamp(39px,4.6vw,62px)/.95 'Barlow Condensed',Impact,sans-serif;color:#fff}
+#play .match-scoreboard .match-separator{font:900 clamp(34px,4vw,58px)/.95 'Barlow Condensed',Impact,sans-serif;color:#f7faf6}
+#play .match-hud .gamehead{display:flex;justify-content:center;margin-top:0}
+#play .match-hud .round{min-width:162px;text-align:center;border:1px solid #6be968;border-radius:999px;padding:6px 19px;background:#063e24;color:#d8ffe1;font-size:11px;letter-spacing:1px}
+#play .match-hud #score{display:none}
+#play .match-hud .pips{display:flex;gap:5px;margin:0;align-items:center;justify-content:center}
+#play .match-hud .pip{height:6px;width:18px;border-radius:6px}
+#play .match-stage{grid-column:1;grid-row:2;min-width:0}
+#play .match-stage>.card{border-radius:18px;box-shadow:0 20px 40px #0010089c;min-height:0}
+#play .gamecard{padding:clamp(17px,2vw,27px) clamp(18px,3vw,38px) 16px;background:linear-gradient(135deg,#09241fe8,#061a16f2);border:1px solid #72c26b}
+#play .broadcast-label{display:flex;align-items:center;justify-content:space-between;margin:0 0 7px;padding:0 0 8px;background:none;border-bottom:1px solid #365c49;color:#b8d7bc;font-size:9px;letter-spacing:1.1px}
+#play .broadcast-label .edition{color:#8da995;font-size:9px}
+#play .timerbox{max-width:none;display:flex;align-items:center;gap:10px;margin:2px 0 12px}
+#play .timerbox .track{height:5px;background:#30523c}
+#play .timerbox .clock{font-size:23px;min-width:30px}
+#play .gamecard #category{margin:0;color:#b8ff59;font-size:10px;letter-spacing:1.7px}
+#play .gamecard .question{font:800 clamp(26px,3.1vw,42px)/1.13 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.25px;text-align:center;max-width:800px;margin:8px auto 10px;text-wrap:balance}
+#play .gamecard .hint{text-align:center;font-size:11px;min-height:0;color:#a4bfae}
+#play .gamecard .answerrow{margin-top:17px;gap:10px}
+#play .gamecard .answer{padding:13px 15px;font-size:15px;background:#061f18;border:1px solid #527d62;border-radius:9px}
+#play .gamecard .primary{padding:13px 20px;font-size:12px;white-space:nowrap}
+#play .gamecard .inputerror{font-size:11px;min-height:16px;margin-top:8px}
+#play .gamecard .answerhelp{font-size:10px;line-height:1.5;margin-top:1px}
+#play .gamecard .skip{margin-top:3px;font-size:11px}
+#play .sidebar{grid-column:2;grid-row:1 / span 2;padding:11px;border-radius:14px;min-width:0;min-height:0;background:#071d16dd;border:1px solid #6b9f63}
+#play .sidebar .side-rating{margin:0;padding:9px 4px 12px;align-items:center;text-align:center;gap:5px;background:transparent;border:0;border-bottom:1px solid #4c7658;border-radius:0}
+#play .sidebar .side-rating span,#play .sidebar .side-knowledge span{font-size:10px;letter-spacing:1px;font-weight:900;color:#c3d6c6}
+#play .sidebar .side-rating strong{font:900 47px/1 'Barlow Condensed',Impact,sans-serif;color:#caff8c}
+#play .sidebar .side-rating small{font-size:9px;color:#94bba1}
+#play .sidebar .side-knowledge{display:flex;flex-direction:column;align-items:center;gap:8px;padding:13px 4px 10px;text-align:center}
+#play .sidebar .side-knowledge strong{font:900 clamp(15px,1.7vw,23px)/1.1 'Barlow Condensed',Impact,sans-serif;word-break:break-word;color:#d6fc69}
+#play .sidebar .sidebar-extra{margin-top:8px;font-size:11px;color:#b9d2bc;border-top:1px solid #294e38;padding:9px 2px 1px}
+#play .sidebar .sidebar-extra summary{cursor:pointer;font-weight:900;letter-spacing:.5px;font-size:10px}
+#play .sidebar .sidebar-extra[open]{position:relative}
+#play .sidebar .match-log{margin:11px 0;max-height:135px;overflow:auto}
+#play .sidebar .sidebottom{font-size:10px;margin:10px 0 0;line-height:1.45}
+#play .reveal,#play .counter-card,#play .magic-offer{padding:clamp(18px,2.5vw,30px);min-height:285px}
+#play .counter-card h2{font-size:clamp(22px,3vw,30px)}
+#play .momentum-panel{display:grid;grid-template-columns:minmax(160px,1fr) minmax(180px,2fr);align-items:center;column-gap:24px;row-gap:8px;max-width:1150px;margin:14px auto 0;padding:13px 21px;border:1px solid #61a851;border-radius:14px;background:linear-gradient(100deg,#041b13ee,#062a1bdc);box-shadow:0 9px 22px #0006}
+#play .momentum-head{grid-column:1;grid-row:1;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0}
+#play .momentum-head>div{display:flex;flex-direction:column;gap:3px}
+#play .momentum-head span{font-size:11px;font-weight:900;letter-spacing:1px;color:#fff}
+#play .momentum-head #momentumstate{font-size:10px;font-weight:700;letter-spacing:0;color:#b8ff59}
+#play .momentum-head #momentumvalue{font:900 25px/1 'Barlow Condensed',Impact,sans-serif;color:#fff}
+#play .momentum-track{grid-column:2;grid-row:1;height:13px;margin:0;background:#244b3b;box-shadow:inset 0 1px 2px #0009}
+#play .momentum-track>div{background:linear-gradient(90deg,#69ea46,#caff80)}
+#play .magic-progress{grid-column:1 / -1;grid-row:2;padding:5px 0 0;margin:0;border:0;background:transparent;color:#cde29f;font-size:11px;font-weight:800}
+#play .momentum-details{grid-column:1 / -1;font-size:11px;color:#bacdbd}
+#play .momentum-details summary{display:inline-block;cursor:pointer;color:#92b6a1;text-decoration:underline;text-underline-offset:3px;list-style:none;font-size:10px;font-weight:800}
+#play .momentum-status,#play .momentum-pitch,#play .momentum-foot{display:none}
+#play .momentum-help{margin-top:7px;padding-top:8px;border-color:#41634a}
+#play .momentum-help span{font-size:11px}
+@media(min-width:1100px) and (min-height:760px){
+ #play{max-width:1260px;margin:auto;padding-top:26px;padding-bottom:24px}
+ #play .match-stage>.gamecard{min-height:298px}
+}
+@media(max-width:900px){
+ .wrap{padding:12px 14px 32px}
+ .top{padding:8px 12px;min-height:58px;gap:10px}
+ .top .masthead{font-size:27px}
+ .top .version-indicator{display:none}
+ #play{padding:18px 17px}
+ #play .gamegrid{grid-template-columns:minmax(0,1fr) 126px;gap:10px}
+ #play .match-scoreboard>div{min-width:85px}
+ #play .match-hud .match-scoreboard{gap:23px}
+ #play .sidebar{padding:6px}
+ #play .sidebar .side-rating strong{font-size:37px}
+ #play .sidebar .side-knowledge strong{font-size:17px}
+ #play .gamecard .question{font-size:clamp(24px,4vw,35px)}
+}
+@media(max-width:650px){
+ .top{grid-template-columns:1fr auto}
+ .top .masthead{display:none}
+ .top .logo{font-size:25px}
+ .top .brand-icon{font-size:20px}
+ .nav-left{gap:10px}
+ .primary-nav{gap:6px}
+ .primary-nav button{font-size:10px;padding:7px 2px}
+ .top .site-toplinks{display:none}
+ #play{padding:11px 10px 14px;border-radius:14px}
+ #play .game-intro{font-size:9px}
+ #play .gamegrid{grid-template-columns:minmax(0,1fr) 92px;gap:7px}
+ #play .match-hud .match-scoreboard{padding:0;gap:8px}
+ #play .match-scoreboard>div{min-width:56px}
+ #play .match-scoreboard strong{font-size:38px}
+ #play .match-scoreboard small{font-size:8px;letter-spacing:0}
+ #play .match-scoreboard .match-separator{font-size:30px}
+ #play .match-hud .round{min-width:0;font-size:9px;padding:4px 12px}
+ #play .match-stage>.card{border-radius:11px}
+ #play .gamecard{padding:12px}
+ #play .gamecard .question{font-size:clamp(23px,5vw,30px)}
+ #play .gamecard .answerrow{flex-direction:column}
+ #play .gamecard .answerrow button{width:100%}
+ #play .sidebar .side-rating span,#play .sidebar .side-knowledge span{font-size:8px}
+ #play .sidebar .side-rating strong{font-size:30px}
+ #play .sidebar .side-rating small{display:none}
+ #play .sidebar .side-knowledge strong{font-size:12px}
+ #play .sidebar .sidebar-extra summary{font-size:8px}
+ #play .momentum-panel{grid-template-columns:1fr;gap:10px;padding:12px}
+ #play .momentum-head{grid-column:1;grid-row:1}
+ #play .momentum-track{grid-column:1;grid-row:2}
+ #play .magic-progress{grid-column:1;grid-row:3}
+ #play .momentum-details{grid-column:1;grid-row:4}
+}
+@media(max-width:390px){
+ .primary-nav button{font-size:9px}
+ #play .gamegrid{grid-template-columns:minmax(0,1fr) 74px;gap:5px}
+ #play .gamecard{padding:10px}
+ #play .sidebar .side-rating strong{font-size:26px}
+ #play .sidebar .side-knowledge strong{font-size:11px}
+ #play .match-scoreboard strong{font-size:32px}
+ #play .match-scoreboard>div{min-width:49px}
+}
