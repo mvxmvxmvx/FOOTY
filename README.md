@@ -76,3 +76,29 @@ See [Evidence archive, answer eligibility and rarity design](docs/V14-knowledge-
 - A **daily read-only GitHub Actions research sweep** rotates one Premier League club per day. It uploads source candidates and diagnostic files for 30 days, but does not automatically import claims into Supabase or change scored answers.
 
 See [the verified November development handoff](docs/V14-development-session-2026-11-04.md) for exact work completed, remaining issues and the launch sequence.
+
+## v0.1.14 — Seven-round Match Engine (feature branch)
+
+- 7-Nil match presentation: a verified answer of **any** editorial rarity (including 10 points) scores one goal; a timeout or skipped round concedes one. Invalid guesses are not scored and can be retried within the round timer.
+- Independent scorelines and rarity ratings: match result (e.g. 4–3) versus editorial performance (0–100 average of seven 0–100 round scores). The existing trophy system is retained.
+- The official daily match still uses the shared UTC lineup and a single browser-local attempt; practice remains randomized and unlimited. V13 daily saves remain readable.
+- Tests exercise match aggregation, 7–0, legacy daily data, and future draw compatibility.
+- A seven-round binary goal/concession model never ties. Penalty shootouts are **deferred** pending a real neutral-round or alternative match rule; club customizer, live multiplayer, tournaments and ranked play are not part of this release.
+- All scoring and answer keys remain **development-preview only**. Use `npm run dev` locally, not the unrestricted public internet; server-authoritative scoring is still required before launch.
+
+## v0.1.14 match presentation update — match ratings and shooting pitch
+
+- Solo matches begin at **6.0**. Each accepted answer contributes **+4/7** raw rating points; every skipped/timed-out attack contributes **−0.25**. The cumulative rating is clamped between **3.0 and 10.0** and displayed to one decimal. Seven correct answers yield **10.0**, regardless of the answer's provisional rarity data.
+- A verified answer always scores one goal. A timeout or skip is a missed attack, receives a rating penalty, and (under the current single-player match model) concedes a goal. An unrecognized/ambiguous guess does not finish the round while time remains.
+- The animated pitch is shown as a compact attacking preview while answering, then as an animated shot after a successful answer or miss. Animations respect reduced-motion preferences. The old rarity spin and editorial-point UI are removed.
+- The curated database keeps its historical points for migration and research, but those points no longer affect match rating, goal events or visible results. Old locally saved daily challenge results continue to work.
+- Penalty shootouts, club customization and multiplayer are deferred. Visual and full Node test-suite QA are required before merging.
+
+## v0.1.14 — Goal cinematics test iteration
+
+- A correct verified answer still scores exactly one goal, independently of rarity; the 6.0–10.0 rating remains accuracy-based.
+- Six cosmetic goal presentations now use the existing *provisional* curated answer tiers: 10 tap-in; 15 driven; 30 finesse; 60 volley; 85 screamer; 100 bicycle kick. There is no random lottery reveal or point-based gameplay bonus.
+- Solo mode uses a new SVG player, pitch, goalkeeper, goal net, ball trajectories, and style-specific motions. Each ball passes into the area bounded by the net, and the net reacts; reduced-motion settings are supported.
+- **Goal of the Match (TEST)** selects the highest-tier verified goal of that match (first scored goal wins ties). At full time, replay it or preview all six finishing styles in the temporary animation test lab. Matches without goals have no award.
+- Rarity tiers are still editorial placeholders. They communicate presentation flair, **not statistical player rarity**. Do not mistake a visual effect for a verified popularity rate.
+- Full local/browser smoke testing is still required before merging the feature branch.
