@@ -19,8 +19,8 @@ async function serve(res,filename){const file=path.resolve(publicDir,filename);
 // The browser's V13 prototype currently needs a full client-side question bank.
 // Limit that deliberately insecure compatibility endpoint to a LOCAL development
 // server. Production game clients must use server-authoritative verification.
-export function createFootyServer({host='127.0.0.1',production=false}={}){
- const allowPrototypeBank=!production&&['127.0.0.1','::1','localhost'].includes(host);
+export function createFootyServer({host='127.0.0.1',production=false,localPreview=false}={}){
+ const allowPrototypeBank=!production&&localPreview&&['127.0.0.1','::1','localhost'].includes(host);
  return http.createServer(async(req,res)=>{try{
  const url=new URL(req.url,'http://localhost'),p=url.pathname;
  if(req.method==='GET'&&p==='/api/v1/bootstrap'){
@@ -44,6 +44,7 @@ export function createFootyServer({host='127.0.0.1',production=false}={}){
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const host=process.env.HOST||'127.0.0.1';
  const port=process.env.PORT===undefined?4173:Number(process.env.PORT);
- createFootyServer({host,production:process.env.NODE_ENV==='production'}).listen(port,host,
+ createFootyServer({host,production:process.env.NODE_ENV==='production',
+  localPreview:process.env.FOOTY_DEV_CLIENT_BANK==='1'}).listen(port,host,
   ()=>console.log('FOOTY local preview running on '+host+':'+port));
 }
