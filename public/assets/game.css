@@ -368,3 +368,20 @@ background:repeating-linear-gradient(180deg,#276e46 0,#276e46 43px,#205b3a 43px,
 .defense-conceded .defense-ball{left:35%;top:77px}
 .defense-saved .defense-stop,.defense-conceded .defense-score{opacity:1;transform:translate(-50%,0) scale(1)}
 }
+
+/* Practice-only Moment of Magic opportunity — mechanics before cinematic polish */
+.magic-offer{margin-bottom:12px;padding:clamp(22px,4vw,40px);background:radial-gradient(circle at top right,#55442a,#1d3528 58%,#10231b);border:1px solid #c6a45a;box-shadow:0 0 28px #d5a84912}
+.magic-eyebrow{font-size:12px;color:#f6d68a;font-weight:900;letter-spacing:2px;margin-bottom:14px}
+.magic-offer h2{font:900 clamp(30px,5vw,51px)/1.05 Impact,'Barlow Condensed',sans-serif;letter-spacing:1px;margin:0 0 14px;color:#f7e8ba}
+.magic-offer p{font-size:15px;line-height:1.6;color:#d2ddc9;max-width:660px}
+.magic-rule{display:flex;flex-direction:column;gap:9px;margin:22px 0;padding:17px 20px;border:1px solid #866f43;border-radius:12px;background:#2c3022}
+.magic-rule strong{font-size:13px;color:#d6fc69;letter-spacing:1px}
+.magic-rule span{font-size:13px;color:#d5d9c2;line-height:1.65}
+.magic-actions{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.magic-actions button{flex:1;min-width:190px}
+.magic-foot{font-size:11px;color:#aeb9a7;line-height:1.5}
+.magic-live{margin:15px 0;padding:10px 13px;border:1px solid #cda352;border-radius:7px;background:#372e1d;color:#f3d98e;font-size:12px;font-weight:900;letter-spacing:.6px;text-align:center}
+.magic-progress{padding:10px 12px;margin-bottom:12px;border-radius:7px;background:#203d2b;border:1px solid #537454;color:#d6fc69;font-size:11px;font-weight:800;line-height:1.4}
+.magic-round-status{margin:12px auto;padding:12px 16px;max-width:670px;border:1px solid #c8a45f;border-radius:9px;background:#393321;color:#ffe5a8;font-weight:900;font-size:13px;line-height:1.5;text-align:center}
+.magic-result{margin:17px 0;padding:16px 20px;border:1px solid #caa75b;border-radius:11px;background:linear-gradient(125deg,#3b3521,#1e3525);color:#ffe2a2;font-size:14px;font-weight:900;line-height:1.55}
+@media(max-width:600px){.magic-actions{flex-direction:column}.magic-actions button{min-width:0}.magic-offer{padding:22px 15px}}
