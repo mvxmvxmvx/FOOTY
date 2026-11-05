@@ -52,3 +52,11 @@ Reference sources:
 - [ ] Verify six goal animations and dev-only test lab still function
 
 **Do not merge before visual and end-to-end QA.** This branch is based on `feature/v0.1.14-match-engine`, not currently on `main`.
+
+## v0.1.15 feedback pass — distinct outcomes and momentum clarity
+
+- Correct attack = attacking goal animation; successful counter defense = keeper intervention; failed counter defense = opposition goal. The counter result no longer reuses an attacking miss animation. Outcome classification is regression tested.
+- Rare (85) and One-in-a-Million (100) answers receive a special staged presentation with elevated typography and crowd-energy effects. This is a gameplay-level reveal improvement, **not** the later bespoke movie-quality One-in-a-Million cinematic.
+- Momentum now states which team has the initiative and describes the last swing using the answer/goal style or the missed attack, while transparently explaining that momentum currently affects atmosphere and the story, not question difficulty, correctness or actual counterattack odds.
+- Goal-of-the-Match replay is explicitly made visible after a last-round defensive outcome.
+- The current CSS/SVG graphic treatment remains a prototype; visual browser QA is essential. Further anime-style cinematic polish stays deferred as agreed.
