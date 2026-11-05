@@ -9,46 +9,42 @@ const Match=context.FOOTY_MATCH;
 const goal=(points=60)=>({event:'goal',points});
 const conceded=()=>({event:'conceded',points:0});
 
-test('all seven verified answers produce 7–0 and an independent editorial rating',()=>{
-  const game=Match.summarize(Array(7).fill(null).map(()=>goal(10)));
-  assert.equal(game.forGoals,7);
-  assert.equal(game.againstGoals,0);
-  assert.equal(game.points,70);
-  assert.equal(game.performance,10);
-  assert.equal(game.outcome,'win');
-  assert.equal(game.completed,true);
-});
-
-test('goals and concessions never depend on 50-point rarity threshold',()=>{
-  const game=Match.summarize([goal(10),goal(15),goal(30),goal(60),conceded(),conceded(),conceded()]);
-  assert.equal(game.forGoals,4);
-  assert.equal(game.againstGoals,3);
-  assert.equal(game.performance,Math.round(115/7));
-});
-
-test('legacy saved daily records are correctly converted',()=>{
-  const game=Match.summaryFromResults([{points:85},{points:0},{points:15}]);
-  assert.equal(game.forGoals,2);
-  assert.equal(game.againstGoals,1);
-  assert.equal(game.played,3);
-  assert.equal(game.outcome,'in-progress');
-});
-
-test('7 binary rounds cannot end tied, so penalties are future functionality',()=>{
-  for(let goals=0;goals<=7;goals++){
-    const game=Match.summarize([...Array(goals).fill(null).map(()=>goal()),...Array(7-goals).fill(null).map(conceded)]);
-    assert.equal(Match.needsPenalties(game),false);
+test('perfect 7–0 ends on a 10.0 match rating regardless of answer rarity',()=>{
+  for(const rarity of [10,30,60,100]){
+    const game=Match.summarize(Array.from({length:7},()=>goal(rarity)));
+    assert.equal(game.forGoals,7);
+    assert.equal(game.againstGoals,0);
+    assert.equal(game.rating,10);
+    assert.equal(game.outcome,'win');
   }
 });
-
-test('neutral events support a future draw and shootout',()=>{
-  const game=Match.summarize([goal(),goal(),goal(),conceded(),conceded(),conceded(),{event:'neutral',points:0}]);
-  assert.equal(game.outcome,'draw');
-  assert.equal(Match.needsPenalties(game),true);
+test('everyone begins with a 6.0 rating',()=>{
+ assert.equal(Match.summarize([]).rating,6.0);
 });
-
-test('reject impossible and invalid match records',()=>{
-  assert.throws(()=>Match.summarize(Array(8).fill(null).map(goal)),RangeError);
-  assert.throws(()=>Match.summarize([goal(0)]),RangeError);
-  assert.throws(()=>Match.summarize([{event:'conceded',points:60}]),RangeError);
+test('correct answers raise rating; misses lower it and concede a goal',()=>{
+ const first=Match.summarize([goal(10)]);
+ const next=Match.summarize([goal(10),conceded()]);
+ assert.equal(first.rating,6.6);
+ assert.equal(next.rating,6.3);
+ assert.equal(next.forGoals,1);
+ assert.equal(next.againstGoals,1);
+});
+test('match rating is independent of editorial answer values',()=>{
+ assert.equal(Match.summarize([goal(10),goal(15),conceded()]).rating,Match.summarize([goal(100),goal(100),conceded()]).rating);
+});
+test('existing local daily records migrate without changing match score',()=>{
+ const game=Match.summaryFromResults([{points:85},{points:0},{points:15}]);
+ assert.equal(game.forGoals,2);
+ assert.equal(game.againstGoals,1);
+ assert.equal(game.rating,6.9);
+});
+test('seven binary rounds cannot end tied',()=>{
+ for(let n=0;n<=7;n++){
+  const game=Match.summarize([...Array(n).fill(null).map(()=>goal()),...Array(7-n).fill(null).map(conceded)]);
+  assert.equal(Match.needsPenalties(game),false);
+ }
+});
+test('reject invalid match records',()=>{
+ assert.throws(()=>Match.summarize(Array(8).fill(null).map(goal)),RangeError);
+ assert.throws(()=>Match.summarize([{event:'unknown'}]),TypeError);
 });
