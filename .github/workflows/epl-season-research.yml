@@ -5,7 +5,7 @@ on:
     inputs:
       mode:
         type: choice
-        description: "Choose candidate discovery or staged membership research"
+        description: "Discover verified club IDs (offline), or fetch player candidates (live Wikidata)"
         required: true
         default: discover_teams
         options:
@@ -32,12 +32,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm test
-      - run: npm run qa
+      - name: Run tests and capture diagnostics
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p data/staging/epl-2026-27
+          npm test 2>&1 | tee data/staging/epl-2026-27/test.log
+          npm run qa 2>&1 | tee data/staging/epl-2026-27/qa.log
       - name: Collect reusable research candidates
-        run: node scripts/research-epl-2026-27.js --mode="$FOOTY_MODE" --club="$FOOTY_CLUB" --out=data/staging/epl-2026-27
-      - uses: actions/upload-artifact@v4
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/research-epl-2026-27.js --mode="$FOOTY_MODE" --club="$FOOTY_CLUB" --out=data/staging/epl-2026-27 2>&1 | tee data/staging/epl-2026-27/export.log
+      - name: Upload output and troubleshooting logs (even on failure)
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: epl-2026-27-research-${{ inputs.mode }}
           path: data/staging/epl-2026-27/
+          if-no-files-found: warn
           retention-days: 7
