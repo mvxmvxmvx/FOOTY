@@ -93,7 +93,7 @@ export function seasonStageSql(batch) {
     !/^club_[a-z0-9_]+$/.test(c.club_id)||c.source_id!=='wikidata_cc0'||
     c.raw_evidence?.source!=='Wikidata Query Service'||
     !QID.test(c.raw_evidence?.team_qid??'')||
-    !/^https?:\\/\\/www\\.wikidata\\.org\\/entity\\/statement\\//.test(c.raw_evidence?.statement_uri??'')||
+    !['http://www.wikidata.org/entity/statement/','https://www.wikidata.org/entity/statement/'].some(prefix=>c.raw_evidence?.statement_uri?.startsWith(prefix))||
     c.source_url!=='https://www.wikidata.org/wiki/'+c.external_player_id+'#P54')
    throw Error('Only unreviewed Wikidata membership claims can be imported');
  }
