@@ -76,3 +76,12 @@ See [Evidence archive, answer eligibility and rarity design](docs/V14-knowledge-
 - A **daily read-only GitHub Actions research sweep** rotates one Premier League club per day. It uploads source candidates and diagnostic files for 30 days, but does not automatically import claims into Supabase or change scored answers.
 
 See [the verified November development handoff](docs/V14-development-session-2026-11-04.md) for exact work completed, remaining issues and the launch sequence.
+
+## v0.1.14 — Seven-round Match Engine (feature branch)
+
+- 7-Nil match presentation: a verified answer of **any** editorial rarity (including 10 points) scores one goal; a timeout or skipped round concedes one. Invalid guesses are not scored and can be retried within the round timer.
+- Independent scorelines and rarity ratings: match result (e.g. 4–3) versus editorial performance (0–100 average of seven 0–100 round scores). The existing trophy system is retained.
+- The official daily match still uses the shared UTC lineup and a single browser-local attempt; practice remains randomized and unlimited. V13 daily saves remain readable.
+- Tests exercise match aggregation, 7–0, legacy daily data, and future draw compatibility.
+- A seven-round binary goal/concession model never ties. Penalty shootouts are **deferred** pending a real neutral-round or alternative match rule; club customizer, live multiplayer, tournaments and ranked play are not part of this release.
+- All scoring and answer keys remain **development-preview only**. Use `npm run dev` locally, not the unrestricted public internet; server-authoritative scoring is still required before launch.
