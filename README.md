@@ -50,3 +50,11 @@ We've opened a safe staging pipeline for Wikidata P54 club memberships.
 See [V14 research/import guide](docs/V14-wikidata-import.md) for the workflow, safety checks and example SQL. The exporter has not yet completed a verified live API harvest in GitHub Actions; until then, only the separately documented page-reviewed sample has been staged.
 
 **None of V14's crossover candidates are currently available as scored trivia questions.** We still need audited career coverage and API-backed gameplay before launch.
+
+## V14 — Premier League 2026/27 pre-January pilot
+
+**First full-season pilot changed from 2024/25 to the ongoing 2026/27 Premier League**, using a dated research snapshot as of **November 4, 2026**. The snapshot in private Supabase now has **all 20 current club participants** (including Coventry, Hull and Ipswich), **three pending summer-transfer facts**, and **zero verified current-season player appearance records**. The Summer 2026 Transfer Mode remains **disabled**.
+
+A bounded Wikidata discovery workflow has been added for the 16 still-unmapped Premier League club QIDs and candidate player–club memberships. All research data stays in review, with no change to V13 scoring. We do **not** bulk-copy Premier League website squad lists because the site terms restrict database reuse.
+
+See [2026/27 season checkpoint](docs/V14-epl-2026-27.md) and [GitHub Actions research workflow](.github/workflows/epl-season-research.yml) for the next steps.
