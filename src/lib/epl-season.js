@@ -59,11 +59,36 @@ export function parseWdqsBatch(response,club,config,limit=300){
   candidate_rows:result.length,result_rows:rows.length,possibly_truncated:rows.length>=limit,
   skipped:skipped.length,not_verified_senior_appearances:true,scoring_enabled:false},claims:result};
 }
+// The SPARQL search is intentionally recall-heavy: missing dates can refer to
+// retired, women's, youth, or even incorrectly attributed player identities.
+// These buckets are research triage ONLY, never proof of 2026/27 eligibility.
+export function partitionSeasonCandidates(batch){
+ if(!batch?.manifest?.snapshot_id || !Array.isArray(batch?.claims))throw Error('Bad season research batch');
+ const dated=[],undated=[];
+ for(const c of batch.claims){
+  if(c?.evidence_type!=='wikidata_membership' || c?.review_status!=='pending')
+   throw Error('Only unreviewed club memberships can be partitioned');
+  const from=c.raw_evidence?.from_literal;
+  if(typeof from==='string' && /^\\d{4}-\\d{2}-\\d{2}T/.test(from))dated.push(c);
+  else undated.push(c);
+ }
+ const olderStarts=dated.filter(c=>c.raw_evidence.from_literal.slice(0,4)<'2018').length;
+ const endedBeforeSnapshot=dated.filter(c=>typeof c.raw_evidence?.to_literal==='string'
+  && c.raw_evidence.to_literal.slice(0,10)<batch.manifest.snapshot_id.slice(-8,-4)+'-'+batch.manifest.snapshot_id.slice(-4,-2)+'-'+batch.manifest.snapshot_id.slice(-2)).length;
+ return {
+  dated,undated,
+  audit:{total:batch.claims.length,date_qualified:dated.length,undated_quarantine:undated.length,
+   pre_2018_start_candidates:olderStarts,ended_before_snapshot:endedBeforeSnapshot,
+   current_season_appearances_verified:0,review_status:'pending',
+   warning:'P54 membership with dates is NOT proof of a current men's first-team appearance; dates may be imprecise, stale, or incorrect.'}
+ };
+}
 export function seasonStageSql(batch) {
  if(!batch||!Array.isArray(batch.claims)||batch.claims.length>500)throw Error('Bad batch');
  for(const c of batch.claims){
   if(!/^epl2627:[a-z0-9_:]+:[0-9a-f]{20}$/.test(c.claim_key)||c.evidence_type!=='wikidata_membership'||
-    c.rights_basis!=='cc0'||c.review_status!=='pending'||c.appearances!==null||c.player_id!==null)
+    c.rights_basis!=='cc0'||c.review_status!=='pending'||c.appearances!==null||c.player_id!==null||
+    typeof c.raw_evidence?.from_literal!=='string'||!/^\\d{4}-\\d{2}-\\d{2}T/.test(c.raw_evidence.from_literal))
    throw Error('Only unreviewed Wikidata membership claims can be imported');
  }
  const clean=batch.claims.map(c=>({
