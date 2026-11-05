@@ -61,7 +61,8 @@ export function parseWdqsBatch(response,club,config,limit=300){
 }
 // The SPARQL search is intentionally recall-heavy: missing dates can refer to
 // retired, women's, youth, or even incorrectly attributed player identities.
-// These buckets are research triage ONLY, never proof of 2026/27 eligibility.
+// Buckets are for review priority ONLY. All pending records remain storable,
+// regardless of date quality; none is automatically a playable answer.
 export function partitionSeasonCandidates(batch){
  if(!batch?.manifest?.snapshot_id || !Array.isArray(batch?.claims))throw Error('Bad season research batch');
  const dated=[],undated=[];
@@ -88,7 +89,10 @@ export function seasonStageSql(batch) {
  for(const c of batch.claims){
   if(!/^epl2627:[a-z0-9_:]+:[0-9a-f]{20}$/.test(c.claim_key)||c.evidence_type!=='wikidata_membership'||
     c.rights_basis!=='cc0'||c.review_status!=='pending'||c.appearances!==null||c.player_id!==null||
-    typeof c.raw_evidence?.from_literal!=='string'||!/^\d{4}-\d{2}-\d{2}T/.test(c.raw_evidence.from_literal))
+    !QID.test(c.external_player_id)||c.snapshot_id!=='epl_2026_27_prejan_20261104'||
+    !/^club_[a-z0-9_]+$/.test(c.club_id)||c.source_id!=='wikidata_cc0'||
+    c.raw_evidence?.source!=='Wikidata Query Service'||
+    typeof c.raw_evidence?.statement_uri!=='string')
    throw Error('Only unreviewed Wikidata membership claims can be imported');
  }
  const clean=batch.claims.map(c=>({
@@ -97,7 +101,8 @@ export function seasonStageSql(batch) {
   raw_evidence:c.raw_evidence,rights_basis:'cc0'
  }));
  const escaped=JSON.stringify(clean).replaceAll("'","''");
- return `-- Review only: no senior appearances asserted, no new scored trivia.
+ return `-- ALL Wikidata observations are preserved as pending research, even undated ones.
+-- No senior appearances asserted; no new scored trivia. The snapshot is the import context, not a claim that the player appeared in 2026/27.
 with incoming as (
  select * from jsonb_to_recordset('${escaped}'::jsonb) as i(
  claim_key text,snapshot_id text,club_id text,player_label text,external_player_id text,
