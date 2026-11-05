@@ -243,3 +243,8 @@ background:repeating-linear-gradient(180deg,#276e46 0,#276e46 43px,#205b3a 43px,
  .shot-scene .cin-call{animation:none!important;opacity:1}
  .shot-scene .cin-impact{animation:none!important}
 }
+
+.goal-test-head{font-weight:900;letter-spacing:1.3px;color:#9ac8a3;font-size:10px;margin:22px 0 10px}
+.goal-test-choices{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.goal-test-btn{padding:8px 10px;border-radius:7px;border:1px solid #477b5e;background:#183b2b;color:#f0f9ec;font-weight:700;font-size:11px;cursor:pointer}
+.goal-test-btn:hover,.goal-test-btn:focus-visible{border-color:#d6fc69;background:#275a3c}
