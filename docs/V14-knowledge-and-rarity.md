@@ -70,3 +70,17 @@ FOOTY already uses six fixed point values and tier names. Preserve their visuals
 Even all records from one Wikidata query are not exhaustive, and some are mislabeled. A result below the 250-row query cap is **not** a completeness certificate. In future, use paginated, well-scoped research imports and additional independent licensed appearance evidence, with source/competition labels, to establish the answer universe.
 
 The 2026/27 snapshot is a point-in-time research context. It is not a data license, historical career completion guarantee, or current competitive squad.
+
+## Engineering hardening and rarity aggregation — verified follow-up
+
+- `src/lib/rarity-aggregate.js` aggregates only server-accepted, server-verified, human Daily Mode submissions for **one exact question version**. It drops practice/bot/staff/unknown-answer entries, wrong versions, bad/future timestamps and repeated account-answer combinations. It returns *only aggregate counts*, not user IDs. A single account can contribute each distinct valid answer at most once per question version.
+- `tests/rarity-aggregate.test.js` covers exclusions, deduplication, no personal identifiers in outputs, blank-crowd provisional scoring, the 500-answer threshold, malformed dates, and version-specific frozen scores.
+- The denominator is **distinct valid account-answer selections**, not distinct users. The result reports both count of selections and count of participants; communicate the two metrics accurately.
+- The aggregation logic is a pure reviewed prototype. It must ingest **authenticated, server-recorded events** in a future backend before it has trustworthy observed crowd frequencies. Duplicate-account/Sybil protections and rate limits remain a production requirement.
+- `src/lib/answer-sets.js` now refuses appearance `asOf` dates or transfer-window end dates after the question's publish date. Reviewed evidence cannot leak future knowledge into an earlier daily challenge.
+- `src/lib/eligibility.js` defaults summer/winter arrival questions to `permanent`, `loan`, and `free` deals; `loan_return` and `unknown` require an explicitly different rule. **This does not on its own prove transfer completion**; a further independent completion/registration check is still required before publishing.
+- Automated GitHub check after these changes: **45 passing Node tests**, **0 failures**, **623 existing canonical-answer checks**. No database-to-website scoring connection was enabled.
+
+### Research automation boundary
+
+The GitHub workflow `.github/workflows/epl-nightly-research.yml` rotates across one of the 20 verified PL clubs per day. It is **read-only**, does not have Supabase credentials, and preserves each artifact for 30 days. This avoids accidental publication but also means artifacts are *not automatically persisted to the long-term warehouse*. A separate authenticated, scoped and audited pending-only ingestion process remains future work. Scheduled execution itself must be observed after its first cron run; a valid workflow file is not proof that a schedule has executed.
