@@ -1,0 +1,20 @@
+{
+  "provider": "wikidata",
+  "verifiedOn": "2026-11-04",
+  "note": "Manually checked Wikidata person/club item identities. Unmapped QIDs remain unresolved; no name matching is permitted.",
+  "players": {
+    "Q45901": "player_thierry_henry",
+    "Q133556": "player_ashley_cole",
+    "Q43913": "player_arjen_robben",
+    "Q1255625": "player_samuel_eto_o"
+  },
+  "clubs": {
+    "Q9617": "club_arsenal",
+    "Q9616": "club_chelsea",
+    "Q7156": "club_barcelona",
+    "Q631": "club_inter_milan",
+    "Q8682": "club_real_madrid",
+    "Q15789": "club_bayern_munich",
+    "Q1422": "club_juventus"
+  }
+}
