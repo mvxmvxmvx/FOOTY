@@ -149,7 +149,7 @@ function renderDailyHome(){const date=todayUTC(),data=readDaily(),rec=data.recor
  $('startdaily').disabled=rec?.status==='complete';
  $('dailystatus').innerHTML=rec?.status==='complete'?`<strong>Today: ${Match.summaryFromResults(rec.results||[]).forGoals}–${Match.summaryFromResults(rec.results||[]).againstGoals} · ${Match.summaryFromResults(rec.results||[]).rating.toFixed(1)}/10</strong> · Tomorrow's lineup unlocks at 00:00 UTC.`:rec?.status==='active'?`Daily in progress · Round ${Math.min(7,(rec.results?.length||0)+1)} of 7. Your attempt is saved.`:'Finish today’s seven rounds to extend your streak.';
 }
-function saveDaily(status){if(mode!=='daily'||!dailyKey)return;const data=readDaily();const rec={status,date:dailyKey,questionIds:deck.map(q=>q.id),results:results.map(r=>({...r})),score:total,cups:matchTrophies,updatedAt:Date.now(),roundDeadline:phase==='play'?roundDeadline:0,counterDeadline:phase==='counter'?counterDeadline:0};data.records[dailyKey]=rec;dailyRecord=rec;writeDaily(data)}
+function saveDaily(status){if(mode!=='daily'||!dailyKey)return;const data=readDaily();const rec={status,date:dailyKey,questionIds:deck.map(q=>q.id),results:results.map(r=>({...r})),score:total,cups:matchTrophies,startedAt:matchStartedAt||new Date().toISOString(),updatedAt:Date.now(),roundDeadline:phase==='play'?roundDeadline:0,counterDeadline:phase==='counter'?counterDeadline:0};data.records[dailyKey]=rec;dailyRecord=rec;writeDaily(data)}
 function beginDaily(){const date=todayUTC(),data=readDaily(),rec=data.records[date];if(rec?.status==='complete'){renderDailyHome();return}
  clearInterval(ticker);clearCounter();clearReveals();mode='daily';dailyKey=date;matchStartedAt=rec?.startedAt||new Date().toISOString();
  deck=rec?.questionIds?.length===7?rec.questionIds.map(id=>questions.find(q=>q.id===id)):dailyDeck(date);
@@ -280,8 +280,37 @@ function finish(a,verdict,matchInfo=null){
  showRoundReveal(a,verdict,matchInfo);
 }
 function advance(){if(phase!=='reveal')return;clearReveals();if(index===6){end();return}index++;load()}
+const PROFILE_STORE='footy_profile_v1';
+function readProfile(){
+ try{const p=JSON.parse(localStorage.getItem(PROFILE_STORE)||'{}');return p&&Array.isArray(p.matches)?p:{version:1,matches:[]}}
+ catch{return {version:1,matches:[]}}
+}
+function storeMatch(){
+ const profile=readProfile(),m=matchSummary(),knowledge=Experience.knowledge(results);
+ const id=mode==='daily'?'daily:'+dailyKey:'practice:'+String(matchStartedAt||new Date().toISOString());
+ if(profile.matches.some(match=>match.id===id))return true;
+ const timeline=Experience.timeline(results);
+ const history={
+  id,mode,startedAt:matchStartedAt||new Date().toISOString(),finishedAt:new Date().toISOString(),
+  date:dailyKey||todayUTC(),score:{for:m.forGoals,against:m.againstGoals},
+  rating:m.rating,knowledge:{grade:knowledge.grade,average:knowledge.average,rare:knowledge.rare,signatures:knowledge.signatures},
+  momentum:Experience.momentum(results),bestGoal:Goals.bestGoal(results)?.shot.key||null,
+  events:results.map((r,i)=>({
+   attack:i+1,questionId:r.questionId||deck[i]?.id||null,question:r.question,
+   answer:r.answer,rarity:Number(r.points)||0,shotStyle:r.event==='goal'?Goals.forPoints(r.points)?.key||null:null,
+   result:r.event,defense:r.counter?{...r.counter}:null,at:r.at||null,
+   momentumAfter:timeline[i]?.momentum??50
+  }))
+ };
+ profile.matches.unshift(history);profile.matches=profile.matches.slice(0,50);
+ try{localStorage.setItem(PROFILE_STORE,JSON.stringify(profile));return true}catch{return false}
+}
+function renderHistory(){
+ const recent=readProfile().matches.slice(0,5);
+ $('homehistory').innerHTML=recent.length?recent.map(match=>`<div class="history-row"><span>${escapeHTML(match.mode.toUpperCase())} · ${escapeHTML(match.date)}</span><strong>${match.score.for}–${match.score.against}</strong><span>${Number(match.rating).toFixed(1)} · ${escapeHTML(match.knowledge?.grade||'FOUNDATION')}</span></div>`).join(''):'No matches completed yet. Your last 50 matches will be kept on this device.';
+}
 function end(){
-  clearReveals();phase='end';if(mode==='daily')saveDaily('complete');show('end');
+  clearCounter();clearReveals();phase='end';if(mode==='daily')saveDaily('complete');show('end');
   const m=matchSummary();
   const best=Goals.bestGoal(results);
   const award=$('goalaward');award.classList.toggle('hidden',!best);
@@ -302,14 +331,21 @@ function end(){
    }
   }else{$('goalreplay').replaceChildren();$('goaltestchoices').replaceChildren();}
   $('finalscore').textContent=`${m.forGoals} – ${m.againstGoals}`;
-  $('finalperformance').textContent=`MATCH RATING ${m.rating.toFixed(1)} / 10.0`;
+  const knowledge=Experience.knowledge(results);
+  $('finalperformance').textContent=`${m.rating.toFixed(1)} / 10.0`;
+  $('finalknowledge').textContent=knowledge.grade;
+  $('finalmomentum').textContent=`FINAL MOMENTUM ${Experience.momentum(results)}% · ${knowledge.rare} RARE+ GOALS`;
+  const signatures=results.map((r,i)=>({r,i})).filter(x=>x.r.event==='goal'&&Number(x.r.points)>=85);
+  $('signaturemoments').classList.toggle('hidden',!signatures.length);
+  $('signaturemoments').textContent=signatures.length?`✦ SIGNATURE MOMENTS · ${signatures.map(x=>`Attack ${x.i+1}: ${x.r.answer} (${Goals.forPoints(x.r.points).name})`).join(' · ')}`:'';
 
   $('finaltitle').textContent=m.forGoals===7&&m.againstGoals===0?'7-NIL. PERFECT MATCH.':m.outcome==='win'?'FULL-TIME VICTORY!':m.outcome==='loss'?'THE OPPOSITION TAKE IT.':'FULL-TIME DRAW.';
   $('finaldesc').textContent=`You finished the seven-round ${mode==='daily'?'daily match':'friendly'} ${m.forGoals}–${m.againstGoals}. Your match rating is ${m.rating.toFixed(1)}/10.0.`;
-  $('resultrows').innerHTML=results.map((r,i)=>'<div class="resultrow"><span class="muted">'+(i+1)+'.</span><div>'+escapeHTML(r.answer)+'<div class="muted">'+escapeHTML(r.question)+'</div></div><b>'+(r.event==='goal'||Number(r.points)>0?'⚽ GOAL':'✕ MISSED')+'</b></div>').join('');
+  $('resultrows').innerHTML=results.map((r,i)=>'<div class="resultrow"><span class="muted">'+(i+1)+'.</span><div>'+escapeHTML(r.answer)+'<div class="muted">'+escapeHTML(r.question)+'</div></div><b>'+(r.event==='goal'?'⚽ '+escapeHTML(Goals.forPoints(r.points)?.name||'GOAL'):r.event==='conceded'?'🔴 COUNTER GOAL':'🛡 SAVE')+'</b></div>').join('');
   $('dailyresult').classList.toggle('hidden',mode!=='daily');
   if(mode==='daily'){const st=dailyStats(readDaily().records);$('dailyresult').innerHTML=`<strong>🔥 ${st.current}-DAY STREAK</strong> · BEST ${st.best} DAYS<br>Daily #${dailyKey} · ${m.forGoals}–${m.againstGoals} · ${m.rating.toFixed(1)}/10.0<br>You've completed today's challenge. Come back tomorrow after 00:00 UTC.`}
   $('again').textContent=mode==='daily'?'PLAY PRACTICE →':'RUN IT BACK ↗';
+  $('historysave').textContent=storeMatch()?'✓ Match events saved on this device for future highlights and profile gallery.':'Local storage unavailable — this match was not saved.';
 }
 function copyToClipboard(value,done){if(navigator.clipboard?.writeText){navigator.clipboard.writeText(value).then(done).catch(()=>{prompt('Copy this text:',value)})}else{prompt('Copy this text:',value)}}
 function reportMissing(){if(phase!=='play')return;
@@ -325,6 +361,6 @@ $('report').onclick=reportMissing;$('showanswers').onclick=toggleDatabase;
 $('share').onclick=()=>{const m=matchSummary();const text=`⚽ 7-NIL / FOOTY ${mode==='daily'?'DAILY '+dailyKey:'PRACTICE'}\n${m.forGoals}–${m.againstGoals} · ${m.rating.toFixed(1)}/10.0 MATCH RATING\n`+results.map((r,i)=>`${i+1} ${r.event==='goal'||Number(r.points)>0?'⚽':'✕'}`).join(' · ')+(mode==='daily'?`\n🔥 ${dailyStats(readDaily().records).current}-day streak`:'');copyToClipboard(text,()=>{$('share').textContent='COPIED ✓';setTimeout(()=>{$('share').textContent='COPY RESULT'},1300)})};
 // Read-only debug/sanity-check handle: useful for automated question-bank QA.
 $('dbversion').textContent=`${BANK.questions.length} question templates · ${BANK.facts.length} answer facts · DATABASE V13`;
-renderDailyHome();
-window.FOOTY_QA=Object.freeze({matchSummary:()=>matchSummary(),dailyDeck:date=>dailyDeck(date).map(q=>q.id),dailyStats:()=>dailyStats(readDaily().records),version:BANK.meta.version,questionCount:questions.length,factCount:BANK.facts.length,entityCount:BANK.entities.length,inspect:()=>questions.map(q=>({id:q.id,kind:q.kind,count:q.answers.length,answers:q.answers.map(a=>({name:a.name,points:a.points}))})),normalize,resolve:(id,value)=>{const q=questions.find(q=>q.id===id);if(!q)return {state:'no-question'};const r=resolveAnswer(q,value);return {state:r.state,answer:r.answer?.name,points:r.answer?.points,kind:r.kind,names:r.names}}});
+renderDailyHome();renderHistory();
+window.FOOTY_QA=Object.freeze({matchSummary:()=>matchSummary(),dailyDeck:date=>dailyDeck(date).map(q=>q.id),dailyStats:()=>dailyStats(readDaily().records),history:()=>readProfile().matches,momentum:()=>Experience.momentum(results),knowledge:()=>Experience.knowledge(results),version:BANK.meta.version,questionCount:questions.length,factCount:BANK.facts.length,entityCount:BANK.entities.length,inspect:()=>questions.map(q=>({id:q.id,kind:q.kind,count:q.answers.length,answers:q.answers.map(a=>({name:a.name,points:a.points}))})),normalize,resolve:(id,value)=>{const q=questions.find(q=>q.id===id);if(!q)return {state:'no-question'};const r=resolveAnswer(q,value);return {state:r.state,answer:r.answer?.name,points:r.answer?.points,kind:r.kind,names:r.names}}});
 })();
