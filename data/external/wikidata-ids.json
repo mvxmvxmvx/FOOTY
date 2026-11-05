@@ -1,7 +1,7 @@
 {
   "provider": "wikidata",
   "verifiedOn": "2026-11-04",
-  "note": "QID-based player and club identities; senior-club links confirmed by Wikidata item and an existing matching FOOTY entity. National/youth/reserve teams are never linked to a senior club here.",
+  "note": "Wikidata QIDs for 20 EPL 2026/27 clubs verified against direct club entity pages. Players and national/youth/reserve team categorization remain separate. QIDs do not prove any player appearance.",
   "players": {
     "Q45901": "player_thierry_henry",
     "Q133556": "player_ashley_cole",
@@ -20,7 +20,23 @@
     "Q2739": "club_roma",
     "Q19470": "club_derby_county",
     "Q1457": "club_sampdoria",
-    "Q5794": "club_everton"
+    "Q5794": "club_everton",
+    "Q19568": "club_afc_bournemouth",
+    "Q18711": "club_aston_villa",
+    "Q19571": "club_brentford",
+    "Q19453": "club_brighton_hove_albion",
+    "Q19580": "club_coventry_city",
+    "Q18708": "club_fulham",
+    "Q19477": "club_hull_city",
+    "Q9653": "club_ipswich_town",
+    "Q1128631": "club_leeds_united",
+    "Q1130849": "club_liverpool",
+    "Q50602": "club_manchester_city",
+    "Q18656": "club_manchester_united",
+    "Q18716": "club_newcastle_united",
+    "Q19490": "club_nottingham_forest",
+    "Q18739": "club_sunderland",
+    "Q18741": "club_tottenham_hotspur"
   },
   "nationalTeams": {
     "Q47774": "France men's national football team",
