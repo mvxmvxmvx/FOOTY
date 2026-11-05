@@ -1,0 +1,74 @@
+name: EPL 2026-27 nightly research archive
+
+# Read-only collection only: NO database credentials, writes or scored questions.
+on:
+  schedule:
+    - cron: '37 07 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: footy-wikidata-epl-nightly
+  cancel-in-progress: false
+
+jobs:
+  rotate-club:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test the research parser and existing curated game
+        run: |
+          npm test
+          npm run qa
+      - name: Choose the next Premier League club
+        id: select
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const manifest=JSON.parse(fs.readFileSync('data/seasons/epl-2026-27-prejanuary.json','utf8'));
+          if(manifest.clubs.length!==20 || manifest.clubs.some(x=>x.qidStatus!=='verified'||!x.wikidataQid)){
+           throw Error('Every club must have a reviewed QID before running the automatic sweep');
+          }
+          const epochDay=Math.floor(Date.now()/86_400_000);
+          const index=epochDay%manifest.clubs.length;
+          const chosen=manifest.clubs[index];
+          fs.appendFileSync(process.env.GITHUB_OUTPUT,'club_id='+chosen.id+'\n');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,'### FOOTY research club: '+chosen.name+'\n');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,'Collection context: '+manifest.asOf+' (not a current-squad assertion).\n');
+          console.log('Club '+(index+1)+'/20: '+chosen.name+' ('+chosen.id+')');
+          NODE
+      - name: Collect one club's membership candidate archive
+        id: research
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p data/staging/epl-2026-27
+          node scripts/research-epl-2026-27.js --mode=discover_players --club="${{ steps.select.outputs.club_id }}" --out=data/staging/epl-2026-27 2>&1 | tee data/staging/epl-2026-27/nightly.log
+      - name: Document the outcome
+        if: always()
+        shell: bash
+        run: |
+          echo '### Export result' >> "$GITHUB_STEP_SUMMARY"
+          if [[ -f data/staging/epl-2026-27/nightly.log ]]; then
+            echo '\`\`\`text' >> "$GITHUB_STEP_SUMMARY"
+            tail -35 data/staging/epl-2026-27/nightly.log >> "$GITHUB_STEP_SUMMARY"
+            echo '\`\`\`' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Research did not reach the export step; inspect the job logs.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo 'No database changes were attempted. All Wikidata statements remain research-only.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve candidate data, review buckets and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: footy-epl-${{ steps.select.outputs.club_id }}-${{ github.run_id }}
+          path: data/staging/epl-2026-27/
+          if-no-files-found: warn
+          retention-days: 30
