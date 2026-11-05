@@ -57,3 +57,10 @@ test('seven missed attacks with saves can finish 0-0',()=>{
  assert.equal(game.againstGoals,0);
  assert.equal(game.outcome,'draw');
 });
+
+test('distinct outcome classifications never render counter as own missed shot',()=>{
+ assert.equal(X.outcomeKind({event:'goal',points:85}),'goal');
+ assert.equal(X.outcomeKind({event:'neutral',counter:{outcome:'saved'}}),'saved');
+ assert.equal(X.outcomeKind({event:'conceded',counter:{outcome:'conceded'}}),'conceded');
+ assert.equal(X.outcomeKind({event:'neutral',counter:{outcome:'pending'}}),'pending');
+});
