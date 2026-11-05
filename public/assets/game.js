@@ -99,12 +99,16 @@ function buildQuestion(q){
   return {...q,answers,lookup};
 }
 const questions=BANK.questions.map(buildQuestion);
+const Match=globalThis.FOOTY_MATCH;
+if(!Match)throw Error('Match engine failed to load');
 const $=id=>document.getElementById(id);
 const tiers={100:{name:'ONE IN A MILLION',color:'#f3c969',icon:'👑',flavor:'Ridiculous shout. That is football hipster heritage.'},85:{name:'DEEP CUT',color:'#d39bff',icon:'✦',flavor:'Serious ball knowledge. Very few are pulling that.'},60:{name:'RARE',color:'#77b9ff',icon:'✷',flavor:'Lovely shout. Strong knowledge, nice imagination.'},30:{name:'SOLID SHOUT',color:'#8ae6b3',icon:'✹',flavor:'Good answer. You know your stuff.'},15:{name:'TECHNICALLY...',color:'#e0e8dc',icon:'•',flavor:'Correct enough. Not exactly setting the place alight.'},10:{name:'OBVIOUS!',color:'#b9c4b8',icon:'•',flavor:'Textbook. Everyone had that one.'}};
 const revealFx={100:{burst:52,rings:5,beams:8,confetti:28,minDist:110,maxDist:280,minSize:8,maxSize:20},85:{burst:24,rings:3,beams:4,confetti:0,minDist:80,maxDist:210,minSize:8,maxSize:16},60:{burst:18,rings:2,beams:3,confetti:0,minDist:70,maxDist:185,minSize:7,maxSize:14},30:{burst:12,rings:2,beams:1,confetti:0,minDist:60,maxDist:150,minSize:6,maxSize:12},15:{burst:8,rings:1,beams:0,confetti:0,minDist:44,maxDist:110,minSize:5,maxSize:10},10:{burst:5,rings:1,beams:0,confetti:0,minDist:34,maxDist:80,minSize:5,maxSize:9}};
 const levels=[['LEGEND',600],['WORLD CLASS',480],['ELITE',360],['STARTER',230],['PROSPECT',100],['TOUCHLINE',0]];
 let deck=[],index=0,total=0,results=[],remaining=25,lastTick=0,ticker=null,phase='home',locked=false,mode='practice',dailyKey=null,dailyRecord=null,roundDeadline=0;
 const TROPHY_KEY='footy_deep_cuts_trophy_v1';
+function matchSummary(){return Match.summaryFromResults(results)}
+function renderScoreboard(){const m=matchSummary();$('goalsfor').textContent=m.forGoals;$('goalsagainst').textContent=m.againstGoals;const board=$('matchscoreboard');board.setAttribute('aria-label',`Your club ${m.forGoals}, opposition ${m.againstGoals}`);board.classList.toggle('perfect',m.forGoals===7&&m.againstGoals===0)}
 let trophyCount=0,matchTrophies=0,revealTimers=[],spinInterval=null;
 try{trophyCount=Math.max(0,parseInt(localStorage.getItem(TROPHY_KEY)||'0',10)||0)}catch(e){}
 function updateCupUI(){for(const id of ['cabinetcount','homecupcount']){const node=document.getElementById(id);if(node)node.textContent=trophyCount}}
@@ -131,7 +135,7 @@ function renderDailyHome(){const date=todayUTC(),data=readDaily(),rec=data.recor
  $('dailydate').textContent=date+' UTC';$('dailycurrent').textContent=stats.current;$('dailybest').textContent=stats.best;$('dailytotal').textContent=stats.played;
  $('startdaily').textContent=rec?.status==='complete'?'DAILY COMPLETE ✓':rec?.status==='active'?'RESUME DAILY →':"PLAY TODAY'S DAILY →";
  $('startdaily').disabled=rec?.status==='complete';
- $('dailystatus').innerHTML=rec?.status==='complete'?`<strong>Today: ${Number(rec.score)||0}/700 points</strong> · Tomorrow's lineup unlocks at 00:00 UTC.`:rec?.status==='active'?`Daily in progress · Round ${Math.min(7,(rec.results?.length||0)+1)} of 7. Your attempt is saved.`:'Finish today’s seven rounds to extend your streak.';
+ $('dailystatus').innerHTML=rec?.status==='complete'?`<strong>Today: ${Match.summaryFromResults(rec.results||[]).forGoals}–${Match.summaryFromResults(rec.results||[]).againstGoals} · ${Math.round((Number(rec.score)||0)/7)}/100</strong> · Tomorrow's lineup unlocks at 00:00 UTC.`:rec?.status==='active'?`Daily in progress · Round ${Math.min(7,(rec.results?.length||0)+1)} of 7. Your attempt is saved.`:'Finish today’s seven rounds to extend your streak.';
 }
 function saveDaily(status){if(mode!=='daily'||!dailyKey)return;const data=readDaily();const rec={status,date:dailyKey,questionIds:deck.map(q=>q.id),results:results.map(r=>({...r})),score:total,cups:matchTrophies,updatedAt:Date.now(),roundDeadline:phase==='play'?roundDeadline:0};data.records[dailyKey]=rec;dailyRecord=rec;writeDaily(data)}
 function beginDaily(){const date=todayUTC(),data=readDaily(),rec=data.records[date];if(rec?.status==='complete'){renderDailyHome();return}
@@ -156,13 +160,13 @@ function load(existingDeadline=null){
   clearReveals();locked=false;phase='play';$('questionview').classList.remove('hidden');$('reveal').classList.add('hidden');
   let q=deck[index];$('round').textContent=`ROUND ${String(index+1).padStart(2,'0')} / 07`;
   $('roundpips').innerHTML=Array.from({length:7},(_,i)=>`<span class="pip ${i<index?'done':i===index?'current':''}"></span>`).join('');
-  $('score').textContent=`${String(total).padStart(3,'0')} PTS`;
+  $('score').textContent=`${Math.round(total/7)} / 100 RATING`;renderScoreboard();
   $('category').textContent=q.category;$('question').textContent=q.prompt;
   $('hint').textContent=q.hint+' · '+q.answers.length+' applicable answers';
   $('answer').value='';$('error').textContent='';$('answer').classList.remove('invalid');
   $('report').classList.add('hidden');$('reportstatus').textContent='';$('answer').disabled=false;
   $('clock').textContent='25';$('timerfill').style.width='100%';roundDeadline=(mode==='daily'&&existingDeadline)?existingDeadline:Date.now()+25000;remaining=Math.max(0,(roundDeadline-Date.now())/1000);
-  $('matchlabel').textContent=mode==='daily'?'DAILY FOOTY · OFFICIAL MATCHDAY':'PRACTICE · FOOTBALL RARITY CHALLENGE';$('matchdate').textContent=mode==='daily'?dailyKey+' UTC':'⚽ PRACTICE MODE';
+  $('matchlabel').textContent=mode==='daily'?'7-NIL · OFFICIAL DAILY MATCH':'7-NIL · PRACTICE FRIENDLY';$('matchdate').textContent=mode==='daily'?dailyKey+' UTC':'⚽ PRACTICE MODE';
   lastTick=performance.now();$('answer').focus();clearInterval(ticker);ticker=setInterval(tick,100);if(mode==='daily')saveDaily('active');tick();
 }
 function tick(){if(phase!=='play')return;const now=performance.now();remaining=mode==='daily'?Math.max(0,(roundDeadline-Date.now())/1000):Math.max(0,remaining-(now-lastTick)/1000);lastTick=now;
@@ -229,10 +233,10 @@ function finishRaritySpin(points){
 }
 function finish(a,verdict,matchInfo=null){
   if(locked)return;locked=true;phase='reveal';clearInterval(ticker);
-  const pts=a?.points||0;total+=pts;if(pts===100)awardCup();results.push({question:deck[index].prompt,answer:a?.name||'No answer',points:pts});if(mode==='daily')saveDaily('active');
+  const pts=a?.points||0;total+=pts;if(pts===100)awardCup();const event=a?'goal':'conceded';results.push({question:deck[index].prompt,answer:a?.name||'No answer',points:pts,event,verdict});renderScoreboard();if(mode==='daily')saveDaily('active');
   $('questionview').classList.add('hidden');$('reveal').classList.remove('hidden');$('verdict').textContent=verdict;
   const tier=tiers[pts];$('tier').textContent=tier?.name||'NO POINTS';$('tier').style.color=tier?.color||'var(--red)';
-  $('earned').textContent='+'+pts+' POINTS';$('revealanswer').textContent=a?'Your answer: '+a.name:'No accepted answer this round';
+  $('matchevent').textContent=a?'⚽ GOAL! +1 FOR YOUR CLUB':'🟥 GOAL CONCEDED · +1 OPPOSITION';$('earned').textContent='+'+pts+' EDITORIAL POINTS';$('revealanswer').textContent=a?'Your answer: '+a.name:'No accepted answer this round';
   $('matchnote').textContent=matchInfo?.kind==='autocorrect'?`✓ Autocorrected “${matchInfo.typed}” → “${a.name}”`:matchInfo?.kind==='exact'&&normalize(matchInfo.typed)!==normalize(a.name)?`✓ Matched “${matchInfo.typed}” to ${a.name}`:'';
   $('tierflavor').textContent=tier?.flavor||(pts?'Nice one.':'No points this round.');
   const deeper=deck[index].answers.filter(x=>x.points>=60&&x.id!==a?.id).sort((a,b)=>b.points-a.points).slice(0,3);
@@ -242,14 +246,19 @@ function finish(a,verdict,matchInfo=null){
   $('showanswers').textContent=`SHOW FULL ANSWER BANK (${deck[index].answers.length}) ↓`;drawLevels();startRaritySpin(pts);
 }
 function advance(){clearReveals();if(index===6){end();return}index++;load()}
-function end(){clearReveals();phase='end';if(mode==='daily')saveDaily('complete');show('end');$('finalscore').textContent=total+' / 700';$('endcups').textContent=`🏆 ${matchTrophies} CUP${matchTrophies===1?'':'S'} WON THIS MATCH · ${trophyCount} TOTAL`;updateCupUI();
-  $('finaltitle').textContent=total>=500?'BALL KNOWLEDGE: ELITE.':total>=330?'YOU KNOW BALL.':total>=180?'A SOLID SHIFT.':'BACK TO THE TRAINING GROUND.';
-  $('finaldesc').textContent=`You finished seven rounds with ${total} points. ${total>=500?'Proper football encyclopedia territory.':total>=330?'Respectable depth of football knowledge.':'There are plenty more deep cuts waiting in the next run.'}`;
-  $('resultrows').innerHTML=results.map((r,i)=>'<div class="resultrow"><span class="muted">'+(i+1)+'.</span><div>'+escapeHTML(r.answer)+'<div class="muted">'+escapeHTML(r.question)+'</div></div><b>+'+r.points+'</b></div>').join('');
+function end(){
+  clearReveals();phase='end';if(mode==='daily')saveDaily('complete');show('end');
+  const m=matchSummary();
+  $('finalscore').textContent=`${m.forGoals} – ${m.againstGoals}`;
+  $('finalperformance').textContent=`PERFORMANCE ${m.performance}/100 · ${m.points}/700 EDITORIAL PTS`;
+  $('endcups').textContent=`🏆 ${matchTrophies} CUP${matchTrophies===1?'':'S'} WON THIS MATCH · ${trophyCount} TOTAL`;updateCupUI();
+  $('finaltitle').textContent=m.forGoals===7&&m.againstGoals===0?'7-NIL. PERFECT MATCH.':m.outcome==='win'?'FULL-TIME VICTORY!':m.outcome==='loss'?'THE OPPOSITION TAKE IT.':'FULL-TIME DRAW.';
+  $('finaldesc').textContent=`You finished the seven-round ${mode==='daily'?'daily match':'friendly'} ${m.forGoals}–${m.againstGoals}. Your rarity rating is ${m.performance}/100. These are provisional editorial scores, not crowd rarity statistics.`;
+  $('resultrows').innerHTML=results.map((r,i)=>'<div class="resultrow"><span class="muted">'+(i+1)+'.</span><div>'+escapeHTML(r.answer)+'<div class="muted">'+escapeHTML(r.question)+'</div></div><b>'+(Number(r.points)>0?'⚽ +'+r.points:'🟥 CONCEDED')+'</b></div>').join('');
   $('dailyresult').classList.toggle('hidden',mode!=='daily');
-  if(mode==='daily'){const st=dailyStats(readDaily().records);$('dailyresult').innerHTML=`<strong>🔥 ${st.current}-DAY STREAK</strong> · BEST ${st.best} DAYS<br>Daily #${dailyKey} · ${total}/700 · ${matchTrophies} trophies<br>You've completed today's challenge. Come back tomorrow after 00:00 UTC.`}
+  if(mode==='daily'){const st=dailyStats(readDaily().records);$('dailyresult').innerHTML=`<strong>🔥 ${st.current}-DAY STREAK</strong> · BEST ${st.best} DAYS<br>Daily #${dailyKey} · ${m.forGoals}–${m.againstGoals} · ${m.performance}/100 · ${matchTrophies} trophies<br>You've completed today's challenge. Come back tomorrow after 00:00 UTC.`}
   $('again').textContent=mode==='daily'?'PLAY PRACTICE →':'RUN IT BACK ↗';
-} 
+}
 function copyToClipboard(value,done){if(navigator.clipboard?.writeText){navigator.clipboard.writeText(value).then(done).catch(()=>{prompt('Copy this text:',value)})}else{prompt('Copy this text:',value)}}
 function reportMissing(){if(phase!=='play')return;
  const report={game:'FOOTY Deep Cuts',databaseVersion:BANK.meta.version,asOf:BANK.meta.asOf,questionId:deck[index].id,question:deck[index].prompt,proposedAnswer:$('answer').value.trim(),note:'Player-proposed answer: NOT accepted or scored; independent evidence review required.'};
@@ -261,10 +270,10 @@ $('answerform').addEventListener('submit',e=>{e.preventDefault();submit()});$('s
 $('answer').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();submit()}});
 $('answer').addEventListener('input',()=>{$('error').textContent='';$('answer').classList.remove('invalid');$('report').classList.add('hidden');$('reportstatus').textContent='' });
 $('report').onclick=reportMissing;$('showanswers').onclick=toggleDatabase;
-$('share').onclick=()=>{const text=`⚽ FOOTY: DEEP CUTS ${mode==='daily'?'DAILY '+dailyKey:'PRACTICE'}\n${total}/700 points\n`+results.map(r=>`${r.points===100?'🟩':r.points>=60?'🟨':r.points>0?'⬜':'⬛'} ${r.points}`).join(' · ')+(mode==='daily'?`\n🔥 ${dailyStats(readDaily().records).current}-day streak`:'');
+$('share').onclick=()=>{const m=matchSummary();const text=`⚽ 7-NIL / FOOTY ${mode==='daily'?'DAILY '+dailyKey:'PRACTICE'}\n${m.forGoals}–${m.againstGoals} · ${m.performance}/100 RATING · ${m.points}/700 EDITORIAL\n`+results.map(r=>`${r.points===100?'🟩':r.points>=60?'🟨':r.points>0?'⬜':'⬛'} ${r.points}`).join(' · ')+(mode==='daily'?`\n🔥 ${dailyStats(readDaily().records).current}-day streak`:'');
  copyToClipboard(text,()=>{$('share').textContent='COPIED ✓';setTimeout(()=>{$('share').textContent='COPY RESULT'},1300)})};
 // Read-only debug/sanity-check handle: useful for automated question-bank QA.
 $('dbversion').textContent=`${BANK.questions.length} question templates · ${BANK.facts.length} answer facts · DATABASE V13`;
 renderDailyHome();
-window.FOOTY_QA=Object.freeze({dailyDeck:date=>dailyDeck(date).map(q=>q.id),dailyStats:()=>dailyStats(readDaily().records),version:BANK.meta.version,questionCount:questions.length,factCount:BANK.facts.length,entityCount:BANK.entities.length,inspect:()=>questions.map(q=>({id:q.id,kind:q.kind,count:q.answers.length,answers:q.answers.map(a=>({name:a.name,points:a.points}))})),normalize,resolve:(id,value)=>{const q=questions.find(q=>q.id===id);if(!q)return {state:'no-question'};const r=resolveAnswer(q,value);return {state:r.state,answer:r.answer?.name,points:r.answer?.points,kind:r.kind,names:r.names}}});
+window.FOOTY_QA=Object.freeze({matchSummary:()=>matchSummary(),dailyDeck:date=>dailyDeck(date).map(q=>q.id),dailyStats:()=>dailyStats(readDaily().records),version:BANK.meta.version,questionCount:questions.length,factCount:BANK.facts.length,entityCount:BANK.entities.length,inspect:()=>questions.map(q=>({id:q.id,kind:q.kind,count:q.answers.length,answers:q.answers.map(a=>({name:a.name,points:a.points}))})),normalize,resolve:(id,value)=>{const q=questions.find(q=>q.id===id);if(!q)return {state:'no-question'};const r=resolveAnswer(q,value);return {state:r.state,answer:r.answer?.name,points:r.answer?.points,kind:r.kind,names:r.names}}});
 })();
