@@ -47,7 +47,7 @@ We've opened a safe staging pipeline for Wikidata P54 club memberships.
 - A **read-only** Wikidata Action API exporter and parser are now version-controlled in `scripts/fetch-wikidata.js` and `src/lib/wikidata.js`. It preserves date precision, identifies loans, quarantines unresolved team identities, and generates private staging SQL.
 - A manual GitHub workflow, **Wikidata career research sample**, produces review artifacts without touching the live database.
 
-See [V14 research/import guide](docs/V14-wikidata-import.md) for the workflow, safety checks and example SQL. The exporter has not yet completed a verified live API harvest in GitHub Actions; until then, only the separately documented page-reviewed sample has been staged.
+See [V14 research/import guide](docs/V14-wikidata-import.md) for the workflow, safety checks and example SQL. The original four-player exporter has run successfully in GitHub Actions, and Wikidata P54 statements are now staged for review. The sampled claims are NOT verified senior appearances.
 
 **None of V14's crossover candidates are currently available as scored trivia questions.** We still need audited career coverage and API-backed gameplay before launch.
 
@@ -66,3 +66,13 @@ FOOTY now retains **all 182** Arsenal/Wikidata research observations, including 
 We have added **prototype** question-specific eligibility filtering (`src/lib/eligibility.js`) and a six-tier rarity model (`src/lib/rarity.js`). The proposed rarity scoring uses a prior, frozen question-version-specific player-choice rate when at least 500 valid responses exist. Until then, existing editorial points are explicitly provisional. **These modules are not yet connected to live scoring.**
 
 See [Evidence archive, answer eligibility and rarity design](docs/V14-knowledge-and-rarity.md).
+
+## V14 — Local preview, verified answer-set drafts and read-only overnight research
+
+- **Run locally:** `npm run dev` starts the V13 browser preview on `127.0.0.1:4173`. This explicitly opts into the development-only `/api/v1/bootstrap` response containing the curated answer bank. **Never deploy this development process behind a reverse proxy or expose it publicly.**
+- `npm start` does **not** enable the development-only answer-bank endpoint. The redundant `public/assets/bank.js` copy was removed. The full bank remains in `data/curated-bank.json` for the server.
+- `src/lib/answer-sets.js` materializes **draft** eligible answer sets only from reviewed evidence with a complete scope review and a frozen, question-version-matched rarity input. It does not enable new live questions.
+- The private global archive `footy.research_team_memberships` contains **182** Arsenal-source statements: **181 pending**, **1 rejected as a documented hoax**, with the original raw evidence retained. The 2026/27 season context must not be mistaken for a player appearance date.
+- A **daily read-only GitHub Actions research sweep** rotates one Premier League club per day. It uploads source candidates and diagnostic files for 30 days, but does not automatically import claims into Supabase or change scored answers.
+
+See [the verified November development handoff](docs/V14-development-session-2026-11-04.md) for exact work completed, remaining issues and the launch sequence.
