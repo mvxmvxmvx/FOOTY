@@ -2,7 +2,7 @@
 // Generates JSON and SQL review artifacts. Never writes to Supabase.
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {validateSnapshot,teamQidProposal,wdqsQuery,parseWdqsBatch,seasonStageSql} from '../src/lib/epl-season.js';
+import {validateSnapshot,teamQidProposal,wdqsQuery,parseWdqsBatch,partitionSeasonCandidates,seasonStageSql} from '../src/lib/epl-season.js';
 const flags=Object.fromEntries(process.argv.slice(2).filter(a=>a.startsWith('--')&&a.includes('=')).map(a=>a.slice(2).split(/=(.*)/s).slice(0,2)));
 const mode=flags.mode||'discover_teams';
 if(!['discover_teams','discover_players'].includes(mode))throw Error('Use --mode=discover_teams or --mode=discover_players');
@@ -41,11 +41,17 @@ if(mode==='discover_teams'){
  const response=await getJson(url,'application/sparql-results+json');
  const batch=parseWdqsBatch(response,club,config,limit);
  batch.manifest.generated_at=new Date().toISOString();
+ const partitions=partitionSeasonCandidates(batch);
  const dataFile=path.join(outputDir,club.id+'-candidates.json');
+ const reviewFile=path.join(outputDir,club.id+'-dated-review.json');
+ const quarantineFile=path.join(outputDir,club.id+'-undated-quarantine.json');
  const sqlFile=path.join(outputDir,club.id+'-stage.sql');
  await fs.writeFile(dataFile,JSON.stringify(batch,null,2)+'\n','utf8');
- await fs.writeFile(sqlFile,seasonStageSql(batch),'utf8');
+ await fs.writeFile(reviewFile,JSON.stringify({manifest:{...batch.manifest,...partitions.audit},claims:partitions.dated},null,2)+'\n','utf8');
+ await fs.writeFile(quarantineFile,JSON.stringify({manifest:{...batch.manifest,...partitions.audit},claims:partitions.undated},null,2)+'\n','utf8');
+ await fs.writeFile(sqlFile,seasonStageSql({claims:partitions.dated}),'utf8');
  console.log(JSON.stringify({mode,club:club.id,claims:batch.manifest.candidate_rows,
-  truncated:batch.manifest.possibly_truncated,files:[dataFile,sqlFile],
-  IMPORTANT:'Wikidata memberships are not proven appearances. SQL only stages pending claims; nothing has been uploaded.'},null,2));
+  dated_review:partitions.dated.length,quarantined_undated:partitions.undated.length,
+  truncated:batch.manifest.possibly_truncated,files:[dataFile,reviewFile,quarantineFile,sqlFile],
+  IMPORTANT:'P54 claims are NOT proven current senior appearances. Only date-qualified records produce pending staging SQL. No Supabase writes.'},null,2));
 }
