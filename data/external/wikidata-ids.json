@@ -1,7 +1,7 @@
 {
   "provider": "wikidata",
   "verifiedOn": "2026-11-04",
-  "note": "Manually checked Wikidata person/club item identities. Unmapped QIDs remain unresolved; no name matching is permitted.",
+  "note": "QID-based player and club identities; senior-club links confirmed by Wikidata item and an existing matching FOOTY entity. National/youth/reserve teams are never linked to a senior club here.",
   "players": {
     "Q45901": "player_thierry_henry",
     "Q133556": "player_ashley_cole",
@@ -15,7 +15,12 @@
     "Q631": "club_inter_milan",
     "Q8682": "club_real_madrid",
     "Q15789": "club_bayern_munich",
-    "Q1422": "club_juventus"
+    "Q1422": "club_juventus",
+    "Q19467": "club_crystal_palace",
+    "Q2739": "club_roma",
+    "Q19470": "club_derby_county",
+    "Q1457": "club_sampdoria",
+    "Q5794": "club_everton"
   },
   "nationalTeams": {
     "Q47774": "France men's national football team",
