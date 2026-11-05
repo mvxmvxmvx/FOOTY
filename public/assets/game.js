@@ -250,7 +250,7 @@ function renderOutcomeScene(kind,points){
 function showRoundReveal(a,verdict,matchInfo=null){
  phase='reveal';$('questionview').classList.add('hidden');$('counterview').classList.add('hidden');$('reveal').classList.remove('hidden');
  const latest=results.at(-1),m=matchSummary(),points=a?.points||0;
- const kind=a?'goal':latest.counter?.outcome==='saved'?'saved':'conceded';
+ const kind=Experience.outcomeKind(latest);
  $('revealboard').textContent=`YOUR CLUB ${m.forGoals} – ${m.againstGoals} OPPOSITION`;
  $('verdict').textContent=kind==='goal'?'YOUR ATTACK CONVERTED':kind==='saved'?'YOUR GOALKEEPER DELIVERS':'OPPOSITION SCORES ON THE BREAK';
  $('matchevent').textContent=kind==='goal'?'⚽ GOAL!':kind==='saved'?'🧤 WHAT A SAVE!':'🔴 COUNTERATTACK GOAL!';
