@@ -20,7 +20,7 @@ Previous temporary staging code rejected the undated observations from the gener
 - `src/lib/epl-season.js`'s `seasonStageSql` accepts **all 182** when they meet basic identity/provenance integrity checks; all are staged with `review_status='pending'`, `player_id=NULL`, `appearances=NULL`, `evidence_type='wikidata_membership'`.
 - The `partitionSeasonCandidates` dated/undated report remains **review triage only**. It is not a deletion filter. The `snapshot_id` is the *research collection context*, never an assertion that the person appeared in the 2026/27 Premier League.
 - The generated `club_arsenal-stage.sql` file stores the full list. Its pending observations cannot modify `footy.facts`, `footy.question_templates` or the current scoring engine.
-- The pre-existing GitHub Actions ZIP is intact; applying the pending SQL to Supabase is a distinct explicit action and must be verified. **Do not claim it has been imported unless the database confirms.**
+- **Imported and verified:** all 182 Arsenal P54 claims are staged in private Supabase as pending research (143 without start dates, zero confirmed senior appearances, zero new scored answers). The idempotent full import is versioned in [`scripts/stage-epl-2026-27-arsenal.sql`](../scripts/stage-epl-2026-27-arsenal.sql), from [GitHub run 41954990496](https://github.com/mvxmvxmvx/FOOTY/actions/runs/41954990496).
 
 In a later phase, move cross-season evidence into a canonical global evidence table, rather than treating a 2026/27 research snapshot as a footballer career.
 
