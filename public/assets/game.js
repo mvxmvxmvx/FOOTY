@@ -227,8 +227,16 @@ function end(){
    const preview=$('goalreplay');preview.replaceChildren($('shotscene').cloneNode(true));
    const clone=preview.firstElementChild;clone.removeAttribute('id');
    animateScene(clone,best.shot,true);
-   $('replaygoal').onclick=()=>animateScene(clone,best.shot,true);
-  }else{$('goalreplay').replaceChildren();}
+   $('replaygoal').onclick=()=>{ $('goalawardtitle').textContent=best.shot.name;animateScene(clone,best.shot,true); };
+   const lab=$('goaltestchoices');
+   lab.replaceChildren();
+   for(const style of Goals.styles){
+     const button=document.createElement('button');
+     button.type='button';button.className='goal-test-btn';button.textContent=style.name;
+     button.onclick=()=>{$('goalawardtitle').textContent=style.name+' · PREVIEW';animateScene(clone,style,true)};
+     lab.appendChild(button);
+   }
+  }else{$('goalreplay').replaceChildren();$('goaltestchoices').replaceChildren();}
   $('finalscore').textContent=`${m.forGoals} – ${m.againstGoals}`;
   $('finalperformance').textContent=`MATCH RATING ${m.rating.toFixed(1)} / 10.0`;
 
