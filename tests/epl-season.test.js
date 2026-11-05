@@ -44,7 +44,7 @@ test('a P54 membership is pending and never a senior appearance',()=>{
  const unverified={...config.clubs.find(c=>c.id==='club_leeds_united'),wikidataQid:null,qidStatus:'unmapped'};
  assert.throws(()=>parseWdqsBatch(fixture,unverified,config,3),/unverified team/);
 });
-test('undated historical memberships are quarantined, not staged as current',()=>{
+test('undated historical memberships are retained as unverified research',()=>{
  const batch=parseWdqsBatch({results:{bindings:[
   binding('Q45901','Q45901-ABCD','2025-07-01T00:00:00Z'),
   binding('Q99999999','Q99999999-ABCD'),
@@ -55,18 +55,22 @@ test('undated historical memberships are quarantined, not staged as current',()=
  assert.equal(partition.undated.length,1);
  assert.equal(partition.audit.pre_2018_start_candidates,1);
  assert.equal(partition.audit.current_season_appearances_verified,0);
- assert.throws(()=>seasonStageSql(batch),/Only unreviewed/);
- const sql=seasonStageSql({claims:partition.dated});
+ const sql=seasonStageSql(batch);
  assert.match(sql,/insert into footy.season_player_evidence/i);
- assert.doesNotMatch(sql,/Q99999999/);
+ assert.match(sql,/Q99999999/);
+ assert.match(sql,/Q45901/);
+ assert.match(sql,/evidence_type/i);
+ assert.match(sql,/pending/i);
+ assert.doesNotMatch(sql,/insert into footy.question_templates/i);
 });
 test('staging SQL never grants scored-game eligibility',()=>{
  const batch=parseWdqsBatch({results:{bindings:[binding('Q45901','Q45901-ABCD','2025-07-01T00:00:00Z')]}},arsenal,config);
- const sql=seasonStageSql({claims:partitionSeasonCandidates(batch).dated});
+ const sql=seasonStageSql(batch);
  assert.match(sql,/insert into footy.season_player_evidence/i);
  assert.match(sql,/join footy.season_club_participants/i);
  assert.doesNotMatch(sql,/insert into footy.facts/i);
  assert.doesNotMatch(sql,/insert into footy.question_templates/i);
  assert.match(sql,/null,null,i.source_id/);
+ assert.match(sql,/null,i.external_player_id/i);
  assert.throws(()=>seasonStageSql({claims:[{claim_key:'abc'}]}),/Only unreviewed/);
 });
