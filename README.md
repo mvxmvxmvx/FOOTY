@@ -36,3 +36,17 @@ This repository is the version-controlled development home. Public hosting, play
 See `data/curated-bank.json` for the seed, `public/index.html` for the playable preview, and `supabase/README.md` for database deployment notes.
 
 FOOTY is an independent fan project and is not affiliated with any football league or governing body.
+
+## V14 — External football history import (November 2026)
+
+We've opened a safe staging pipeline for Wikidata P54 club memberships.
+
+- **287** previously curated club-season observations are stored in `footy.player_club_spells` (pending coverage review).
+- **13** manually inspected external career claims across **four** players have been staged in `footy.external_career_claims` (all pending; none scores points).
+- **11** exact Wikidata QID-to-FOOTY entity links have been recorded, covering four players and seven clubs.
+- A **read-only** Wikidata Action API exporter and parser are now version-controlled in `scripts/fetch-wikidata.js` and `src/lib/wikidata.js`. It preserves date precision, identifies loans, quarantines unresolved team identities, and generates private staging SQL.
+- A manual GitHub workflow, **Wikidata career research sample**, produces review artifacts without touching the live database.
+
+See [V14 research/import guide](docs/V14-wikidata-import.md) for the workflow, safety checks and example SQL. The exporter has not yet completed a verified live API harvest in GitHub Actions; until then, only the separately documented page-reviewed sample has been staged.
+
+**None of V14's crossover candidates are currently available as scored trivia questions.** We still need audited career coverage and API-backed gameplay before launch.
