@@ -102,3 +102,15 @@ See [the verified November development handoff](docs/V14-development-session-202
 - **Goal of the Match (TEST)** selects the highest-tier verified goal of that match (first scored goal wins ties). At full time, replay it or preview all six finishing styles in the temporary animation test lab. Matches without goals have no award.
 - Rarity tiers are still editorial placeholders. They communicate presentation flair, **not statistical player rarity**. Do not mistake a visual effect for a verified popularity rate.
 - Full local/browser smoke testing is still required before merging the feature branch.
+
+## v0.1.15 — Match UX and gameplay (draft PR)
+
+The next gameplay sprint lives on `feature/v0.1.15-gameplay-ux`, branched from `feature/v0.1.14-match-engine`. See [the locked roadmap](docs/ROADMAP-v0.1.15.md) for scope, reviewed counterattack sources, manual QA and deferred features.
+
+- A seven-attack match now contains *defensive five-second counters* following a missed/skipped attack. A successful defense prevents an opponent goal; a failed or timed-out defense concedes. Misses reduce match rating regardless of the defense result; defensive outcomes do not add attacks or chain.
+- Each goal still counts as one. Curated answer rarity shifts the visual momentum indicator and determines goal flair and the separate Knowledge Grade; it does not alter match rating.
+- The match interface displays the momentum pitch at the bottom, while the full-time report shows both match and knowledge grades and notable answers.
+- Completed match events are saved locally in the player's browser (up to 50 matches, with IDs/answers/shot style/defense/momentum), ready for later gallery and video work.
+- The existing Daily question lineup remains fixed for everyone by UTC date; Practice remains randomized. Counter deadlines are saved for Daily attempts.
+
+To run: `npm test`, `npm run qa`, `npm run dev` then open `http://127.0.0.1:4173`. Do not merge without the visual QA checklist in the roadmap.

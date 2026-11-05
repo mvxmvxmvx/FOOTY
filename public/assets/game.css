@@ -248,3 +248,290 @@ background:repeating-linear-gradient(180deg,#276e46 0,#276e46 43px,#205b3a 43px,
 .goal-test-choices{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
 .goal-test-btn{padding:8px 10px;border-radius:7px;border:1px solid #477b5e;background:#183b2b;color:#f0f9ec;font-weight:700;font-size:11px;cursor:pointer}
 .goal-test-btn:hover,.goal-test-btn:focus-visible{border-color:#d6fc69;background:#275a3c}
+
+/* FOOTY 0.1.15 — match-first question layout, defensive phase and momentum */
+.gamegrid{align-items:start}
+.gamecard{position:relative}
+.gamehead{margin-top:13px}
+.momentum-panel{margin:16px 0 0;padding:17px 19px 14px;overflow:hidden}
+.momentum-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;font-size:11px;font-weight:900;letter-spacing:1.6px;color:#e6f8e8}
+.momentum-head strong{font-size:17px;letter-spacing:0;color:#d6fc69}
+.momentum-pitch{height:94px;position:relative;border:2px solid #b7e4bc;border-radius:6px;overflow:hidden;background:repeating-linear-gradient(90deg,#236e49 0,#236e49 12.5%,#1c6340 12.5%,#1c6340 25%)}
+.momentum-pitch:before{content:"";position:absolute;inset:8px;border:1px solid #b7e4bc}
+.momentum-center{position:absolute;height:100%;width:1px;background:#b7e4bc;left:50%}
+.momentum-center:after{content:"";position:absolute;width:36px;height:36px;border:1px solid #b7e4bc;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.momentum-box{position:absolute;width:14%;height:58%;border:1px solid #b7e4bc;top:21%}
+.momentum-box.left{left:0;border-left:0}
+.momentum-box.right{right:0;border-right:0}
+.momentum-ball{position:absolute;top:50%;font-size:20px;transform:translate(-50%,-50%);transition:left .5s ease-out;filter:drop-shadow(0 2px 3px #11251d)}
+.momentum-track{height:8px;background:#234638;border-radius:20px;overflow:hidden;margin-top:10px}
+.momentum-track div{height:100%;width:50%;background:#d6fc69;border-radius:20px;transition:width .5s ease-out}
+.momentum-foot{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:9px;color:#9cbaa6;font-size:9px;font-weight:800;letter-spacing:.4px}
+.momentum-foot span:nth-child(2){color:#d6fc69;text-align:center}
+.counter-card{padding:28px 24px;text-align:center;min-height:350px;background:radial-gradient(ellipse at top,#542b32,#14271d 64%);border-color:#b66960}
+.counter-eyebrow{font-size:12px;font-weight:900;letter-spacing:2px;color:#ffb0a9}
+.counter-clock{font:900 clamp(65px,11vw,105px)/1 Impact,'Barlow Condensed',sans-serif;color:#ffe1a3;margin:12px 0 5px}
+.counter-timer{height:8px;background:#523437;border-radius:50px;overflow:hidden;margin:0 auto 23px;max-width:360px}
+.counter-timer>div{width:100%;height:100%;background:#ffb0a9;transition:width .05s linear}
+.counter-card h2{font-size:clamp(20px,3vw,30px);line-height:1.3;max-width:590px;margin:0 auto 19px}
+.counter-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:530px;margin:auto}
+.counter-option{font-weight:900;font-size:14px;line-height:1.3;border:1px solid #9c7c74;border-radius:9px;padding:16px 9px;min-height:57px;background:#244237;color:#f2f4e8;cursor:pointer}
+.counter-option:hover,.counter-option:focus-visible{background:#365d4a;border-color:#d6fc69}
+.counter-help{color:#cdbfba;font-size:11px;margin:15px 0 0}
+.result-grades{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.result-grades>div{border:1px solid #477359;border-radius:12px;background:#143628;padding:17px 12px;display:flex;flex-direction:column;gap:9px;text-align:center}
+.result-grades small{font-size:10px;letter-spacing:1.2px;font-weight:900;color:#9dc3a8}
+.result-grades strong{font-size:clamp(20px,3vw,34px);line-height:1.1;color:#d6fc69;word-break:break-word}
+.final-momentum{text-align:center;color:#bad0bc;font-size:12px;margin:8px 0 16px;font-weight:800}
+.signature-moments{border:1px solid #957b52;background:#302b21;color:#ffe0a3;padding:14px;border-radius:10px;font-weight:800;font-size:12px;line-height:1.5;margin:12px 0}
+.result-subtitle{margin-top:22px;font-size:12px;letter-spacing:1.2px}
+.local-save-note{font-size:11px;color:#9db2a3;margin:12px 0}
+.home-history{margin:18px auto 0;max-width:1100px;padding:17px 19px}
+.home-history h3{font-size:12px;letter-spacing:1.4px;margin:0 0 13px}
+.home-history small{display:block;margin-top:9px;color:#9cb1a0;font-size:10px}
+.history-list{display:grid;gap:6px;font-size:12px}
+.history-row{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid #3b6048;border-radius:8px;padding:9px 12px;background:#152f23}
+.history-row strong{font-size:18px;color:#d6fc69}
+@media(max-width:600px){
+ .counter-card{padding:21px 13px}
+ .counter-options{gap:7px}
+ .counter-option{font-size:12px;padding:13px 5px}
+ .momentum-panel{padding:13px 10px}
+ .momentum-pitch{height:72px}
+ .momentum-foot{font-size:8px;letter-spacing:0}
+ .result-grades strong{font-size:22px}
+ .history-row{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.momentum-ball,.momentum-track div{transition:none}}
+
+/* v0.1.15 feedback pass — distinct defensive cinematics and clear momentum */
+.outcome-stage{position:relative;max-width:680px;margin:0 auto 12px;padding:11px;border:1px solid #517963;border-radius:14px;background:radial-gradient(circle at 50% 0%,#22563b,#0b251b 75%);overflow:hidden}
+.outcome-stage.outcome-saved{border-color:#64d7a3;background:radial-gradient(circle at 50% 0%,#1d5548,#10291f 78%)}
+.outcome-stage.outcome-conceded{border-color:#b65356;background:radial-gradient(circle at 50% 0%,#592f38,#17221e 78%)}
+.outcome-stage.outcome-signature{border-color:#e7c966;box-shadow:0 0 0 1px #d7b35b,0 0 30px #d2a94a24}
+.outcome-eyebrow{font-size:10px;font-weight:900;letter-spacing:2px;color:#cce7d5;text-align:center;margin:3px 0 10px}
+.outcome-saved .outcome-eyebrow{color:#b4f5d1}
+.outcome-conceded .outcome-eyebrow{color:#ffc0b9}
+.defense-scene{width:100%;overflow:hidden;border-radius:9px}
+.defense-scene.hidden,.shot-scene.hidden,.signature-overlay.hidden{display:none!important}
+.defense-stadium{height:254px;position:relative;overflow:hidden;background:linear-gradient(#102938 0%,#1d353b 27%,#184b3b 27%,#23633d 100%)}
+.defense-stadium:before{content:"";position:absolute;top:19%;left:0;width:100%;height:30px;background:repeating-linear-gradient(90deg,#f5edbd 0 5px,#425b58 5px 8px,#c3b6a4 8px 12px,#465b5d 12px 18px);opacity:.48}
+.defense-field{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 20%,#ffffff07 20% 40%)}
+.defense-field:before{content:"";position:absolute;left:10%;right:10%;bottom:-55px;height:160px;border:2px solid #e3f1d799;border-radius:50%}
+.defense-goal{position:absolute;top:46px;left:50%;width:190px;height:100px;transform:translateX(-50%);border:5px solid #f4fff1;border-radius:4px;background:repeating-linear-gradient(0deg,#ffffff34 0px 1px,transparent 1px 12px),repeating-linear-gradient(90deg,#ffffff38 0px 1px,transparent 1px 13px),#0b332d99;box-shadow:0 8px 18px #001c154f}
+.defense-goalline{position:absolute;bottom:0;left:0;right:0;border-bottom:2px solid #f8fff8}
+.defense-keeper{position:absolute;left:50%;top:108px;width:45px;height:83px;transform:translateX(-50%);z-index:3;transform-origin:center 65%}
+.keeper-head{position:absolute;top:0;left:13px;width:19px;height:19px;border-radius:50%;background:#e4b18c;box-shadow:0 -5px 0 #172c2e}
+.keeper-body{position:absolute;top:21px;left:7px;width:31px;height:42px;border-radius:10px 10px 5px 5px;border:2px solid #e8f5e3;background:#eac44c;box-shadow:-7px 39px 0 -2px #223e49,9px 39px 0 -2px #223e49}
+.keeper-hand{position:absolute;top:29px;width:12px;height:40px;border-radius:8px;border:3px solid #d1e5de;background:#e3b491}
+.keeper-hand.left{left:-11px;transform:rotate(16deg)}
+.keeper-hand.right{right:-11px;transform:rotate(-16deg)}
+.defense-ball{position:absolute;left:50%;top:223px;font-size:37px;z-index:5;transform:translate(-50%,0);filter:drop-shadow(0 4px 4px #071c15)}
+.defense-stop,.defense-score{position:absolute;top:38%;left:50%;transform:translate(-50%,0) scale(.65);font:900 clamp(43px,8vw,70px)/1 Impact,'Barlow Condensed',sans-serif;letter-spacing:2px;opacity:0;z-index:8;text-shadow:0 5px 0 #123025,0 0 25px #071a14}
+.defense-stop{color:#d6fc69}.defense-score{color:#ffb2a1}
+.defense-wave{position:absolute;top:53%;left:57%;border:3px solid #d7ff8a;border-radius:50%;width:35px;height:35px;opacity:0;z-index:7}
+.defense-scene.defense-saved.defense-playing .defense-ball{animation:defense-ball-saved 1.35s cubic-bezier(.2,.3,.32,1) both}
+.defense-scene.defense-conceded.defense-playing .defense-ball{animation:defense-ball-goal 1.3s cubic-bezier(.3,.1,.5,1) both}
+.defense-scene.defense-saved.defense-playing .defense-keeper{animation:defense-keeper-save 1.35s ease-out both}
+.defense-scene.defense-conceded.defense-playing .defense-keeper{animation:defense-keeper-beaten 1.3s ease-out both}
+.defense-scene.defense-saved.defense-playing .defense-stop{animation:defense-title .72s .9s both}
+.defense-scene.defense-conceded.defense-playing .defense-score{animation:defense-title .72s .87s both}
+.defense-scene.defense-saved.defense-playing .defense-wave{animation:defense-wave .45s .74s both}
+.defense-scene.defense-conceded.defense-playing .defense-goal{animation:cin-net-impact .5s .85s}
+@keyframes defense-ball-saved{0%{left:50%;top:223px;transform:translate(-50%,0) scale(1)}52%{left:58%;top:135px;transform:translate(-50%,0) scale(.76)}69%{left:60%;top:120px;transform:translate(-50%,0) scale(.67)}100%{left:64%;top:136px;transform:translate(-50%,0) scale(.67);opacity:.55}}
+@keyframes defense-ball-goal{0%{left:50%;top:223px;transform:translate(-50%,0) scale(1)}54%{left:36%;top:129px;transform:translate(-50%,0) scale(.76)}77%,100%{left:35%;top:77px;transform:translate(-50%,0) scale(.57)}}
+@keyframes defense-keeper-save{0%,28%{transform:translateX(-50%) rotate(0)}58%{transform:translate(10px,-21px) rotate(31deg)}76%,100%{transform:translate(27px,-23px) rotate(60deg)}}
+@keyframes defense-keeper-beaten{0%,24%{transform:translateX(-50%) rotate(0)}77%,100%{transform:translate(56px,0px) rotate(65deg)}}
+@keyframes defense-title{0%{opacity:0;transform:translate(-50%,18px) scale(.6)}60%{opacity:1;transform:translate(-50%,-7px) scale(1.1)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes defense-wave{0%{opacity:.8;transform:scale(.3)}100%{opacity:0;transform:scale(2.6)}}
+.signature-overlay{position:relative;margin-top:8px;min-height:145px;padding:20px 11px;background:radial-gradient(circle at center,#5e4228,#1b2720 74%);border:1px solid #d2aa58;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;text-align:center;overflow:hidden}
+.signature-overlay:before,.signature-overlay:after{content:"";position:absolute;inset:-50%;background:repeating-conic-gradient(from 0deg,transparent 0deg 22deg,#f5ca6340 22deg 25deg,transparent 25deg 45deg);animation:signature-rotate 12s linear infinite;pointer-events:none;opacity:.45}
+.signature-overlay:after{animation-direction:reverse;opacity:.25}
+.signature-overlay>*{position:relative;z-index:1}
+.signature-kicker{font-size:10px;color:#fbe6a0;font-weight:900;letter-spacing:2px}
+.signature-overlay strong{font:900 clamp(33px,7vw,58px)/1 Impact,'Barlow Condensed',sans-serif;color:#fff6cd;text-shadow:0 3px 0 #47341e,0 0 25px #f3c75e}
+.signature-overlay #signaturecaption{font-size:11px;letter-spacing:1.2px;color:#f7dba1;font-weight:900}
+.signature-crowd{font-size:18px;color:#fff2b8;letter-spacing:12px;animation:signature-pulse 1s ease-in-out infinite alternate}
+@keyframes signature-rotate{to{transform:rotate(360deg)}}
+@keyframes signature-pulse{to{transform:scale(1.17);opacity:.66}}
+.momentum-status{display:flex;flex-direction:column;gap:5px;margin:0 0 12px}
+.momentum-status strong{font-size:14px;color:#d6fc69;letter-spacing:1px}
+.momentum-status span{font-size:12px;line-height:1.5;color:#c7ddcb}
+.momentum-help{display:flex;flex-direction:column;gap:6px;margin-top:13px;padding-top:12px;border-top:1px solid #446853}
+.momentum-help span:first-child{font-size:11px;font-weight:900;color:#d6fc69}
+.momentum-help span:last-child{font-size:10px;line-height:1.5;color:#9fbca9}
+@media(prefers-reduced-motion:reduce){
+.defense-scene.defense-playing .defense-ball,.defense-scene.defense-playing .defense-keeper,.defense-scene.defense-playing .defense-stop,.defense-scene.defense-playing .defense-score,.defense-scene.defense-playing .defense-wave,.defense-scene.defense-playing .defense-goal,.signature-overlay:before,.signature-overlay:after,.signature-crowd{animation:none!important}
+.defense-saved .defense-keeper{transform:translate(27px,-23px) rotate(60deg)}
+.defense-conceded .defense-keeper{transform:translate(56px,0) rotate(65deg)}
+.defense-saved .defense-ball{left:64%;top:136px}
+.defense-conceded .defense-ball{left:35%;top:77px}
+.defense-saved .defense-stop,.defense-conceded .defense-score{opacity:1;transform:translate(-50%,0) scale(1)}
+}
+
+/* Practice-only Moment of Magic opportunity — mechanics before cinematic polish */
+.magic-offer{margin-bottom:12px;padding:clamp(22px,4vw,40px);background:radial-gradient(circle at top right,#55442a,#1d3528 58%,#10231b);border:1px solid #c6a45a;box-shadow:0 0 28px #d5a84912}
+.magic-eyebrow{font-size:12px;color:#f6d68a;font-weight:900;letter-spacing:2px;margin-bottom:14px}
+.magic-offer h2{font:900 clamp(30px,5vw,51px)/1.05 Impact,'Barlow Condensed',sans-serif;letter-spacing:1px;margin:0 0 14px;color:#f7e8ba}
+.magic-offer p{font-size:15px;line-height:1.6;color:#d2ddc9;max-width:660px}
+.magic-rule{display:flex;flex-direction:column;gap:9px;margin:22px 0;padding:17px 20px;border:1px solid #866f43;border-radius:12px;background:#2c3022}
+.magic-rule strong{font-size:13px;color:#d6fc69;letter-spacing:1px}
+.magic-rule span{font-size:13px;color:#d5d9c2;line-height:1.65}
+.magic-actions{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.magic-actions button{flex:1;min-width:190px}
+.magic-foot{font-size:11px;color:#aeb9a7;line-height:1.5}
+.magic-live{margin:15px 0;padding:10px 13px;border:1px solid #cda352;border-radius:7px;background:#372e1d;color:#f3d98e;font-size:12px;font-weight:900;letter-spacing:.6px;text-align:center}
+.magic-progress{padding:10px 12px;margin-bottom:12px;border-radius:7px;background:#203d2b;border:1px solid #537454;color:#d6fc69;font-size:11px;font-weight:800;line-height:1.4}
+.magic-round-status{margin:12px auto;padding:12px 16px;max-width:670px;border:1px solid #c8a45f;border-radius:9px;background:#393321;color:#ffe5a8;font-weight:900;font-size:13px;line-height:1.5;text-align:center}
+.magic-result{margin:17px 0;padding:16px 20px;border:1px solid #caa75b;border-radius:11px;background:linear-gradient(125deg,#3b3521,#1e3525);color:#ffe2a2;font-size:14px;font-weight:900;line-height:1.55}
+@media(max-width:600px){.magic-actions{flex-direction:column}.magic-actions button{min-width:0}.magic-offer{padding:22px 15px}}
+
+/* v0.1.15 Large (Refined) — actual playable layout, not a screenshot.
+   Desktop composition: stadium frame / centered scoreboard / compact challenge /
+   live rating / slim functional momentum bar. Mobile stacks gracefully.
+   Keep free-text verified answer entry; multiple choice remains counter-only. */
+:root{--refined-green:#b8ff59;--refined-line:#548b64}
+body{background:#06120f radial-gradient(ellipse at 50% 0%,#15372b 0%,#071713 68%,#050e0c 100%)}
+.wrap{max-width:1440px;padding:22px clamp(16px,2.8vw,42px) 42px}
+.top{position:relative;min-height:68px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin:0 0 16px;padding:8px 20px;background:linear-gradient(180deg,#061713ef,#06110ef4);border:1px solid #335c4a;border-radius:17px;box-shadow:0 10px 34px #0004}
+.nav-left{display:flex;align-items:center;gap:clamp(15px,2.2vw,34px);min-width:0}
+.top .brand-home{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.top .logo{font:900 28px/1 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.7px;color:#fff}
+.top .brand-icon{font-size:24px;filter:drop-shadow(0 0 6px #b8ff5940)}
+.primary-nav{display:flex;gap:clamp(8px,1.4vw,22px);align-items:center}
+.primary-nav button{appearance:none;border:0;background:transparent;color:#cfddd1;font:800 12px 'DM Sans',system-ui,sans-serif;padding:10px 3px;white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent}
+.primary-nav button:hover,.primary-nav button:focus-visible{color:var(--lime);border-color:var(--lime)}
+.top .masthead{font:900 clamp(27px,3.2vw,38px)/1 'Barlow Condensed',Impact,sans-serif;color:#fff;letter-spacing:.5px}
+.top .site-toplinks{justify-self:end;display:flex;align-items:center;gap:10px}
+.top .version-indicator{color:#91a999;font-size:10px;letter-spacing:1.1px;font-weight:800}
+.top .tag{font-size:10px;padding:8px 11px}
+#play{position:relative;isolation:isolate;padding:22px clamp(14px,4vw,46px) 21px;border:1px solid #426b57;border-radius:22px;overflow:hidden;background:
+ radial-gradient(ellipse at 50% 102%,#2d6c2e 0%,#18452d 21%,transparent 49%),
+ linear-gradient(175deg,#06151bec 0%,#091e23ec 28%,#11282bdb 44%,#0a2520d9 60%,#143721e8 100%);
+ box-shadow:0 25px 65px #0009,inset 0 0 35px #07120ca8}
+#play:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.74;background:
+ radial-gradient(ellipse at 8% 31%,#b2e5e947,transparent 17%),
+ radial-gradient(ellipse at 95% 29%,#b2e5e944,transparent 17%),
+ repeating-linear-gradient(172deg,transparent 0 47px,#8eb2a719 48px 49px,transparent 50px 73px),
+ linear-gradient(175deg,transparent 0% 37%,#192f37 37% 39%,#31465a 39% 40%,#142a39 40% 42%,transparent 44%),
+ radial-gradient(ellipse at 50% 95%,#4a84337d,transparent 48%)}
+#play:after{content:"";position:absolute;inset:auto 5% 8px;z-index:-1;height:18%;pointer-events:none;border-radius:100% 100% 0 0;border-top:1px solid #add8ac78;opacity:.7;background:repeating-linear-gradient(90deg,#0e421c55 0 45px,#2d652847 46px 90px)}
+#play .game-intro{margin:0 auto 10px;padding:0 3px 5px;max-width:1150px;font-size:10px;color:#bcd3bf}
+#play .gamegrid{display:grid;grid-template-columns:minmax(0,1fr) 160px;grid-template-rows:auto auto;align-items:start;gap:14px 18px;max-width:1150px;margin:auto}
+#play .match-hud{grid-column:1;grid-row:1;display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0;padding:4px 0 0}
+#play .match-hud .match-scoreboard{display:flex;align-items:center;justify-content:center;gap:clamp(25px,4.3vw,65px);margin:0;padding:4px 18px;border:0;border-radius:0;background:transparent;box-shadow:none}
+#play .match-scoreboard>div{display:flex;align-items:center;flex-direction:column;gap:2px;min-width:100px}
+#play .match-scoreboard small{font-size:11px;letter-spacing:1.2px;color:#eef5e7}
+#play .match-scoreboard strong{font:900 clamp(39px,4.6vw,62px)/.95 'Barlow Condensed',Impact,sans-serif;color:#fff}
+#play .match-scoreboard .match-separator{font:900 clamp(34px,4vw,58px)/.95 'Barlow Condensed',Impact,sans-serif;color:#f7faf6}
+#play .match-hud .gamehead{display:flex;justify-content:center;margin-top:0}
+#play .match-hud .round{min-width:162px;text-align:center;border:1px solid #6be968;border-radius:999px;padding:6px 19px;background:#063e24;color:#d8ffe1;font-size:11px;letter-spacing:1px}
+#play .match-hud #score{display:none}
+#play .match-hud .pips{display:flex;gap:5px;margin:0;align-items:center;justify-content:center}
+#play .match-hud .pip{height:6px;width:18px;border-radius:6px}
+#play .match-stage{grid-column:1;grid-row:2;min-width:0}
+#play .match-stage>.card{border-radius:18px;box-shadow:0 20px 40px #0010089c;min-height:0}
+#play .gamecard{padding:clamp(17px,2vw,27px) clamp(18px,3vw,38px) 16px;background:linear-gradient(135deg,#09241fe8,#061a16f2);border:1px solid #72c26b}
+#play .broadcast-label{display:flex;align-items:center;justify-content:space-between;margin:0 0 7px;padding:0 0 8px;background:none;border-bottom:1px solid #365c49;color:#b8d7bc;font-size:9px;letter-spacing:1.1px}
+#play .broadcast-label .edition{color:#8da995;font-size:9px}
+#play .timerbox{max-width:none;display:flex;align-items:center;gap:10px;margin:2px 0 12px}
+#play .timerbox .track{height:5px;background:#30523c}
+#play .timerbox .clock{font-size:23px;min-width:30px}
+#play .gamecard #category{margin:0;color:#b8ff59;font-size:10px;letter-spacing:1.7px}
+#play .gamecard .question{font:800 clamp(26px,3.1vw,42px)/1.13 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.25px;text-align:center;max-width:800px;margin:8px auto 10px;text-wrap:balance}
+#play .gamecard .hint{text-align:center;font-size:11px;min-height:0;color:#a4bfae}
+#play .gamecard .answerrow{margin-top:17px;gap:10px}
+#play .gamecard .answer{padding:13px 15px;font-size:15px;background:#061f18;border:1px solid #527d62;border-radius:9px}
+#play .gamecard .primary{padding:13px 20px;font-size:12px;white-space:nowrap}
+#play .gamecard .inputerror{font-size:11px;min-height:16px;margin-top:8px}
+#play .gamecard .answerhelp{font-size:10px;line-height:1.5;margin-top:1px}
+#play .gamecard .skip{margin-top:3px;font-size:11px}
+#play .sidebar{grid-column:2;grid-row:1 / span 2;padding:11px;border-radius:14px;min-width:0;min-height:0;background:#071d16dd;border:1px solid #6b9f63}
+#play .sidebar .side-rating{margin:0;padding:9px 4px 12px;align-items:center;text-align:center;gap:5px;background:transparent;border:0;border-bottom:1px solid #4c7658;border-radius:0}
+#play .sidebar .side-rating span,#play .sidebar .side-knowledge span{font-size:10px;letter-spacing:1px;font-weight:900;color:#c3d6c6}
+#play .sidebar .side-rating strong{font:900 47px/1 'Barlow Condensed',Impact,sans-serif;color:#caff8c}
+#play .sidebar .side-rating small{font-size:9px;color:#94bba1}
+#play .sidebar .side-knowledge{display:flex;flex-direction:column;align-items:center;gap:8px;padding:13px 4px 10px;text-align:center}
+#play .sidebar .side-knowledge strong{font:900 clamp(15px,1.7vw,23px)/1.1 'Barlow Condensed',Impact,sans-serif;word-break:break-word;color:#d6fc69}
+#play .sidebar .sidebar-extra{margin-top:8px;font-size:11px;color:#b9d2bc;border-top:1px solid #294e38;padding:9px 2px 1px}
+#play .sidebar .sidebar-extra summary{cursor:pointer;font-weight:900;letter-spacing:.5px;font-size:10px}
+#play .sidebar .sidebar-extra[open]{position:relative}
+#play .sidebar .match-log{margin:11px 0;max-height:135px;overflow:auto}
+#play .sidebar .sidebottom{font-size:10px;margin:10px 0 0;line-height:1.45}
+#play .reveal,#play .counter-card,#play .magic-offer{padding:clamp(18px,2.5vw,30px);min-height:285px}
+#play .counter-card h2{font-size:clamp(22px,3vw,30px)}
+#play .momentum-panel{display:grid;grid-template-columns:minmax(160px,1fr) minmax(180px,2fr);align-items:center;column-gap:24px;row-gap:8px;max-width:1150px;margin:14px auto 0;padding:13px 21px;border:1px solid #61a851;border-radius:14px;background:linear-gradient(100deg,#041b13ee,#062a1bdc);box-shadow:0 9px 22px #0006}
+#play .momentum-head{grid-column:1;grid-row:1;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0}
+#play .momentum-head>div{display:flex;flex-direction:column;gap:3px}
+#play .momentum-head span{font-size:11px;font-weight:900;letter-spacing:1px;color:#fff}
+#play .momentum-head #momentumstate{font-size:10px;font-weight:700;letter-spacing:0;color:#b8ff59}
+#play .momentum-head #momentumvalue{font:900 25px/1 'Barlow Condensed',Impact,sans-serif;color:#fff}
+#play .momentum-track{grid-column:2;grid-row:1;height:13px;margin:0;background:#244b3b;box-shadow:inset 0 1px 2px #0009}
+#play .momentum-track>div{background:linear-gradient(90deg,#69ea46,#caff80)}
+#play .magic-progress{grid-column:1 / -1;grid-row:2;padding:5px 0 0;margin:0;border:0;background:transparent;color:#cde29f;font-size:11px;font-weight:800}
+#play .momentum-details{grid-column:1 / -1;font-size:11px;color:#bacdbd}
+#play .momentum-details summary{display:inline-block;cursor:pointer;color:#92b6a1;text-decoration:underline;text-underline-offset:3px;list-style:none;font-size:10px;font-weight:800}
+#play .momentum-status,#play .momentum-pitch,#play .momentum-foot{display:none}
+#play .momentum-help{margin-top:7px;padding-top:8px;border-color:#41634a}
+#play .momentum-help span{font-size:11px}
+@media(min-width:1100px) and (min-height:760px){
+ #play{max-width:1260px;margin:auto;padding-top:26px;padding-bottom:24px}
+ #play .match-stage>.gamecard{min-height:298px}
+}
+@media(max-width:900px){
+ .wrap{padding:12px 14px 32px}
+ .top{padding:8px 12px;min-height:58px;gap:10px}
+ .top .masthead{font-size:27px}
+ .top .version-indicator{display:none}
+ #play{padding:18px 17px}
+ #play .gamegrid{grid-template-columns:minmax(0,1fr) 126px;gap:10px}
+ #play .match-scoreboard>div{min-width:85px}
+ #play .match-hud .match-scoreboard{gap:23px}
+ #play .sidebar{padding:6px}
+ #play .sidebar .side-rating strong{font-size:37px}
+ #play .sidebar .side-knowledge strong{font-size:17px}
+ #play .gamecard .question{font-size:clamp(24px,4vw,35px)}
+}
+@media(max-width:650px){
+ .top{grid-template-columns:1fr auto}
+ .top .masthead{display:none}
+ .top .logo{font-size:25px}
+ .top .brand-icon{font-size:20px}
+ .nav-left{gap:10px}
+ .primary-nav{gap:6px}
+ .primary-nav button{font-size:10px;padding:7px 2px}
+ .top .site-toplinks{display:none}
+ #play{padding:11px 10px 14px;border-radius:14px}
+ #play .game-intro{font-size:9px}
+ #play .gamegrid{grid-template-columns:minmax(0,1fr) 92px;gap:7px}
+ #play .match-hud .match-scoreboard{padding:0;gap:8px}
+ #play .match-scoreboard>div{min-width:56px}
+ #play .match-scoreboard strong{font-size:38px}
+ #play .match-scoreboard small{font-size:8px;letter-spacing:0}
+ #play .match-scoreboard .match-separator{font-size:30px}
+ #play .match-hud .round{min-width:0;font-size:9px;padding:4px 12px}
+ #play .match-stage>.card{border-radius:11px}
+ #play .gamecard{padding:12px}
+ #play .gamecard .question{font-size:clamp(23px,5vw,30px)}
+ #play .gamecard .answerrow{flex-direction:column}
+ #play .gamecard .answerrow button{width:100%}
+ #play .sidebar .side-rating span,#play .sidebar .side-knowledge span{font-size:8px}
+ #play .sidebar .side-rating strong{font-size:30px}
+ #play .sidebar .side-rating small{display:none}
+ #play .sidebar .side-knowledge strong{font-size:12px}
+ #play .sidebar .sidebar-extra summary{font-size:8px}
+ #play .momentum-panel{grid-template-columns:1fr;gap:10px;padding:12px}
+ #play .momentum-head{grid-column:1;grid-row:1}
+ #play .momentum-track{grid-column:1;grid-row:2}
+ #play .magic-progress{grid-column:1;grid-row:3}
+ #play .momentum-details{grid-column:1;grid-row:4}
+}
+@media(max-width:390px){
+ .primary-nav button{font-size:9px}
+ #play .gamegrid{grid-template-columns:minmax(0,1fr) 74px;gap:5px}
+ #play .gamecard{padding:10px}
+ #play .sidebar .side-rating strong{font-size:26px}
+ #play .sidebar .side-knowledge strong{font-size:11px}
+ #play .match-scoreboard strong{font-size:32px}
+ #play .match-scoreboard>div{min-width:49px}
+}

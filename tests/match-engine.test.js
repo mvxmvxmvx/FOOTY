@@ -45,6 +45,6 @@ test('seven binary rounds cannot end tied',()=>{
  }
 });
 test('reject invalid match records',()=>{
- assert.throws(()=>Match.summarize(Array(8).fill(null).map(goal)),RangeError);
- assert.throws(()=>Match.summarize([{event:'unknown'}]),TypeError);
+ assert.throws(()=>Match.summarize(Array(8).fill(null).map(goal)),{name:'RangeError',message:'Invalid match length'});
+ assert.throws(()=>Match.summarize([{event:'unknown'}]),{name:'TypeError',message:'Invalid match event'});
 });

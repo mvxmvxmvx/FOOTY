@@ -1,6 +1,6 @@
 /* FOOTY v0.1.14: seven-round match scoring, independent of editorial rarity.
  * Each correct verified answer = one goal. Timeouts/skips = missed attack
- * and one conceded goal. Starts at 6.0, perfect seven = 10.0.
+ * and a defensive counterattack. A failed defense concedes; a save does not. Starts at 6.0, perfect seven = 10.0.
  * Invalid guesses do not resolve a round. Old V13 daily saves remain readable.
  */
 (function(root){
@@ -16,7 +16,8 @@
    const events=results.map((r,i)=>{
      if(!r||!['goal','conceded','neutral'].includes(r.event))throw new TypeError('Invalid match event');
      if(r.event==='goal')forGoals++;
-     if(r.event==='conceded'){againstGoals++;missed++}
+     if(r.event==='conceded')againstGoals++;
+     if(r.event!=='goal')missed++
      return Object.freeze({round:i+1,event:r.event});
    });
    // Calculate from integer event counts to avoid cumulative rounding drift.
