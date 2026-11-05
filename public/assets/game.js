@@ -100,7 +100,8 @@ function buildQuestion(q){
 }
 const questions=BANK.questions.map(buildQuestion);
 const Match=globalThis.FOOTY_MATCH;
-if(!Match)throw Error('Match engine failed to load');
+const Goals=globalThis.FOOTY_GOALS;
+if(!Match||!Goals)throw Error('Match or goal cinematics engine failed to load');
 const $=id=>document.getElementById(id);
 let deck=[],index=0,total=0,results=[],remaining=25,lastTick=0,ticker=null,phase='home',locked=false,mode='practice',dailyKey=null,dailyRecord=null,roundDeadline=0;
 const TROPHY_KEY='footy_deep_cuts_trophy_v1';
@@ -184,13 +185,18 @@ function answerListHTML(q){return q.answers.slice().sort((a,b)=>b.points-a.point
   .map(a=>'<div class="db-row"><span>'+escapeHTML(a.name)+'</span></div>').join('')}
 function toggleDatabase(){const panel=$('fullanswers');const open=panel.classList.contains('hidden');panel.classList.toggle('hidden',!open);
   $('showanswers').textContent=open?'HIDE FULL ANSWER BANK ↑':`SHOW ACCEPTED ANSWERS (${deck[index].answers.length}) ↓`}
-function startShotAnimation(scored){
- const scene=$('shotscene');
+function animateScene(scene,style,scored){
  if(!scene)return;
  scene.className='shot-scene';
- // Flush to restart the keyframes reliably for consecutive rounds.
+ scene.querySelector('.cin-call').textContent=scored?(style?.call||'GOAL!'):'CHANCE MISSED';
  void scene.offsetWidth;
  scene.classList.add(scored?'goal':'miss');
+ if(scored&&style)scene.classList.add('finish-'+style.key);
+}
+function startShotAnimation(answer){
+ const style=answer?Goals.forPoints(answer.points):null;
+ $('shotdescription').textContent=style?`${style.name.toUpperCase()} · PROVISIONAL GOAL FLAIR`:'MISSED ATTACK';
+ animateScene($('shotscene'),style,Boolean(answer));
 }
 function finish(a,verdict,matchInfo=null){
   if(locked)return;locked=true;phase='reveal';clearInterval(ticker);
@@ -207,12 +213,22 @@ function finish(a,verdict,matchInfo=null){
   $('next').textContent=index===6?'FINAL WHISTLE →':'NEXT ATTACK →';
   $('fullanswers').classList.add('hidden');$('fullanswers').innerHTML=answerListHTML(deck[index]);
   $('showanswers').textContent=`SHOW ACCEPTED ANSWERS (${deck[index].answers.length}) ↓`;
-  startShotAnimation(Boolean(a));
+  startShotAnimation(a);
 }
 function advance(){clearReveals();if(index===6){end();return}index++;load()}
 function end(){
   clearReveals();phase='end';if(mode==='daily')saveDaily('complete');show('end');
   const m=matchSummary();
+  const best=Goals.bestGoal(results);
+  const award=$('goalaward');award.classList.toggle('hidden',!best);
+  if(best){
+   $('goalawardtitle').textContent=best.shot.name;
+   $('goalawardmeta').textContent=`Attack ${best.round} · ${best.answer} · Goal flair is based on provisional rarity, not a measured popularity percentage.`;
+   const preview=$('goalreplay');preview.replaceChildren($('shotscene').cloneNode(true));
+   const clone=preview.firstElementChild;clone.removeAttribute('id');
+   animateScene(clone,best.shot,true);
+   $('replaygoal').onclick=()=>animateScene(clone,best.shot,true);
+  }else{$('goalreplay').replaceChildren();}
   $('finalscore').textContent=`${m.forGoals} – ${m.againstGoals}`;
   $('finalperformance').textContent=`MATCH RATING ${m.rating.toFixed(1)} / 10.0`;
 
