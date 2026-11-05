@@ -108,6 +108,7 @@ const TROPHY_KEY='footy_deep_cuts_trophy_v1';
 function matchSummary(){return Match.summaryFromResults(results)}
 function renderScoreboard(){const m=matchSummary();$('goalsfor').textContent=m.forGoals;$('goalsagainst').textContent=m.againstGoals;const board=$('matchscoreboard');board.setAttribute('aria-label',`Your club ${m.forGoals}, opposition ${m.againstGoals}`);board.classList.toggle('perfect',m.forGoals===7&&m.againstGoals===0)}
 let matchTrophies=0,revealTimers=[],counterDeadline=0,counterTicker=null,activeCounter=null,matchStartedAt=null;
+let magicUsed=false,magicActive=false,magicQuestion=null;
 function clearCounter(){clearInterval(counterTicker);counterTicker=null;activeCounter=null;counterDeadline=0;}
 function clearReveals(){
  for(const timer of revealTimers)clearTimeout(timer);
@@ -127,6 +128,12 @@ function drawLevels(){
 function renderMomentum(){
  const momentum=Experience.momentum(results),last=Experience.timeline(results).at(-1);
  $('momentumvalue').textContent=momentum+'%';
+ const magicProgress=$('magicprogress');
+ if(mode==='daily')magicProgress.textContent='DAILY MATCH · The same seven questions for everyone; no special question swaps.';
+ else if(magicActive)magicProgress.textContent='✦ MOMENT OF MAGIC · This attack is your one special challenge.';
+ else if(magicUsed)magicProgress.textContent=results.some(r=>r.specialSuccess)?'✦ MOMENT OF MAGIC EARNED · Recorded in your match history.':'✦ SPECIAL OPPORTUNITY USED · One per Practice match.';
+ else if(results.length>=7)magicProgress.textContent='FULL TIME · Your match momentum is recorded.';
+ else magicProgress.textContent=momentum>=Experience.MAGIC_THRESHOLD?'✦ MOMENT OF MAGIC READY · Choose your special opportunity next.':`✦ ${Math.max(0,Experience.MAGIC_THRESHOLD-momentum)} MORE MOMENTUM TO UNLOCK A SPECIAL ATTACK (80)`;
  $('momentumfill').style.width=momentum+'%';
  $('momentumball').style.left=(6+momentum*.88)+'%';
  const state=momentum>=75?'YOU ARE DOMINATING':momentum>=58?'YOU HAVE THE INITIATIVE':momentum>=43?'EVEN MATCH':momentum>=25?'OPPOSITION PRESSING':'UNDER SERIOUS PRESSURE';
@@ -158,7 +165,7 @@ function renderDailyHome(){const date=todayUTC(),data=readDaily(),rec=data.recor
 }
 function saveDaily(status){if(mode!=='daily'||!dailyKey)return;const data=readDaily();const rec={status,date:dailyKey,questionIds:deck.map(q=>q.id),results:results.map(r=>({...r})),score:total,cups:matchTrophies,startedAt:matchStartedAt||new Date().toISOString(),updatedAt:Date.now(),roundDeadline:phase==='play'?roundDeadline:0,counterDeadline:phase==='counter'?counterDeadline:0};data.records[dailyKey]=rec;dailyRecord=rec;writeDaily(data)}
 function beginDaily(){const date=todayUTC(),data=readDaily(),rec=data.records[date];if(rec?.status==='complete'){renderDailyHome();return}
- clearInterval(ticker);clearCounter();clearReveals();mode='daily';dailyKey=date;matchStartedAt=rec?.startedAt||new Date().toISOString();
+ clearInterval(ticker);clearCounter();clearReveals();mode='daily';dailyKey=date;matchStartedAt=rec?.startedAt||new Date().toISOString();magicUsed=false;magicActive=false;magicQuestion=null;
  deck=rec?.questionIds?.length===7?rec.questionIds.map(id=>questions.find(q=>q.id===id)):dailyDeck(date);
  if(deck.some(q=>!q)){deck=dailyDeck(date)}
  results=Array.isArray(rec?.results)?rec.results.slice(0,7):[];
@@ -176,9 +183,25 @@ function balancedDeck(){
   const pick=(kind,n)=>shuffle(questions.filter(q=>q.kind===kind)).slice(0,n);
   return shuffle([...pick('classic',2),...pick('squad',2),...pick('europe',2),...pick('world',1)]);
 }
-function start(){mode='practice';dailyKey=null;dailyRecord=null;clearInterval(ticker);clearCounter();clearReveals();deck=balancedDeck();index=0;total=0;matchTrophies=0;results=[];matchStartedAt=new Date().toISOString();phase='play';show('play');drawLevels();load()}
-function load(existingDeadline=null){
-  clearReveals();clearCounter();locked=false;phase='play';$('questionview').classList.remove('hidden');$('counterview').classList.add('hidden');$('reveal').classList.add('hidden');
+function start(){mode='practice';dailyKey=null;dailyRecord=null;clearInterval(ticker);clearCounter();clearReveals();deck=balancedDeck();index=0;total=0;matchTrophies=0;results=[];magicUsed=false;magicActive=false;magicQuestion=null;matchStartedAt=new Date().toISOString();phase='play';show('play');drawLevels();load()}
+function offerMagic(){
+ const candidates=Experience.eligibleMagicQuestions(questions,deck);
+ if(!Experience.canOfferMagic(mode,results,magicUsed)||!candidates.length)return false;
+ magicQuestion=shuffle(candidates)[0];phase='magic';locked=true;
+ $('questionview').classList.add('hidden');$('counterview').classList.add('hidden');$('reveal').classList.add('hidden');$('magicview').classList.remove('hidden');
+ renderScoreboard();drawLevels();return true;
+}
+function chooseMagic(accept){
+ if(phase!=='magic')return;
+ if(accept&&magicQuestion){deck[index]=magicQuestion;magicActive=true}else magicActive=false;
+ magicQuestion=null;magicUsed=true;
+ load(null,true);
+}
+function load(existingDeadline=null,skipMagicOffer=false){
+ clearReveals();clearCounter();
+ if(!skipMagicOffer&&offerMagic())return;
+ locked=false;phase='play';$('magicview').classList.add('hidden');$('questionview').classList.remove('hidden');$('counterview').classList.add('hidden');$('reveal').classList.add('hidden');
+ $('magiclive').classList.toggle('hidden',!magicActive);
   let q=deck[index];$('round').textContent=`ATTACK ${String(index+1).padStart(2,'0')} / 07`;
   $('roundpips').innerHTML=Array.from({length:7},(_,i)=>`<span class="pip ${i<index?'done':i===index?'current':''}"></span>`).join('');
   $('score').textContent=`${matchSummary().rating.toFixed(1)} MATCH RATING`;renderScoreboard();drawLevels();
@@ -308,12 +331,13 @@ function finish(a,verdict,matchInfo=null){
  locked=true;clearInterval(ticker);
  const points=a?.points||0;total+=points;
  const entry={questionId:deck[index].id,question:deck[index].prompt,answer:a?.name||'No answer',points,event:a?'goal':'neutral',verdict,at:Date.now()};
+ if(magicActive){entry.special='moment-of-magic';entry.specialSuccess=!!a&&Experience.earnsMagicAccolade(entry.special,points);}
  if(!a){const defensive=Counters.forRound(deck[index].id,index+1);entry.counter={questionId:defensive.id,outcome:'pending',choice:null};}
  results.push(entry);renderScoreboard();drawLevels();
  if(!a){startCounter();return}
  showRoundReveal(a,verdict,matchInfo);
 }
-function advance(){if(phase!=='reveal')return;clearReveals();if(index===6){end();return}index++;load()}
+function advance(){if(phase!=='reveal')return;clearReveals();magicActive=false;if(index===6){end();return}index++;load()}
 const PROFILE_STORE='footy_profile_v1';
 function readProfile(){
  try{const p=JSON.parse(localStorage.getItem(PROFILE_STORE)||'{}');return p&&Array.isArray(p.matches)?p:{version:1,matches:[]}}
@@ -387,6 +411,7 @@ function reportMissing(){if(phase!=='play')return;
  if(!report.proposedAnswer)return;
  copyToClipboard(JSON.stringify(report,null,2),()=>{$('reportstatus').textContent='Report copied. Paste it into our chat for review; this offline game does not automatically send reports.'});
 }
+$('magicaccept').onclick=()=>chooseMagic(true);$('magicdecline').onclick=()=>chooseMagic(false);
 $('brandhome').onclick=home;$('start').onclick=start;$('startdaily').onclick=beginDaily;$('again').onclick=start;$('homebtn').onclick=home;$('next').onclick=advance;$('skip').onclick=()=>finish(null,'ROUND SKIPPED');
 $('answerform').addEventListener('submit',e=>{e.preventDefault();submit()});$('submitanswer').addEventListener('click',submit);
 $('answer').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();submit()}});
