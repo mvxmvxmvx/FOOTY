@@ -13,7 +13,8 @@ const binding=(player,statement,from=null,to=null)=>({
 });
 test('2026/27 snapshot has 20 distinct clubs and is fixed to Nov 4',()=>{
  assert.equal(validateSnapshot(config).clubs.length,20);
- assert.equal(config.clubs.find(c=>c.id==='club_coventry_city').wikidataQid,null);
+ assert.equal(config.clubs.find(c=>c.id==='club_coventry_city').wikidataQid,'Q19580');
+ assert.equal(config.clubs.filter(c=>c.qidStatus==='verified').length,20);
  assert.equal(config.phase,'pre_january');
  assert.throws(()=>validateSnapshot({...config,asOf:'2027-03-01'}),/Wrong snapshot/);
 });
@@ -40,7 +41,8 @@ test('a P54 membership is pending and never a senior appearance',()=>{
  assert.equal(claims[0].review_status,'pending');
  assert.equal(claims[0].evidence_type,'wikidata_membership');
  assert.equal(claims[0].raw_evidence.timestamp_precision,'unknown_not_inferred');
- assert.throws(()=>parseWdqsBatch(fixture,config.clubs.find(c=>c.id==='club_leeds_united'),config,3),/unverified team/);
+ const unverified={...config.clubs.find(c=>c.id==='club_leeds_united'),wikidataQid:null,qidStatus:'unmapped'};
+ assert.throws(()=>parseWdqsBatch(fixture,unverified,config,3),/unverified team/);
 });
 test('staging SQL never grants scored-game eligibility',()=>{
  const batch=parseWdqsBatch({results:{bindings:[binding('Q45901','Q45901-ABCD')]}},arsenal,config);
