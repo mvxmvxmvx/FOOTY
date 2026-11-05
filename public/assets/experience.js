@@ -4,6 +4,7 @@
  'use strict';
  const RARITY_MOMENTUM=Object.freeze({10:5,15:8,30:12,60:18,85:25,100:35});
  const START_MOMENTUM=50, MISS_MOMENTUM=-14;
+ const MAGIC_THRESHOLD=80, MAGIC_RARITY_MIN=60;
  function clamp(value){return Math.max(0,Math.min(100,value))}
  function momentumDelta(result){
   if(!result||result.event!=='goal')return MISS_MOMENTUM;
@@ -32,12 +33,20 @@
   if(result?.counter?.outcome==='conceded'||result?.event==='conceded')return 'conceded';
   return 'pending';
  }
+ function canOfferMagic(mode,results,used){
+  return mode==='practice'&&!used&&Array.isArray(results)&&results.length>0&&results.length<7&&momentum(results)>=MAGIC_THRESHOLD;
+ }
+ function eligibleMagicQuestions(all,deck){
+  const ids=new Set(deck.map(q=>q.id));
+  return all.filter(q=>!ids.has(q.id)&&(q.kind==='europe'||q.kind==='world')&&q.answers?.some(a=>Number(a.points)>=MAGIC_RARITY_MIN));
+ }
+ function earnsMagicAccolade(special,points){return special==='moment-of-magic'&&Number(points)>=MAGIC_RARITY_MIN}
  function resultEvent(result){
   if(result.event==='goal')return 'goal';
   if(result.counter?.outcome==='conceded'||result.event==='conceded')return 'conceded';
   return 'neutral';
  }
- const api=Object.freeze({RARITY_MOMENTUM,START_MOMENTUM,MISS_MOMENTUM,momentumDelta,timeline,momentum,knowledge,resultEvent,outcomeKind});
+ const api=Object.freeze({RARITY_MOMENTUM,START_MOMENTUM,MISS_MOMENTUM,momentumDelta,timeline,momentum,knowledge,resultEvent,outcomeKind,MAGIC_THRESHOLD,MAGIC_RARITY_MIN,canOfferMagic,eligibleMagicQuestions,earnsMagicAccolade});
  root.FOOTY_EXPERIENCE=api;
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
