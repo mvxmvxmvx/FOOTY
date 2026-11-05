@@ -1,0 +1,36 @@
+name: Deploy FOOTY friends beta to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'beta/**'
+      - '.github/workflows/deploy-footy-beta.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: footy-beta-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload isolated static beta (not the private research repo)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: beta
+      - name: Publish GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
