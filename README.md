@@ -58,3 +58,11 @@ See [V14 research/import guide](docs/V14-wikidata-import.md) for the workflow, s
 All 20 Premier League club Wikidata QIDs are verified and recorded. The workflow now targets review-only player–club membership candidates, with export logs preserved for troubleshooting. All research data stays in review, with no change to V13 scoring. We do **not** bulk-copy Premier League website squad lists because the site terms restrict database reuse.
 
 See [2026/27 season checkpoint](docs/V14-epl-2026-27.md) and [GitHub Actions research workflow](.github/workflows/epl-season-research.yml) for the next steps.
+
+## V14 — Evidence-first questions and rarity (November 2026)
+
+FOOTY now retains **all 182** Arsenal/Wikidata research observations, including **143 undated** historical claims. These are staged in private Supabase as `pending`; none proves 2026/27 first-team appearances or feeds the scored game. The complete idempotent import is versioned in [`scripts/stage-epl-2026-27-arsenal.sql`](scripts/stage-epl-2026-27-arsenal.sql).
+
+We have added **prototype** question-specific eligibility filtering (`src/lib/eligibility.js`) and a six-tier rarity model (`src/lib/rarity.js`). The proposed rarity scoring uses a prior, frozen question-version-specific player-choice rate when at least 500 valid responses exist. Until then, existing editorial points are explicitly provisional. **These modules are not yet connected to live scoring.**
+
+See [Evidence archive, answer eligibility and rarity design](docs/V14-knowledge-and-rarity.md).
