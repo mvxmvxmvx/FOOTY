@@ -5,12 +5,12 @@ on:
     inputs:
       mode:
         type: choice
-        description: "Discover verified club IDs (offline), or fetch player candidates (live Wikidata)"
+        description: "Fetch player candidates (recommended), or audit verified club IDs"
         required: true
-        default: discover_teams
+        default: discover_players
         options:
-          - discover_teams
           - discover_players
+          - discover_teams
       club_id:
         type: string
         description: "For discover_players, a mapped club ID (default Arsenal)"
