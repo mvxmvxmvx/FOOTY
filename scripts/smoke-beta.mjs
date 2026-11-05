@@ -4,8 +4,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const API='https://emcgyjlzxfpedxwlspfo.supabase.co/functions/v1/footy-beta';
-const PLAY='https://emcgyjlzxfpedxwlspfo.supabase.co/functions/v1/footy-play';
-const ORIGIN='https://emcgyjlzxfpedxwlspfo.supabase.co';
+const ORIGIN='https://mvxmvxmvx.github.io';
 const bank=JSON.parse(fs.readFileSync(new URL('../data/curated-bank.json',import.meta.url),'utf8'));
 const entities=new Map(bank.entities.map(e=>[e.id,e]));
 const relations=new Map();
@@ -22,17 +21,17 @@ async function call(payload){
   return data;
  }finally{clearTimeout(timer);}
 }
-const site=await fetch(PLAY,{signal:AbortSignal.timeout(12000)});
-assert.equal(site.status,200,'Supabase-hosted play page is unavailable');
-assert.match(site.headers.get('content-type')??'',/text\/html/i);
-const page=await site.text();
-assert.ok(page.includes('FOOTY')&&page.includes('KNOW BALL.'));
-assert.ok(page.includes('footy-beta')&&page.includes('guess-form'));
-assert.ok(!page.includes('SUPABASE_SERVICE_ROLE_KEY'));
 const started=await call({action:'start'});
 assert.equal(started.ok,true);
 assert.ok(typeof started.sessionId==='string'&&typeof started.token==='string');
 assert.equal(started.round.total,7);
+const forged=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json','Origin':ORIGIN},
+ body:JSON.stringify({action:'resume',sessionId:started.sessionId,token:'invalid-token'})});
+assert.equal(forged.status,401,'Forged token should not read guest session');
+const badOrigin=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json',
+ Origin:'https://untrusted.example'},body:'{"action":"start"}'});
+assert.equal(badOrigin.status,403,'Unknown browser origin should be blocked');
+
 assert.ok(!('answers' in started.round) && !('answers' in started));
 let round=started.round,score=0,accepted=0;
 for(let i=0;i<7;i++){
@@ -60,4 +59,4 @@ assert.equal(completed.done,true);
 assert.equal(completed.completed,7);
 assert.equal(completed.score,score);
 console.log(JSON.stringify({result:'PASS',completedRounds:7,verifiedAcceptedAnswers:accepted,
- badAnswersRejected:6,score,backend:'Supabase Edge Function',site:'Supabase-hosted public play page',answersLeaked:false}));
+ badAnswersRejected:6,score,backend:'Supabase Edge Function',site:'GitHub Pages client (pending activation)',answersLeaked:false}));
