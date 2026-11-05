@@ -95,7 +95,8 @@ join footy.external_entity_links p on p.provider='wikidata'
  and p.external_id=i.player_external_id and p.kind='player' and p.review_status='confirmed'
 left join footy.external_entity_links c on c.provider='wikidata'
  and c.external_id=i.club_external_id and c.kind='club' and c.review_status='confirmed'
-on conflict(claim_key) do nothing;
+on conflict(claim_key) do update
+ set raw_claim = coalesce(footy.external_career_claims.raw_claim, excluded.raw_claim);
 `;
 }
 export {qidFromSnak,timeQualifier,extractClaimRows,stagingSql};
