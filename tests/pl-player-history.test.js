@@ -51,3 +51,29 @@ test('incomplete historical seasons cannot silently enter the active bank',()=>{
  assert.ok(ids.has('q_pl_appear_1992_1993_manchester_united'));
  assert.equal(q.length,2,'only the two reviewed 1992/93 club pilots are scoreable');
 });
+
+const manUnited=JSON.parse(fs.readFileSync(new URL('../data/premier-league/player-seasons/1992-1993/manchester-united.json',import.meta.url),'utf8'));
+test('Manchester United 1992/93 complete 20-player appearance ledger matches 42 games',()=>{
+ assert.equal(manUnited.coverage.status,'reviewed_complete');
+ assert.equal(manUnited.players.length,20);
+ assert.equal(manUnited.players.reduce((n,p)=>n+p.starts,0),462);
+ assert.equal(manUnited.players.reduce((n,p)=>n+p.substituteAppearances,0),41);
+ assert.equal(manUnited.players.reduce((n,p)=>n+p.goals,0),66);
+ const q=compile(bank).find(q=>q.id==='q_pl_appear_1992_1993_manchester_united');
+ assert.ok(q);
+ assert.equal(q.answers.length,20);
+ for(const a of manUnited.players)assert.equal(verify(q,a.name).status,'accepted',a.name);
+ assert.equal(verify(q,'Nicky Butt').status,'accepted');
+ assert.equal(verify(q,'Danny Wallace').status,'accepted');
+ assert.equal(verify(q,'David Beckham').status,'not_applicable');
+});
+test('all two reviewed 1992/93 club-seasons persist source-traceable audited stats',()=>{
+ for(const manifestFile of [manifest,manUnited]){
+  const slug=manifestFile.clubId.replace(/^club_/,'');
+  const relation='pl_appear_1992_1993_'+slug;
+  const facts=bank.facts.filter(f=>f.relation===relation);
+  assert.equal(facts.length,manifestFile.players.length);
+  assert.deepEqual(facts.map(f=>f.entityId).sort(),manifestFile.players.map(p=>p.entityId).sort());
+  assert.ok(facts.every(f=>f.sources.length===2&&f.sources.every(id=>bank.sources[id]?.url)),relation);
+ }
+});
