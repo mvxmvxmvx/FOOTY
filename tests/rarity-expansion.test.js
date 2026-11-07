@@ -35,18 +35,23 @@ test('rarity summary picks highest accepted answer only, ties do not fabricate u
  assert.equal(x.legendary,1);
  assert.equal(x.best.answer,'C');
 });
-test('six Football Connections templates use reviewed relation intersections with >= 2 verified answers',()=>{
- const expected=['q_double_barca_2009_2011','q_double_bayern_2013_2020','q_pl_golden_boot_ballon_dor','q_won_euros_world_cup','q_bundesliga_european_double','q_seriea_european_double'];
- for(const id of expected){
-  const q=bank.questions.find(x=>x.id===id);
-  assert.ok(q,id);
-  assert.equal(q.confidence,'reviewed');
-  assert.equal(q.allOf.length,2);
-  assert.ok(q.sources.length>=2);
-  for(const source of q.sources)assert.ok(bank.sources[source],id+' missing source '+source);
-  const ids=[...relation.get(q.allOf[0]).keys()].filter(key=>q.allOf.every(rel=>relation.get(rel)?.has(key)));
-  assert.ok(ids.length>=2,id+' too few answers');
-  assert.ok(ids.every(x=>bank.entities.some(e=>e.id===x)),id+' missing verified entity');
+test('questions with fewer than eleven verified answers are archived, never playable',()=>{
+ const archive=JSON.parse(fs.readFileSync(new URL('../data/archived-questions-under-11.json',import.meta.url),'utf8'));
+ const active=new Set(bank.questions.map(q=>q.id));
+ assert.equal(archive.minimumPlayableAnswers,11);
+ assert.equal(archive.questions.length,14);
+ for(const q of archive.questions){
+  assert.equal(active.has(q.id),false,q.id+' must not play');
+  assert.ok(q.verifiedAnswerCount<11,q.id);
+  assert.ok(q.sources.every(key=>bank.sources[key]),q.id+' source missing');
  }
- assert.equal(bank.questions.length,91);
+ const expected=['q_double_barca_2009_2011','q_double_bayern_2013_2020','q_pl_golden_boot_ballon_dor','q_won_euros_world_cup','q_bundesliga_european_double','q_seriea_european_double'];
+ for(const id of expected)assert.ok(archive.questions.some(q=>q.id===id),id);
+ assert.equal(bank.questions.length,77);
+});
+test('every active question meets the verified 11-answer floor',()=>{
+ for(const q of bank.questions){
+  const ids=[...(relation.get(q.allOf[0])||new Map()).keys()].filter(id=>q.allOf.every(key=>relation.get(key)?.has(id)));
+  assert.ok(ids.length>=11,q.id+' has only '+ids.length+' verified answers');
+ }
 });
