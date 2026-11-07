@@ -535,3 +535,21 @@ body{background:#06120f radial-gradient(ellipse at 50% 0%,#15372b 0%,#071713 68%
  #play .match-scoreboard strong{font-size:32px}
  #play .match-scoreboard>div{min-width:49px}
 }
+
+/* v0.1.16 rarity dossier — editorial grades, never fabricated player percentages */
+.rarity-dossier{width:min(100%,620px);margin:16px auto 10px;padding:16px 18px;border:1px solid #b58b53;border-radius:12px;background:linear-gradient(115deg,#2e3326dd,#132b22ee);text-align:left;box-shadow:inset 0 1px 0 #ffffff19}
+.rarity-topline{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:1px;font-weight:900;color:#c9d6bf}
+.rarity-topline strong{font:900 clamp(17px,2.2vw,26px)/1 'Barlow Condensed',Impact,sans-serif;color:#f3ce83}
+.rarity-bar{height:9px;margin:13px 0 10px;background:#314437;border-radius:20px;overflow:hidden}
+.rarity-bar>div{height:100%;width:10%;background:linear-gradient(90deg,#a4c77b,#f0d685);transition:width .45s ease}
+.rarity-dossier[data-tier="85"] .rarity-bar>div,.rarity-dossier[data-tier="100"] .rarity-bar>div{background:linear-gradient(90deg,#dfb561,#ffefb5)}
+.rarity-data{display:flex;align-items:start;justify-content:space-between;flex-wrap:wrap;gap:7px;font-size:10px;line-height:1.4;letter-spacing:.35px}
+.rarity-data strong{color:#fff3cb}
+.rarity-data span{color:#bde1bf}
+.rarity-dossier p{margin:11px 0 0;color:#9fb4a5;font-size:10px;line-height:1.4}
+.rarity-spotlight{margin:14px auto;padding:18px 20px;max-width:780px;text-align:left;border:1px solid #b69955;border-radius:12px;background:linear-gradient(105deg,#35331f,#163225)}
+.rarity-spotlight strong{display:block;font:900 18px/1.2 'Barlow Condensed',Impact,sans-serif;letter-spacing:1px;color:#f8da8d}
+.rarity-spotlight>div{font-size:15px;font-weight:900;margin:9px 0 7px;color:#fff4dd}
+.rarity-spotlight small{display:block;font-size:11px;line-height:1.5;color:#a9c1ac}
+@media(max-width:650px){.rarity-dossier{padding:12px}.rarity-topline{flex-wrap:wrap}.rarity-topline strong{font-size:21px}.rarity-data{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.rarity-bar>div{transition:none}}
