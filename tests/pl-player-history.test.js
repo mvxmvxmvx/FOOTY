@@ -19,7 +19,7 @@ test('imported player-club season matches verified count and accepts fringe play
  const sourceBank=structuredClone(bank);
  sourceBank.questions=sourceBank.questions.filter(q=>q.id!==qid);
  sourceBank.facts=sourceBank.facts.filter(f=>f.relation!==relation);
- sourceBank.entities=sourceBank.entities.filter(e=>!manifest.players.some(p=>p.entityId===e.id)&&!bank.facts.some(f=>f.entityId===e.id&&f.relation!==relation));
+ sourceBank.entities=sourceBank.entities.filter(e=>!manifest.players.some(p=>p.entityId===e.id&&!bank.facts.some(f=>f.entityId===e.id&&f.relation!==relation)));
  const out=importClubSeason(sourceBank,manifest);
  assert.equal(out.summary.verifiedPlayerSeasons,29);
  assert.equal(out.summary.totalStarts,462);
