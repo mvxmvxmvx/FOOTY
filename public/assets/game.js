@@ -100,8 +100,8 @@ function buildQuestion(q){
 }
 const questions=BANK.questions.map(buildQuestion);
 const Match=globalThis.FOOTY_MATCH;
-const Goals=globalThis.FOOTY_GOALS,Experience=globalThis.FOOTY_EXPERIENCE,Counters=globalThis.FOOTY_COUNTERS;
-if(!Match||!Goals||!Experience||!Counters)throw Error('FOOTY gameplay modules failed to load');
+const Goals=globalThis.FOOTY_GOALS,Experience=globalThis.FOOTY_EXPERIENCE,Counters=globalThis.FOOTY_COUNTERS,Rarity=globalThis.FOOTY_RARITY;
+if(!Match||!Goals||!Experience||!Counters||!Rarity)throw Error('FOOTY gameplay modules failed to load');
 const $=id=>document.getElementById(id);
 let deck=[],index=0,total=0,results=[],remaining=25,lastTick=0,ticker=null,phase='home',locked=false,mode='practice',dailyKey=null,dailyRecord=null,roundDeadline=0;
 const TROPHY_KEY='footy_deep_cuts_trophy_v1';
@@ -282,6 +282,15 @@ function showRoundReveal(a,verdict,matchInfo=null){
  $('earned').textContent=`${m.rating>=ratingBefore?'+':''}${(m.rating-ratingBefore).toFixed(1)} RATING · ${m.rating.toFixed(1)} / 10.0`;
  $('earned').classList.toggle('negative',!a);
  $('revealanswer').textContent=kind==='goal'?'CORRECT · '+a.name:kind==='saved'?'DEFENSIVE ANSWER · '+(Counters.QUESTIONS.find(q=>q.id===latest.counter?.questionId)?.answer||'Correct'):'YOUR DEFENCE WAS BEATEN';
+ const rarityDetail=kind==='goal'?Rarity.compare(points,deck[index].answers):null;
+ $('raritydossier').classList.toggle('hidden',!rarityDetail);
+ if(rarityDetail){
+  $('raritytier').textContent=rarityDetail.tier.icon+' '+rarityDetail.tier.short;
+  $('rarityscore').textContent=rarityDetail.score+' / 100 · EDITORIAL RARITY GRADE';
+  $('raritypool').textContent=rarityDetail.asRareOrRarer+' OF '+rarityDetail.total+' VERIFIED ANSWERS RANK THIS RARE OR RARER';
+  $('raritybarfill').style.width=rarityDetail.score+'%';
+  $('raritydossier').dataset.tier=String(rarityDetail.tier.score);
+ }
  const shot=Goals.forPoints(points);
  $('matchnote').textContent=kind==='goal'?(`${shot?.name||'Goal'} · +${Experience.momentumDelta(latest)} momentum`)+(points>=85?' · SIGNATURE MOMENT':''):kind==='saved'?'The keeper denies the breakaway. No opposition goal.':'The opposition beat the keeper. One goal conceded.';
  if(a&&matchInfo?.kind==='autocorrect')$('matchnote').textContent+=` · Matched “${matchInfo.typed}” to ${a.name}`;
@@ -399,6 +408,16 @@ function end(){
   $('finalperformance').textContent=`${m.rating.toFixed(1)} / 10.0`;
   $('finalknowledge').textContent=knowledge.grade;
   $('finalmomentum').textContent=`FINAL MOMENTUM ${Experience.momentum(results)}% · ${knowledge.rare} RARE+ GOALS`;
+  const bestShout=results.map((r,i)=>({r,i})).filter(x=>x.r.event==='goal').sort((a,b)=>Number(b.r.points)-Number(a.r.points))[0];
+  $('rarityspotlight').classList.toggle('hidden',!bestShout);
+  if(bestShout){
+   const detail=Rarity.compare(bestShout.r.points,deck[bestShout.i]?.answers||[]);
+   $('rarityspotlight').replaceChildren();
+   const title=document.createElement('strong');title.textContent='✦ YOUR RAREST SHOUT · '+(detail?.tier.short||'VERIFIED');
+   const name=document.createElement('div');name.textContent=bestShout.r.answer+' · ATTACK '+(bestShout.i+1)+' · '+bestShout.r.points+'/100 EDITORIAL GRADE';
+   const context=document.createElement('small');context.textContent=detail?detail.asRareOrRarer+' of '+detail.total+' verified answers are this rare or rarer. This compares curated answers, not player response rates.':'Curated rarity, not a measured player response rate.';
+   $('rarityspotlight').append(title,name,context);
+  }
   const signatures=results.map((r,i)=>({r,i})).filter(x=>x.r.event==='goal'&&Number(x.r.points)>=85);
   $('signaturemoments').classList.toggle('hidden',!signatures.length);
   $('signaturemoments').textContent=signatures.length?`✦ SIGNATURE MOMENTS · ${signatures.map(x=>`Attack ${x.i+1}: ${x.r.answer} (${Goals.forPoints(x.r.points).name})`).join(' · ')}`:'';
@@ -408,7 +427,7 @@ function end(){
 
   $('finaltitle').textContent=m.forGoals===7&&m.againstGoals===0?'7-NIL. PERFECT MATCH.':m.outcome==='win'?'FULL-TIME VICTORY!':m.outcome==='loss'?'THE OPPOSITION TAKE IT.':'FULL-TIME DRAW.';
   $('finaldesc').textContent=`You finished the seven-round ${mode==='daily'?'daily match':'friendly'} ${m.forGoals}–${m.againstGoals}. Your match rating is ${m.rating.toFixed(1)}/10.0.`;
-  $('resultrows').innerHTML=results.map((r,i)=>'<div class="resultrow"><span class="muted">'+(i+1)+'.</span><div>'+escapeHTML(r.answer)+'<div class="muted">'+escapeHTML(r.question)+'</div></div><b>'+(r.event==='goal'?(r.specialSuccess?'✦ MAGIC · ':'⚽ ')+escapeHTML(Goals.forPoints(r.points)?.name||'GOAL'):r.event==='conceded'?'🔴 COUNTER GOAL':'🛡 SAVE')+'</b></div>').join('');
+  $('resultrows').innerHTML=results.map((r,i)=>'<div class="resultrow"><span class="muted">'+(i+1)+'.</span><div>'+escapeHTML(r.answer)+'<div class="muted">'+escapeHTML(r.question)+'</div></div><b>'+(r.event==='goal'?(r.specialSuccess?'✦ MAGIC · ':'⚽ ')+escapeHTML(Rarity.tier(r.points)?.short||'GOAL'):r.event==='conceded'?'🔴 COUNTER GOAL':'🛡 SAVE')+'</b></div>').join('');
   $('dailyresult').classList.toggle('hidden',mode!=='daily');
   if(mode==='daily'){const st=dailyStats(readDaily().records);$('dailyresult').innerHTML=`<strong>🔥 ${st.current}-DAY STREAK</strong> · BEST ${st.best} DAYS<br>Daily #${dailyKey} · ${m.forGoals}–${m.againstGoals} · ${m.rating.toFixed(1)}/10.0<br>You've completed today's challenge. Come back tomorrow after 00:00 UTC.`}
   $('again').textContent=mode==='daily'?'PLAY PRACTICE →':'RUN IT BACK ↗';
@@ -429,7 +448,7 @@ $('answerform').addEventListener('submit',e=>{e.preventDefault();submit()});$('s
 $('answer').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();submit()}});
 $('answer').addEventListener('input',()=>{$('error').textContent='';$('answer').classList.remove('invalid');$('report').classList.add('hidden');$('reportstatus').textContent='' });
 $('report').onclick=reportMissing;$('showanswers').onclick=toggleDatabase;
-$('share').onclick=()=>{const m=matchSummary();const text=`⚽ 7-NIL / FOOTY ${mode==='daily'?'DAILY '+dailyKey:'PRACTICE'}\n${m.forGoals}–${m.againstGoals} · ${m.rating.toFixed(1)}/10.0 MATCH RATING\n`+results.map((r,i)=>`${i+1} ${r.event==='goal'||Number(r.points)>0?'⚽':'✕'}`).join(' · ')+(mode==='daily'?`\n🔥 ${dailyStats(readDaily().records).current}-day streak`:'')+(results.some(r=>r.specialSuccess)?'\n✦ MOMENT OF MAGIC EARNED':'');copyToClipboard(text,()=>{$('share').textContent='COPIED ✓';setTimeout(()=>{$('share').textContent='COPY RESULT'},1300)})};
+$('share').onclick=()=>{const m=matchSummary();const rarest=Rarity.summary(results).best;const rareText=rarest?`\n✦ RAREST SHOUT: ${rarest.answer} · ${Rarity.tier(rarest.points).short} (${rarest.points}/100 editorial rarity)`:'';const text=`⚽ 7-NIL / FOOTY ${mode==='daily'?'DAILY '+dailyKey:'PRACTICE'}\n${m.forGoals}–${m.againstGoals} · ${m.rating.toFixed(1)}/10.0 MATCH RATING\n`+results.map((r,i)=>`${i+1} ${r.event==='goal'||Number(r.points)>0?'⚽':'✕'}`).join(' · ')+(mode==='daily'?`\n🔥 ${dailyStats(readDaily().records).current}-day streak`:'')+(results.some(r=>r.specialSuccess)?'\n✦ MOMENT OF MAGIC EARNED':'')+rareText;copyToClipboard(text,()=>{$('share').textContent='COPIED ✓';setTimeout(()=>{$('share').textContent='COPY RESULT'},1300)})};
 // Read-only debug/sanity-check handle: useful for automated question-bank QA.
 $('dbversion').textContent=`${BANK.questions.length} question templates · ${BANK.facts.length} answer facts · DATABASE V13`;
 renderDailyHome();renderHistory();
