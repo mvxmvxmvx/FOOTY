@@ -237,6 +237,16 @@
       "publisher": "FBref",
       "title": "1992/93 Arsenal Premier League appearances",
       "url": "https://fbref.com/en/squads/18bb7c10/1992-1993/c9/Arsenal-Stats-Premier-League"
+    },
+    "11v11_manutd_pl_1992_93": {
+      "publisher": "11v11",
+      "title": "1992/93 Manchester United Premier League appearances",
+      "url": "https://www.11v11.com/teams/manchester-united/tab/players/season/1993/comp/1/"
+    },
+    "fbref_manutd_pl_1992_93": {
+      "publisher": "FBref",
+      "title": "1992/93 Manchester United Premier League appearances",
+      "url": "https://fbref.com/en/squads/19538871/1992-1993/c9/Manchester-United-Stats-Premier-League"
     }
   },
   "entities": [
@@ -4466,6 +4476,96 @@
       "id": "player_ian_wright",
       "type": "player",
       "name": "Ian Wright",
+      "aliases": []
+    },
+    {
+      "id": "player_clayton_blackmore",
+      "type": "player",
+      "name": "Clayton Blackmore",
+      "aliases": []
+    },
+    {
+      "id": "player_steve_bruce",
+      "type": "player",
+      "name": "Steve Bruce",
+      "aliases": []
+    },
+    {
+      "id": "player_eric_cantona",
+      "type": "player",
+      "name": "Eric Cantona",
+      "aliases": []
+    },
+    {
+      "id": "player_darren_ferguson",
+      "type": "player",
+      "name": "Darren Ferguson",
+      "aliases": []
+    },
+    {
+      "id": "player_mark_hughes",
+      "type": "player",
+      "name": "Mark Hughes",
+      "aliases": []
+    },
+    {
+      "id": "player_paul_ince",
+      "type": "player",
+      "name": "Paul Ince",
+      "aliases": []
+    },
+    {
+      "id": "player_andrei_kanchelskis",
+      "type": "player",
+      "name": "Andrei Kanchelskis",
+      "aliases": []
+    },
+    {
+      "id": "player_brian_mcclair",
+      "type": "player",
+      "name": "Brian McClair",
+      "aliases": []
+    },
+    {
+      "id": "player_gary_pallister",
+      "type": "player",
+      "name": "Gary Pallister",
+      "aliases": []
+    },
+    {
+      "id": "player_paul_parker",
+      "type": "player",
+      "name": "Paul Parker",
+      "aliases": []
+    },
+    {
+      "id": "player_mike_phelan",
+      "type": "player",
+      "name": "Mike Phelan",
+      "aliases": []
+    },
+    {
+      "id": "player_bryan_robson",
+      "type": "player",
+      "name": "Bryan Robson",
+      "aliases": []
+    },
+    {
+      "id": "player_lee_sharpe",
+      "type": "player",
+      "name": "Lee Sharpe",
+      "aliases": []
+    },
+    {
+      "id": "player_danny_wallace",
+      "type": "player",
+      "name": "Danny Wallace",
+      "aliases": []
+    },
+    {
+      "id": "player_neil_webb",
+      "type": "player",
+      "name": "Neil Webb",
       "aliases": []
     }
   ],
@@ -16839,6 +16939,186 @@
         "11v11_arsenal_pl_1992_93",
         "fbref_arsenal_pl_1992_93"
       ]
+    },
+    {
+      "entityId": "player_clayton_blackmore",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 30,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_steve_bruce",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 10,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_nicky_butt",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 85,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_eric_cantona",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 15,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_dion_dublin",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 30,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_darren_ferguson",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 15,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_ryan_giggs",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 10,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_mark_hughes",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 10,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_paul_ince",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 10,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_denis_irwin",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 10,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_andrei_kanchelskis",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 15,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_brian_mcclair",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 10,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_gary_pallister",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 10,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_paul_parker",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 10,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_mike_phelan",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 30,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_bryan_robson",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 30,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_peter_schmeichel",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 10,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_lee_sharpe",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 15,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_danny_wallace",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 85,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_neil_webb",
+      "relation": "pl_appear_1992_1993_manchester_united",
+      "points": 85,
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
+      ]
     }
   ],
   "questions": [
@@ -17971,6 +18251,21 @@
       "sources": [
         "11v11_arsenal_pl_1992_93",
         "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "id": "q_pl_appear_1992_1993_manchester_united",
+      "category": "PREMIER LEAGUE PLAYERS · 1992/93",
+      "prompt": "Name a Manchester United player who made a Premier League appearance in 1992/93.",
+      "hint": "Premier League appearances only (including substitutes). An unused squad member does not count. 20 verified answers.",
+      "kind": "squad",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_appear_1992_1993_manchester_united"
+      ],
+      "sources": [
+        "11v11_manutd_pl_1992_93",
+        "fbref_manutd_pl_1992_93"
       ]
     }
   ]
