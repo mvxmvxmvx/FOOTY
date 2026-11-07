@@ -9462,6 +9462,103 @@
       "sources": [
         "world_2022"
       ]
+    },
+    {
+      "id": "q_double_barca_2009_2011",
+      "category": "FOOTBALL CONNECTIONS · TWO FINALS",
+      "prompt": "Name a Barcelona player who STARTED both the 2009 and 2011 Champions League finals.",
+      "hint": "Started against Manchester United in Rome AND at Wembley. Both starting XIs required.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "iconic_barca_2009",
+        "iconic_barca_2011"
+      ],
+      "sources": [
+        "uefa_final_2009",
+        "ucl_2011"
+      ]
+    },
+    {
+      "id": "q_double_bayern_2013_2020",
+      "category": "FOOTBALL CONNECTIONS · TWO TREBLES",
+      "prompt": "Name a Bayern Munich player who STARTED both the 2013 and 2020 Champions League finals.",
+      "hint": "2013 versus Borussia Dortmund; 2020 versus Paris Saint-Germain. Starting XIs only.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "iconic_bayern_2013",
+        "iconic_bayern_2020"
+      ],
+      "sources": [
+        "uefa_final_2013",
+        "uefa_final_2020"
+      ]
+    },
+    {
+      "id": "q_pl_golden_boot_ballon_dor",
+      "category": "FOOTBALL CONNECTIONS · DOUBLE HONOURS",
+      "prompt": "Name a player who has won BOTH the Premier League Golden Boot and the men’s Ballon d’Or.",
+      "hint": "Intersection of the reviewed individual winners lists through 2025–26 / 2026.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_pl_golden_boot",
+        "won_mens_ballon_dor"
+      ],
+      "sources": [
+        "pl_boot",
+        "ballon"
+      ]
+    },
+    {
+      "id": "q_won_euros_world_cup",
+      "category": "FOOTBALL CONNECTIONS · INTERNATIONAL DOUBLE",
+      "prompt": "Name a men's national team that has won BOTH the FIFA World Cup and UEFA Euro.",
+      "hint": "Historic European national-team champions; both titles required.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_mens_world_cup",
+        "won_euros"
+      ],
+      "sources": [
+        "fifa_wc",
+        "fifa_wc_hist",
+        "euro"
+      ]
+    },
+    {
+      "id": "q_bundesliga_european_double",
+      "category": "FOOTBALL CONNECTIONS · GERMAN GIANTS",
+      "prompt": "Name a club that has won BOTH the Bundesliga and the European Cup / Champions League.",
+      "hint": "Germany's national league since 1963–64 and all-time European Cup champions.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_bundesliga",
+        "won_european_cup"
+      ],
+      "sources": [
+        "bundes",
+        "uefa_ucl"
+      ]
+    },
+    {
+      "id": "q_seriea_european_double",
+      "category": "FOOTBALL CONNECTIONS · ITALIAN GIANTS",
+      "prompt": "Name an Italian champion that has ALSO won the European Cup / Champions League.",
+      "hint": "Both all-time Italian national top-division and European Cup winners.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_italian_top_division",
+        "won_european_cup"
+      ],
+      "sources": [
+        "seriea",
+        "uefa_ucl"
+      ]
     }
   ]
 }
