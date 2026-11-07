@@ -48,5 +48,5 @@ test('six Football Connections templates use reviewed relation intersections wit
   assert.ok(ids.length>=2,id+' too few answers');
   assert.ok(ids.every(x=>bank.entities.some(e=>e.id===x)),id+' missing verified entity');
  }
- assert.equal(bank.questions.length,45);
+ assert.equal(bank.questions.length,56);
 });
