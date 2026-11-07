@@ -51,6 +51,6 @@ export function importClubSeason(base,input){
   bank.sources[src.id]=bank.sources[src.id]||{publisher:src.publisher,title:season+' '+m.clubName+' Premier League appearances',url:src.url};
  }
  bank.facts.push(...records);
- bank.questions.push({id:questionId,category:'PREMIER LEAGUE PLAYERS · '+season.replace('-', '/'),prompt:'Name an '+m.clubName+' player who made a Premier League appearance in '+season.replace('-', '/')+'.',hint:'Premier League appearances only (including substitutes). An unused squad member does not count. '+m.players.length+' verified answers.',kind:'squad',confidence:'reviewed',allOf:[relation],sources:sourceIds});
+ bank.questions.push({id:questionId,category:'PREMIER LEAGUE PLAYERS · '+season.replace('-', '/'),prompt:'Name '+(/^[AEIOU]/i.test(m.clubName)?'an ':'a ')+m.clubName+' player who made a Premier League appearance in '+season.replace('-', '/')+'.',hint:'Premier League appearances only (including substitutes). An unused squad member does not count. '+m.players.length+' verified answers.',kind:'squad',confidence:'reviewed',allOf:[relation],sources:sourceIds});
  return {bank,summary:{season,club:m.clubName,newPlayers:bank.entities.length-base.entities.length,verifiedPlayerSeasons:records.length,totalStarts:starts,totalSubstituteAppearances:subs,questionId}};
 }
