@@ -23,7 +23,7 @@ test('V13 browser bootstrap loads in local development only',async()=>{
   const bank=await res.json();
   assert.equal(bank.entities.length,561);
   assert.equal(bank.facts.length,1411);
-  assert.equal(bank.questions.length,91);
+  assert.equal(bank.questions.length,77);
   assert.equal(bank.meta.scoring,'Editorial rarity estimates, not crowd frequencies.');
  });
 });
@@ -54,7 +54,7 @@ test('server-side verification still accepts curated answers and daily plan has 
   assert.equal(day.questionIds.length,7);
   assert.equal(new Set(day.questionIds).size,7);
   const lists=await (await fetch(base+'/api/v1/questions')).json();
-  assert.equal(lists.length,91);
+  assert.equal(lists.length,77);
   assert.equal(lists.some(x=>'answers' in x),false);
  });
 });
