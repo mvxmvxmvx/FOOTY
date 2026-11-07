@@ -47,7 +47,7 @@ test('questions with fewer than eleven verified answers are archived, never play
  }
  const expected=['q_double_barca_2009_2011','q_double_bayern_2013_2020','q_pl_golden_boot_ballon_dor','q_won_euros_world_cup','q_bundesliga_european_double','q_seriea_european_double'];
  for(const id of expected)assert.ok(archive.questions.some(q=>q.id===id),id);
- assert.equal(bank.questions.length,77);
+ assert.equal(bank.questions.length,78);
 });
 test('every active question meets the verified 11-answer floor',()=>{
  for(const q of bank.questions){
