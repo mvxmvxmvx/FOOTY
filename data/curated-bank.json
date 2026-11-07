@@ -227,6 +227,16 @@
       "publisher": "Premier League",
       "title": "2026/27 Premier League officially starts — confirmed promoted teams and league members",
       "url": "https://www.premierleague.com/en/news/4673099/the-202627-premier-league-season-officially-starts/"
+    },
+    "11v11_arsenal_pl_1992_93": {
+      "publisher": "11v11",
+      "title": "1992/93 Arsenal Premier League appearances",
+      "url": "https://www.11v11.com/teams/arsenal/tab/players/season/1993/comp/1/"
+    },
+    "fbref_arsenal_pl_1992_93": {
+      "publisher": "FBref",
+      "title": "1992/93 Arsenal Premier League appearances",
+      "url": "https://fbref.com/en/squads/18bb7c10/1992-1993/c9/Arsenal-Stats-Premier-League"
     }
   },
   "entities": [
@@ -4294,6 +4304,168 @@
       "id": "player_lautaro_martinez",
       "type": "player",
       "name": "Lautaro Martínez",
+      "aliases": []
+    },
+    {
+      "id": "player_tony_adams",
+      "type": "player",
+      "name": "Tony Adams",
+      "aliases": []
+    },
+    {
+      "id": "player_steve_bould",
+      "type": "player",
+      "name": "Steve Bould",
+      "aliases": []
+    },
+    {
+      "id": "player_kevin_campbell",
+      "type": "player",
+      "name": "Kevin Campbell",
+      "aliases": []
+    },
+    {
+      "id": "player_jimmy_carter",
+      "type": "player",
+      "name": "Jimmy Carter",
+      "aliases": []
+    },
+    {
+      "id": "player_paul_davis",
+      "type": "player",
+      "name": "Paul Davis",
+      "aliases": []
+    },
+    {
+      "id": "player_paul_dickov",
+      "type": "player",
+      "name": "Paul Dickov",
+      "aliases": []
+    },
+    {
+      "id": "player_lee_dixon",
+      "type": "player",
+      "name": "Lee Dixon",
+      "aliases": []
+    },
+    {
+      "id": "player_mark_flatts",
+      "type": "player",
+      "name": "Mark Flatts",
+      "aliases": []
+    },
+    {
+      "id": "player_perry_groves",
+      "type": "player",
+      "name": "Perry Groves",
+      "aliases": []
+    },
+    {
+      "id": "player_neil_heaney",
+      "type": "player",
+      "name": "Neil Heaney",
+      "aliases": []
+    },
+    {
+      "id": "player_david_hillier",
+      "type": "player",
+      "name": "David Hillier",
+      "aliases": []
+    },
+    {
+      "id": "player_john_jensen",
+      "type": "player",
+      "name": "John Jensen",
+      "aliases": []
+    },
+    {
+      "id": "player_anders_limpar",
+      "type": "player",
+      "name": "Anders Limpar",
+      "aliases": []
+    },
+    {
+      "id": "player_andy_linighan",
+      "type": "player",
+      "name": "Andy Linighan",
+      "aliases": []
+    },
+    {
+      "id": "player_pal_lydersen",
+      "type": "player",
+      "name": "Pål Lydersen",
+      "aliases": []
+    },
+    {
+      "id": "player_scott_marshall",
+      "type": "player",
+      "name": "Scott Marshall",
+      "aliases": []
+    },
+    {
+      "id": "player_gavin_mcgowan",
+      "type": "player",
+      "name": "Gavin McGowan",
+      "aliases": []
+    },
+    {
+      "id": "player_paul_merson",
+      "type": "player",
+      "name": "Paul Merson",
+      "aliases": []
+    },
+    {
+      "id": "player_alan_miller",
+      "type": "player",
+      "name": "Alan Miller",
+      "aliases": []
+    },
+    {
+      "id": "player_steve_morrow",
+      "type": "player",
+      "name": "Steve Morrow",
+      "aliases": []
+    },
+    {
+      "id": "player_david_o_leary",
+      "type": "player",
+      "name": "David O'Leary",
+      "aliases": []
+    },
+    {
+      "id": "player_colin_pates",
+      "type": "player",
+      "name": "Colin Pates",
+      "aliases": []
+    },
+    {
+      "id": "player_david_seaman",
+      "type": "player",
+      "name": "David Seaman",
+      "aliases": []
+    },
+    {
+      "id": "player_ian_selley",
+      "type": "player",
+      "name": "Ian Selley",
+      "aliases": []
+    },
+    {
+      "id": "player_alan_smith",
+      "type": "player",
+      "name": "Alan Smith",
+      "aliases": []
+    },
+    {
+      "id": "player_nigel_winterburn",
+      "type": "player",
+      "name": "Nigel Winterburn",
+      "aliases": []
+    },
+    {
+      "id": "player_ian_wright",
+      "type": "player",
+      "name": "Ian Wright",
       "aliases": []
     }
   ],
@@ -16406,6 +16578,267 @@
         "pl_season_clubs_history",
         "pl_club_spells_reference"
       ]
+    },
+    {
+      "entityId": "player_tony_adams",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_steve_bould",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 15,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_kevin_campbell",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_jimmy_carter",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 15,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_paul_davis",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 60,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_paul_dickov",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 60,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_lee_dixon",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_mark_flatts",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 30,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_perry_groves",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 85,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_neil_heaney",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 60,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_david_hillier",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_john_jensen",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_martin_keown",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 15,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_anders_limpar",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 15,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_andy_linighan",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 15,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_pal_lydersen",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 30,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_scott_marshall",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 85,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_gavin_mcgowan",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 85,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_paul_merson",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_alan_miller",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 60,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_steve_morrow",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 15,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_david_o_leary",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 30,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_ray_parlour",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 15,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_colin_pates",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 30,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_david_seaman",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_ian_selley",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 30,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_alan_smith",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_nigel_winterburn",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
+    },
+    {
+      "entityId": "player_ian_wright",
+      "relation": "pl_appear_1992_1993_arsenal",
+      "points": 10,
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
+      ]
     }
   ],
   "questions": [
@@ -17523,6 +17956,21 @@
       "sources": [
         "pl_2026_27_official",
         "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_appear_1992_1993_arsenal",
+      "category": "PREMIER LEAGUE PLAYERS · 1992/93",
+      "prompt": "Name an Arsenal player who made a Premier League appearance in 1992/93.",
+      "hint": "Premier League appearances only (including substitutes). An unused squad member does not count. 29 verified answers.",
+      "kind": "squad",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_appear_1992_1993_arsenal"
+      ],
+      "sources": [
+        "11v11_arsenal_pl_1992_93",
+        "fbref_arsenal_pl_1992_93"
       ]
     }
   ]
