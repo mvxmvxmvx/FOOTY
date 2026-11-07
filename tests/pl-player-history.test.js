@@ -48,5 +48,6 @@ test('incomplete historical seasons cannot silently enter the active bank',()=>{
  const ids=new Set(q.map(q=>q.id));
  assert.equal(ids.size,q.length);
  assert.ok(ids.has(qid));
- assert.equal(q.length,1,'one reviewed pilot, other club-seasons remain pending');
+ assert.ok(ids.has('q_pl_appear_1992_1993_manchester_united'));
+ assert.equal(q.length,2,'only the two reviewed 1992/93 club pilots are scoreable');
 });
