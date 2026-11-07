@@ -28,17 +28,12 @@ test('eight new Champions League final starting-XI banks have exactly eleven sou
   assert.equal(verify(q,substitute).status,'not_applicable',id+' nonstarter '+substitute);
  }
 });
-test('cross-final connection questions use only players who started both',()=>{
- const cases=[
-  ['q_ucl_chelsea_2008_2012',['Petr Čech','Ashley Cole','Frank Lampard','Didier Drogba'],'Michael Ballack'],
-  ['q_ucl_madrid_2014_2017',['Dani Carvajal','Raphaël Varane','Sergio Ramos','Luka Modrić','Karim Benzema','Cristiano Ronaldo'],'Gareth Bale'],
-  ['q_ucl_madrid_2017_2024',['Dani Carvajal','Toni Kroos'],'Luka Modrić']
- ];
- for(const [id,answers,notInBoth] of cases){
-  const q=byId.get(id);assert.ok(q,id);
-  assert.equal(q.answers.length,answers.length,id+' exact overlap');
-  for(const answer of answers)assert.equal(verify(q,answer).status,'accepted',id+' '+answer);
-  assert.equal(verify(q,notInBoth).status,'not_applicable',id+' '+notInBoth);
+test('narrow cross-final combinations are archived instead of scored',()=>{
+ const archive=JSON.parse(fs.readFileSync(new URL('../data/archived-questions-under-11.json',import.meta.url),'utf8'));
+ const ids=['q_ucl_chelsea_2008_2012','q_ucl_madrid_2014_2017','q_ucl_madrid_2017_2024'];
+ for(const id of ids){
+  assert.equal(byId.has(id),false,id+' unexpectedly playable');
+  assert.ok(archive.questions.some(q=>q.id===id),id+' missing from archive');
  }
 });
 test('new aliases accept standard spellings but preserve verified-only answers',()=>{
