@@ -701,3 +701,118 @@ body{background:#06120f radial-gradient(ellipse at 50% 0%,#15372b 0%,#071713 68%
 }
 /* Never hide or clip the submit/skip controls to achieve viewport fit.
    Very short screens, expanded answer banks and long editorial content can scroll. */
+
+/* v0.1.16 viewport composition — screenshot-driven correction.
+   Match uses the available browser height instead of leaving dead space below.
+   Goal reveal lays image and feedback SIDE BY SIDE so the scoreboard stays visible. */
+@media (min-width: 901px) and (min-height: 680px) {
+  body:has(#play:not(.hidden)) .wrap{
+    display:flex;
+    flex-direction:column;
+    height:100dvh;
+    min-height:0;
+    max-height:100dvh;
+    overflow:visible;
+  }
+  body:has(#play:not(.hidden)) .top{flex:0 0 auto}
+  #play:not(.hidden){
+    flex:1 1 auto;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    overflow:visible;
+  }
+  #play .game-intro{flex:0 0 auto}
+  #play .gamegrid{
+    flex:1 1 auto;
+    min-height:0;
+    grid-template-rows:auto minmax(0,1fr);
+  }
+  #play .match-stage{min-height:0;display:flex;flex-direction:column}
+  #play .match-stage>.card:not(.hidden){
+    flex:1 1 auto;
+    min-height:0;
+  }
+  #play .gamecard:not(.hidden){
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #play .gamecard .broadcast-label{flex-shrink:0}
+  #play .momentum-panel{flex:0 0 auto}
+  #play .reveal:not(.hidden){
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    grid-auto-rows:min-content;
+    align-content:center;
+    column-gap:clamp(14px,2vw,26px);
+    row-gap:clamp(2px,.6dvh,6px);
+    text-align:center;
+    padding:clamp(10px,1.5dvh,17px);
+    overflow:visible;
+  }
+  #play .reveal .reveal-board{
+    grid-column:1/-1;
+    grid-row:1;
+    margin:0 0 4px;
+  }
+  #play .reveal .outcome-stage{
+    grid-column:1;
+    grid-row:2 / span 11;
+    align-self:center;
+    width:100%;
+    max-width:none;
+    min-width:0;
+    margin:0;
+    padding:8px;
+  }
+  #play .reveal .shot-scene{
+    width:100%;
+    max-width:none;
+    margin:0;
+  }
+  #play .reveal .shot-description{grid-column:2;margin:0;font-size:10px}
+  #play .reveal #matchevent{grid-column:2;margin:0;font-size:clamp(19px,2.2vh,27px)}
+  #play .reveal #verdict{grid-column:2;margin:0;font-size:10px;letter-spacing:1.6px}
+  #play .reveal #earned{grid-column:2;margin:1px 0;font-size:clamp(22px,2.8vh,30px)}
+  #play .reveal #revealanswer{grid-column:2;margin:0;font-size:12px}
+  #play .reveal #matchnote{grid-column:2;margin:0 auto;font-size:11px;line-height:1.3}
+  #play .reveal #raritydossier{
+    grid-column:2;
+    width:100%;
+    max-width:none;
+    margin:3px 0;
+    padding:9px 11px;
+  }
+  #play .reveal #raritydossier .rarity-topline strong{font-size:19px}
+  #play .reveal #raritydossier .rarity-data{font-size:9px}
+  #play .reveal #raritydossier p{font-size:9px;line-height:1.3}
+  #play .reveal #magicroundstatus{grid-column:2;margin:0}
+  #play .reveal #showanswers{grid-column:2;justify-self:center;margin:3px 0;font-size:10px}
+  #play .reveal #fullanswers{grid-column:2;max-height:min(110px,14dvh);margin:1px 0}
+  #play .reveal .actions{
+    grid-column:2;
+    justify-content:center;
+    margin:3px 0 0;
+    padding:0;
+  }
+  #play .reveal .actions .primary{padding:10px 19px}
+  #play .reveal .goal-rarity{padding:8px 10px;gap:3px}
+  #play .reveal .goal-rarity-name{font-size:clamp(19px,2.5vh,25px)}
+  #play .reveal .goal-rarity-reason{font-size:10px}
+  #play .reveal .signature-overlay{max-width:100%}
+}
+@media (min-width:901px) and (min-height:680px) and (max-height:820px){
+  #play .reveal .outcome-stage{max-width:450px;justify-self:center}
+  #play .reveal .rarity-dossier{padding:7px 9px}
+  #play .reveal .goal-rarity{padding:6px 8px}
+  #play .reveal .goal-rarity-name{font-size:19px}
+  #play .reveal .goal-rarity-reason{font-size:9px}
+  #play .reveal #raritydossier p{font-size:8px}
+}
+@media (min-width:901px) and (max-height:679px){
+  /* Content wins over hard viewport locks on short browser windows. */
+  body:has(#play:not(.hidden)) .wrap{height:auto;min-height:100dvh}
+}
+/* Expanded answer bank and exceptional long copy remain scrollable;
+   never force overflow:hidden on gameplay or hide primary controls. */
