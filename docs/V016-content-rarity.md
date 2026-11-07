@@ -1,5 +1,18 @@
 # FOOTY v0.1.16 — content and rarity audit
 
+## Current playability gate — minimum eleven verified answers
+
+Following playtest feedback, all live question templates now require **at least 11 verified canonical accepted answers**. The old six-question Football Connections expansion and three crossover final questions remain as source-traceable **archived question definitions** in `data/archived-questions-under-11.json`, alongside five earlier broad categories that likewise had fewer than eleven answers. The reviewed facts, sources and entities remain in `data/curated-bank.json`; only those fourteen question definitions were removed from scoring.
+
+- **77 active playable templates** (91 before the 11-answer gate).
+- **14 archived templates**, each with its exact verified answer count for a future content expansion.
+- **561 entities** and **1,411 verified facts** retained unchanged.
+- The main **goal cinematic** now displays an on-screen **editorial rarity tier and score (e.g. DEEP CUT · 85/100)** as an overlay within the football shot animation itself, with colors for Rare/Deep Cut/One in a Million. Existing post-goal dossier, match rating and replay system remain intact.
+- Full-time highlight previews reinitialize the badge from the selected goal style so a replay cannot inherit the previous goal's tier. Opponent goals and saves never show a player-answer rarity badge.
+- The existing Goal of the Match test buttons still allow inspecting any rarity tier, but this remains a provisional curated grade—not a measured player-popularity statistic.
+
+New test assertions enforce that all active questions have at least eleven answers, archived question IDs cannot be selected, and the original Premier League season archive remains intact. Update the counts in earlier development-batch sections below by using these final active counts; they describe prior milestones.
+
 ## Starting point and changes
 
 - Initial baseline: **501 curated entities**, **617 reviewed relation facts**, **38 distinct relation keys**, **39 question templates**, and **37 referenced sources**. These are *not* 617 independently replayable questions.
