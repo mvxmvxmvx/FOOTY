@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "competition": "Premier League",
+  "season": "1992-1993",
+  "seasonStartYear": 1992,
+  "clubId": "club_arsenal",
+  "clubName": "Arsenal",
+  "coverage": {
+    "status": "reviewed_complete",
+    "expectedPlayers": 29,
+    "appearanceDefinition": "League matches played, including starts and substitute appearances; excludes bench-only and unused squad registrations.",
+    "verifiedThrough": "11v11 season-by-season league appearance register, cross-check with FBref team player count."
+  },
+  "sources": [
+    {
+      "id": "11v11_arsenal_pl_1992_93",
+      "publisher": "11v11",
+      "url": "https://www.11v11.com/teams/arsenal/tab/players/season/1993/comp/1/",
+      "access": "editorial_fact_check"
+    },
+    {
+      "id": "fbref_arsenal_pl_1992_93",
+      "publisher": "FBref",
+      "url": "https://fbref.com/en/squads/18bb7c10/1992-1993/c9/Arsenal-Stats-Premier-League",
+      "access": "independent_team_count_cross_check"
+    }
+  ],
+  "players": [
+    {
+      "entityId": "player_tony_adams",
+      "name": "Tony Adams",
+      "starts": 33,
+      "substituteAppearances": 2,
+      "appearances": 35,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_steve_bould",
+      "name": "Steve Bould",
+      "starts": 24,
+      "substituteAppearances": 0,
+      "appearances": 24,
+      "goals": 1,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_kevin_campbell",
+      "name": "Kevin Campbell",
+      "starts": 32,
+      "substituteAppearances": 5,
+      "appearances": 37,
+      "goals": 4,
+      "position": "forward"
+    },
+    {
+      "entityId": "player_jimmy_carter",
+      "name": "Jimmy Carter",
+      "starts": 11,
+      "substituteAppearances": 5,
+      "appearances": 16,
+      "goals": 2,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_paul_davis",
+      "name": "Paul Davis",
+      "starts": 6,
+      "substituteAppearances": 0,
+      "appearances": 6,
+      "goals": 0,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_paul_dickov",
+      "name": "Paul Dickov",
+      "starts": 1,
+      "substituteAppearances": 2,
+      "appearances": 3,
+      "goals": 2,
+      "position": "forward"
+    },
+    {
+      "entityId": "player_lee_dixon",
+      "name": "Lee Dixon",
+      "starts": 29,
+      "substituteAppearances": 0,
+      "appearances": 29,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_mark_flatts",
+      "name": "Mark Flatts",
+      "starts": 6,
+      "substituteAppearances": 4,
+      "appearances": 10,
+      "goals": 0,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_perry_groves",
+      "name": "Perry Groves",
+      "starts": 0,
+      "substituteAppearances": 1,
+      "appearances": 1,
+      "goals": 0,
+      "position": "forward"
+    },
+    {
+      "entityId": "player_neil_heaney",
+      "name": "Neil Heaney",
+      "starts": 3,
+      "substituteAppearances": 2,
+      "appearances": 5,
+      "goals": 0,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_david_hillier",
+      "name": "David Hillier",
+      "starts": 27,
+      "substituteAppearances": 3,
+      "appearances": 30,
+      "goals": 1,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_john_jensen",
+      "name": "John Jensen",
+      "starts": 29,
+      "substituteAppearances": 3,
+      "appearances": 32,
+      "goals": 0,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_martin_keown",
+      "name": "Martin Keown",
+      "starts": 15,
+      "substituteAppearances": 1,
+      "appearances": 16,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_anders_limpar",
+      "name": "Anders Limpar",
+      "starts": 12,
+      "substituteAppearances": 11,
+      "appearances": 23,
+      "goals": 2,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_andy_linighan",
+      "name": "Andy Linighan",
+      "starts": 19,
+      "substituteAppearances": 2,
+      "appearances": 21,
+      "goals": 2,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_pal_lydersen",
+      "name": "Pål Lydersen",
+      "starts": 7,
+      "substituteAppearances": 1,
+      "appearances": 8,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_scott_marshall",
+      "name": "Scott Marshall",
+      "starts": 2,
+      "substituteAppearances": 0,
+      "appearances": 2,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_gavin_mcgowan",
+      "name": "Gavin McGowan",
+      "starts": 0,
+      "substituteAppearances": 2,
+      "appearances": 2,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_paul_merson",
+      "name": "Paul Merson",
+      "starts": 32,
+      "substituteAppearances": 1,
+      "appearances": 33,
+      "goals": 6,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_alan_miller",
+      "name": "Alan Miller",
+      "starts": 3,
+      "substituteAppearances": 1,
+      "appearances": 4,
+      "goals": 0,
+      "position": "goalkeeper"
+    },
+    {
+      "entityId": "player_steve_morrow",
+      "name": "Steve Morrow",
+      "starts": 13,
+      "substituteAppearances": 3,
+      "appearances": 16,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_david_o_leary",
+      "name": "David O'Leary",
+      "starts": 6,
+      "substituteAppearances": 5,
+      "appearances": 11,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_ray_parlour",
+      "name": "Ray Parlour",
+      "starts": 16,
+      "substituteAppearances": 5,
+      "appearances": 21,
+      "goals": 1,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_colin_pates",
+      "name": "Colin Pates",
+      "starts": 2,
+      "substituteAppearances": 5,
+      "appearances": 7,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_david_seaman",
+      "name": "David Seaman",
+      "starts": 39,
+      "substituteAppearances": 0,
+      "appearances": 39,
+      "goals": 0,
+      "position": "goalkeeper"
+    },
+    {
+      "entityId": "player_ian_selley",
+      "name": "Ian Selley",
+      "starts": 9,
+      "substituteAppearances": 0,
+      "appearances": 9,
+      "goals": 0,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_alan_smith",
+      "name": "Alan Smith",
+      "starts": 27,
+      "substituteAppearances": 4,
+      "appearances": 31,
+      "goals": 3,
+      "position": "forward"
+    },
+    {
+      "entityId": "player_nigel_winterburn",
+      "name": "Nigel Winterburn",
+      "starts": 29,
+      "substituteAppearances": 0,
+      "appearances": 29,
+      "goals": 1,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_ian_wright",
+      "name": "Ian Wright",
+      "starts": 30,
+      "substituteAppearances": 1,
+      "appearances": 31,
+      "goals": 15,
+      "position": "forward"
+    }
+  ]
+}

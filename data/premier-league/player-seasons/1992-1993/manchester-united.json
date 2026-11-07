@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "competition": "Premier League",
+  "season": "1992-1993",
+  "seasonStartYear": 1992,
+  "clubId": "club_manchester_united",
+  "clubName": "Manchester United",
+  "coverage": {
+    "status": "reviewed_complete",
+    "expectedPlayers": 20,
+    "appearanceDefinition": "League matches played, including starts and substitute appearances; no unused squad members.",
+    "verifiedThrough": "11v11 league-only appearance register and FBref 20-player squad standard stats."
+  },
+  "sources": [
+    {
+      "id": "11v11_manutd_pl_1992_93",
+      "publisher": "11v11",
+      "url": "https://www.11v11.com/teams/manchester-united/tab/players/season/1993/comp/1/",
+      "access": "editorial_fact_check"
+    },
+    {
+      "id": "fbref_manutd_pl_1992_93",
+      "publisher": "FBref",
+      "url": "https://fbref.com/en/squads/19538871/1992-1993/c9/Manchester-United-Stats-Premier-League",
+      "access": "independent_team_count_cross_check"
+    }
+  ],
+  "players": [
+    {
+      "entityId": "player_clayton_blackmore",
+      "name": "Clayton Blackmore",
+      "starts": 12,
+      "substituteAppearances": 2,
+      "appearances": 14,
+      "goals": 0,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_steve_bruce",
+      "name": "Steve Bruce",
+      "starts": 42,
+      "substituteAppearances": 0,
+      "appearances": 42,
+      "goals": 5,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_nicky_butt",
+      "name": "Nicky Butt",
+      "starts": 0,
+      "substituteAppearances": 1,
+      "appearances": 1,
+      "goals": 0,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_eric_cantona",
+      "name": "Eric Cantona",
+      "starts": 21,
+      "substituteAppearances": 1,
+      "appearances": 22,
+      "goals": 9,
+      "position": "forward"
+    },
+    {
+      "entityId": "player_dion_dublin",
+      "name": "Dion Dublin",
+      "starts": 3,
+      "substituteAppearances": 4,
+      "appearances": 7,
+      "goals": 1,
+      "position": "forward"
+    },
+    {
+      "entityId": "player_darren_ferguson",
+      "name": "Darren Ferguson",
+      "starts": 15,
+      "substituteAppearances": 0,
+      "appearances": 15,
+      "goals": 0,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_ryan_giggs",
+      "name": "Ryan Giggs",
+      "starts": 40,
+      "substituteAppearances": 1,
+      "appearances": 41,
+      "goals": 9,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_mark_hughes",
+      "name": "Mark Hughes",
+      "starts": 41,
+      "substituteAppearances": 0,
+      "appearances": 41,
+      "goals": 15,
+      "position": "forward"
+    },
+    {
+      "entityId": "player_paul_ince",
+      "name": "Paul Ince",
+      "starts": 41,
+      "substituteAppearances": 0,
+      "appearances": 41,
+      "goals": 6,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_denis_irwin",
+      "name": "Denis Irwin",
+      "starts": 40,
+      "substituteAppearances": 0,
+      "appearances": 40,
+      "goals": 5,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_andrei_kanchelskis",
+      "name": "Andrei Kanchelskis",
+      "starts": 14,
+      "substituteAppearances": 13,
+      "appearances": 27,
+      "goals": 3,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_brian_mcclair",
+      "name": "Brian McClair",
+      "starts": 41,
+      "substituteAppearances": 1,
+      "appearances": 42,
+      "goals": 9,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_gary_pallister",
+      "name": "Gary Pallister",
+      "starts": 42,
+      "substituteAppearances": 0,
+      "appearances": 42,
+      "goals": 1,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_paul_parker",
+      "name": "Paul Parker",
+      "starts": 31,
+      "substituteAppearances": 0,
+      "appearances": 31,
+      "goals": 1,
+      "position": "defender"
+    },
+    {
+      "entityId": "player_mike_phelan",
+      "name": "Mike Phelan",
+      "starts": 5,
+      "substituteAppearances": 6,
+      "appearances": 11,
+      "goals": 0,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_bryan_robson",
+      "name": "Bryan Robson",
+      "starts": 5,
+      "substituteAppearances": 9,
+      "appearances": 14,
+      "goals": 1,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_peter_schmeichel",
+      "name": "Peter Schmeichel",
+      "starts": 42,
+      "substituteAppearances": 0,
+      "appearances": 42,
+      "goals": 0,
+      "position": "goalkeeper"
+    },
+    {
+      "entityId": "player_lee_sharpe",
+      "name": "Lee Sharpe",
+      "starts": 27,
+      "substituteAppearances": 0,
+      "appearances": 27,
+      "goals": 1,
+      "position": "midfielder"
+    },
+    {
+      "entityId": "player_danny_wallace",
+      "name": "Danny Wallace",
+      "starts": 0,
+      "substituteAppearances": 2,
+      "appearances": 2,
+      "goals": 0,
+      "position": "forward"
+    },
+    {
+      "entityId": "player_neil_webb",
+      "name": "Neil Webb",
+      "starts": 0,
+      "substituteAppearances": 1,
+      "appearances": 1,
+      "goals": 0,
+      "position": "midfielder"
+    }
+  ]
+}

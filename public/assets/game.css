@@ -535,3 +535,284 @@ body{background:#06120f radial-gradient(ellipse at 50% 0%,#15372b 0%,#071713 68%
  #play .match-scoreboard strong{font-size:32px}
  #play .match-scoreboard>div{min-width:49px}
 }
+
+/* v0.1.16 rarity dossier — editorial grades, never fabricated player percentages */
+.rarity-dossier{width:min(100%,620px);margin:16px auto 10px;padding:16px 18px;border:1px solid #b58b53;border-radius:12px;background:linear-gradient(115deg,#2e3326dd,#132b22ee);text-align:left;box-shadow:inset 0 1px 0 #ffffff19}
+.rarity-topline{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:1px;font-weight:900;color:#c9d6bf}
+.rarity-topline strong{font:900 clamp(17px,2.2vw,26px)/1 'Barlow Condensed',Impact,sans-serif;color:#f3ce83}
+.rarity-bar{height:9px;margin:13px 0 10px;background:#314437;border-radius:20px;overflow:hidden}
+.rarity-bar>div{height:100%;width:10%;background:linear-gradient(90deg,#a4c77b,#f0d685);transition:width .45s ease}
+.rarity-dossier[data-tier="85"] .rarity-bar>div,.rarity-dossier[data-tier="100"] .rarity-bar>div{background:linear-gradient(90deg,#dfb561,#ffefb5)}
+.rarity-data{display:flex;align-items:start;justify-content:space-between;flex-wrap:wrap;gap:7px;font-size:10px;line-height:1.4;letter-spacing:.35px}
+.rarity-data strong{color:#fff3cb}
+.rarity-data span{color:#bde1bf}
+.rarity-dossier p{margin:11px 0 0;color:#9fb4a5;font-size:10px;line-height:1.4}
+.rarity-spotlight{margin:14px auto;padding:18px 20px;max-width:780px;text-align:left;border:1px solid #b69955;border-radius:12px;background:linear-gradient(105deg,#35331f,#163225)}
+.rarity-spotlight strong{display:block;font:900 18px/1.2 'Barlow Condensed',Impact,sans-serif;letter-spacing:1px;color:#f8da8d}
+.rarity-spotlight>div{font-size:15px;font-weight:900;margin:9px 0 7px;color:#fff4dd}
+.rarity-spotlight small{display:block;font-size:11px;line-height:1.5;color:#a9c1ac}
+@media(max-width:650px){.rarity-dossier{padding:12px}.rarity-topline{flex-wrap:wrap}.rarity-topline strong{font-size:21px}.rarity-data{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.rarity-bar>div{transition:none}}
+
+/* v0.1.16 — Goal-rarity caption is BELOW the pitch, never over the shot.
+   It stays attached to the same .shot-scene so full-time replays inherit it. */
+.shot-scene{position:relative;isolation:isolate}
+.goal-rarity{position:relative;inset:auto;min-width:0;max-width:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:100%;margin:0;padding:13px 20px 15px;border:0;border-top:1px solid #6e9a6699;border-radius:0;background:linear-gradient(110deg,#09271df2,#153d2bed);box-shadow:none;color:#eaffcb;text-align:center;pointer-events:none;text-shadow:none}
+.goal-rarity-kicker{font:900 10px/1.35 'DM Sans',system-ui,sans-serif;letter-spacing:1.4px;color:#bbdfb3}
+.goal-rarity-score{font-weight:900;color:#edfbd6}
+.goal-rarity-name{font:900 clamp(21px,2.8vw,33px)/1 'Barlow Condensed',Impact,sans-serif;letter-spacing:.4px;color:#d6fc69}
+.goal-rarity-reason{font:600 clamp(11px,1.3vw,13px)/1.45 'DM Sans',system-ui,sans-serif;color:#c6dec7;max-width:540px}
+.goal-rarity[data-tier="60"]{border-top-color:#88caff;background:linear-gradient(115deg,#101e30f2,#17384ff2)}
+.goal-rarity[data-tier="60"] .goal-rarity-name{color:#a2d6ff}
+.goal-rarity[data-tier="85"]{border-top-color:#d6a4ff;background:linear-gradient(115deg,#251837f2,#382848f2)}
+.goal-rarity[data-tier="85"] .goal-rarity-name{color:#e6bcff}
+.goal-rarity[data-tier="100"]{border-top-color:#ffe39b;background:linear-gradient(115deg,#322711f2,#4a3a22f2)}
+.goal-rarity[data-tier="100"] .goal-rarity-name{color:#ffe39b}
+.shot-scene.goal .goal-rarity:not(.hidden){animation:goal-rarity-enter .4s .25s both}
+@keyframes goal-rarity-enter{from{transform:translateY(5px);opacity:0}to{transform:translateY(0);opacity:1}}
+@media(max-width:650px){.goal-rarity{padding:11px 10px 13px;gap:4px}.goal-rarity-kicker{font-size:9px;letter-spacing:.6px}.goal-rarity-name{font-size:23px}.goal-rarity-reason{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.shot-scene.goal .goal-rarity:not(.hidden){animation:none}}
+
+/* v0.1.16 compact matchday: fit the main match on a laptop viewport.
+   Only active gameplay is compacted; home and full-time history can scroll.
+   Special reveal panels may grow naturally on genuinely short devices. */
+@media (min-width: 901px) {
+  body:has(#play:not(.hidden)) .wrap{
+    max-width:1400px;
+    min-height:100dvh;
+    padding-top:clamp(8px,1.5dvh,15px);
+    padding-bottom:clamp(8px,1.5dvh,15px);
+  }
+  body:has(#play:not(.hidden)) .top{
+    min-height:54px;
+    padding:6px 17px;
+    margin-bottom:clamp(6px,1.1dvh,11px);
+  }
+  body:has(#play:not(.hidden)) .top .masthead{font-size:30px}
+  body:has(#play:not(.hidden)) .top .logo{font-size:31px}
+  #play{
+    padding:clamp(9px,1.6dvh,16px) clamp(15px,2.8vw,32px) clamp(10px,1.8dvh,18px);
+    max-width:1320px;
+    margin:0 auto;
+  }
+  #play .game-intro{margin-bottom:clamp(3px,.8dvh,8px);padding-bottom:2px}
+  #play .gamegrid{
+    max-width:none;
+    grid-template-columns:minmax(0,1fr) clamp(136px,12vw,165px);
+    grid-template-rows:auto minmax(0,1fr);
+    gap:clamp(6px,1.1dvh,11px) clamp(10px,1.8vw,18px);
+  }
+  #play .match-hud{gap:4px;padding:0}
+  #play .match-hud .match-scoreboard{gap:clamp(21px,3.3vw,45px);padding:0 12px}
+  #play .match-scoreboard>div{gap:0}
+  #play .match-scoreboard small{font-size:9px}
+  #play .match-scoreboard strong{font-size:clamp(34px,4vh,44px)}
+  #play .match-scoreboard .match-separator{font-size:clamp(31px,3.8vh,42px)}
+  #play .match-hud .round{padding:4px 14px;font-size:10px}
+  #play .match-hud .pip{height:4px;width:16px}
+  #play .gamecard{padding:clamp(12px,2vh,19px) clamp(17px,3vw,31px) 12px}
+  #play .broadcast-label{margin-bottom:4px;padding-bottom:6px}
+  #play .timerbox{margin:0 0 7px}
+  #play .timerbox .clock{font-size:19px}
+  #play .gamecard .question{font-size:clamp(23px,3.1vh,34px);margin:5px auto 6px}
+  #play .gamecard .hint{font-size:11px;line-height:1.4}
+  #play .gamecard .answerrow{margin-top:9px}
+  #play .gamecard .answer{padding:10px 12px;min-height:40px}
+  #play .gamecard .primary{padding:10px 16px;min-height:40px}
+  #play .gamecard .inputerror{min-height:13px;margin-top:4px}
+  #play .gamecard .skip{margin-top:1px}
+  #play .sidebar{padding:7px}
+  #play .sidebar .side-rating{padding:6px 2px 8px}
+  #play .sidebar .side-rating strong{font-size:39px}
+  #play .sidebar .side-knowledge{padding:9px 3px 7px;gap:4px}
+  #play .sidebar .side-knowledge strong{font-size:clamp(15px,1.5vw,20px)}
+  #play .sidebar .sidebar-extra{margin-top:4px;padding-top:7px}
+  #play .momentum-panel{max-width:none;margin:clamp(6px,1.2dvh,11px) auto 0;padding:9px 15px;row-gap:3px;column-gap:16px}
+  #play .momentum-head #momentumvalue{font-size:22px}
+  #play .momentum-head span,#play .magic-progress{font-size:10px}
+  #play .momentum-track{height:10px}
+  #play .magic-progress{padding:1px 0 0}
+  #play .reveal,#play .counter-card,#play .magic-offer{min-height:0;padding:clamp(12px,1.8dvh,20px)}
+  #play .reveal .outcome-stage{max-width:620px;padding:7px;margin-bottom:6px}
+  #play .reveal .shot-scene{max-width:470px;margin:0 auto}
+  #play .reveal .goal-rarity{padding:7px 10px 9px;gap:2px}
+  #play .reveal .goal-rarity-name{font-size:clamp(18px,2.4vh,24px)}
+  #play .reveal .goal-rarity-reason{font-size:10px}
+  #play .reveal .goal-rarity-kicker{font-size:9px}
+  #play .reveal .shot-description{margin-bottom:6px}
+  #play .reveal .rarity-dossier{margin-top:8px;margin-bottom:7px;padding:9px 13px}
+  #play .reveal .rarity-bar{margin:7px 0 6px}
+  #play .reveal .rarity-dossier p{margin-top:5px}
+  #play .reveal .actions{margin-top:8px}
+}
+@media (min-width:901px) and (max-height:780px){
+  #play{padding-top:8px;padding-bottom:10px}
+  #play .game-intro{margin-bottom:2px}
+  #play .gamegrid{row-gap:5px}
+  #play .match-hud .match-scoreboard{padding:0}
+  #play .match-scoreboard strong{font-size:33px}
+  #play .match-scoreboard .match-separator{font-size:30px}
+  #play .match-scoreboard small{font-size:8px}
+  #play .gamecard{padding-top:10px;padding-bottom:9px}
+  #play .gamecard .question{font-size:clamp(22px,3.1vh,27px)}
+  #play .sidebar .side-rating small{display:none}
+  #play .sidebar .side-rating strong{font-size:32px}
+  #play .sidebar .side-knowledge{padding:6px 2px}
+  #play .momentum-panel{padding:7px 12px;margin-top:6px}
+  #play .reveal .shot-scene{max-width:min(400px,65vh)}
+  #play .reveal .rarity-dossier{padding:7px 11px}
+}
+@media (min-width:651px) and (max-width:900px){
+  body:has(#play:not(.hidden)) .wrap{padding-top:8px;padding-bottom:10px}
+  body:has(#play:not(.hidden)) .top{margin-bottom:8px}
+  #play{padding:11px 15px}
+  #play .gamegrid{row-gap:7px}
+  #play .match-hud{gap:4px}
+  #play .match-scoreboard strong{font-size:36px}
+  #play .gamecard{padding:12px 16px}
+  #play .gamecard .question{font-size:clamp(24px,3.3vw,31px)}
+  #play .gamecard .answerrow{margin-top:10px}
+  #play .momentum-panel{margin-top:8px;padding:9px 14px}
+  #play .reveal .shot-scene{max-width:420px}
+}
+@media (max-width:650px){
+  body:has(#play:not(.hidden)) .wrap{padding:6px 8px 10px}
+  body:has(#play:not(.hidden)) .top{min-height:46px;padding:6px 9px;margin-bottom:7px}
+  #play{padding:8px 8px 10px}
+  #play .game-intro{margin-bottom:4px;padding-bottom:0}
+  #play .match-hud{gap:3px}
+  #play .match-scoreboard strong{font-size:32px}
+  #play .match-hud .pip{width:13px;height:4px}
+  #play .gamegrid{row-gap:6px}
+  #play .gamecard{padding:11px}
+  #play .gamecard .question{font-size:clamp(22px,5vw,29px);margin:6px auto}
+  #play .gamecard .answerrow{margin-top:9px;gap:6px}
+  #play .gamecard .answer{min-height:40px}
+  #play .gamecard .primary{min-height:40px}
+  #play .gamecard .hint{font-size:10px}
+  #play .sidebar .side-rating{padding:5px 1px}
+  #play .sidebar .side-knowledge{padding:7px 1px;gap:4px}
+  #play .sidebar .sidebar-extra{margin-top:3px;padding-top:5px}
+  #play .momentum-panel{margin-top:7px;padding:9px 10px;gap:5px}
+  #play .momentum-head #momentumvalue{font-size:21px}
+  #play .magic-progress{font-size:10px;padding-top:1px}
+  #play .reveal .shot-scene{max-width:min(100%,390px)}
+  #play .reveal .outcome-stage{padding:6px}
+}
+/* Never hide or clip the submit/skip controls to achieve viewport fit.
+   Very short screens, expanded answer banks and long editorial content can scroll. */
+
+/* v0.1.16 viewport composition — screenshot-driven correction.
+   Match uses the available browser height instead of leaving dead space below.
+   Goal reveal lays image and feedback SIDE BY SIDE so the scoreboard stays visible. */
+@media (min-width: 901px) and (min-height: 680px) {
+  body:has(#play:not(.hidden)) .wrap{
+    display:flex;
+    flex-direction:column;
+    height:100dvh;
+    min-height:0;
+    max-height:100dvh;
+    overflow:visible;
+  }
+  body:has(#play:not(.hidden)) .top{flex:0 0 auto}
+  #play:not(.hidden){
+    flex:1 1 auto;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    overflow:visible;
+  }
+  #play .game-intro{flex:0 0 auto}
+  #play .gamegrid{
+    flex:1 1 auto;
+    min-height:0;
+    grid-template-rows:auto minmax(0,1fr);
+  }
+  #play .match-stage{min-height:0;display:flex;flex-direction:column}
+  #play .match-stage>.card:not(.hidden){
+    flex:1 1 auto;
+    min-height:0;
+  }
+  #play .gamecard:not(.hidden){
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #play .gamecard .broadcast-label{flex-shrink:0}
+  #play .momentum-panel{flex:0 0 auto}
+  #play .reveal:not(.hidden){
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    grid-auto-rows:min-content;
+    align-content:center;
+    column-gap:clamp(14px,2vw,26px);
+    row-gap:clamp(2px,.6dvh,6px);
+    text-align:center;
+    padding:clamp(10px,1.5dvh,17px);
+    overflow:visible;
+  }
+  #play .reveal .reveal-board{
+    grid-column:1/-1;
+    grid-row:1;
+    margin:0 0 4px;
+  }
+  #play .reveal .outcome-stage{
+    grid-column:1;
+    grid-row:2 / span 11;
+    align-self:center;
+    width:100%;
+    max-width:none;
+    min-width:0;
+    margin:0;
+    padding:8px;
+  }
+  #play .reveal .shot-scene{
+    width:100%;
+    max-width:none;
+    margin:0;
+  }
+  #play .reveal .shot-description{grid-column:2;margin:0;font-size:10px}
+  #play .reveal #matchevent{grid-column:2;margin:0;font-size:clamp(19px,2.2vh,27px)}
+  #play .reveal #verdict{grid-column:2;margin:0;font-size:10px;letter-spacing:1.6px}
+  #play .reveal #earned{grid-column:2;margin:1px 0;font-size:clamp(22px,2.8vh,30px)}
+  #play .reveal #revealanswer{grid-column:2;margin:0;font-size:12px}
+  #play .reveal #matchnote{grid-column:2;margin:0 auto;font-size:11px;line-height:1.3}
+  #play .reveal #raritydossier{
+    grid-column:2;
+    width:100%;
+    max-width:none;
+    margin:3px 0;
+    padding:9px 11px;
+  }
+  #play .reveal #raritydossier .rarity-topline strong{font-size:19px}
+  #play .reveal #raritydossier .rarity-data{font-size:9px}
+  #play .reveal #raritydossier p{font-size:9px;line-height:1.3}
+  #play .reveal #magicroundstatus{grid-column:2;margin:0}
+  #play .reveal #showanswers{grid-column:2;justify-self:center;margin:3px 0;font-size:10px}
+  #play .reveal #fullanswers{grid-column:2;max-height:min(110px,14dvh);margin:1px 0}
+  #play .reveal .actions{
+    grid-column:2;
+    justify-content:center;
+    margin:3px 0 0;
+    padding:0;
+  }
+  #play .reveal .actions .primary{padding:10px 19px}
+  #play .reveal .goal-rarity{padding:8px 10px;gap:3px}
+  #play .reveal .goal-rarity-name{font-size:clamp(19px,2.5vh,25px)}
+  #play .reveal .goal-rarity-reason{font-size:10px}
+  #play .reveal .signature-overlay{max-width:100%}
+}
+@media (min-width:901px) and (min-height:680px) and (max-height:820px){
+  #play .reveal .outcome-stage{max-width:450px;justify-self:center}
+  #play .reveal .rarity-dossier{padding:7px 9px}
+  #play .reveal .goal-rarity{padding:6px 8px}
+  #play .reveal .goal-rarity-name{font-size:19px}
+  #play .reveal .goal-rarity-reason{font-size:9px}
+  #play .reveal #raritydossier p{font-size:8px}
+}
+@media (min-width:901px) and (max-height:679px){
+  /* Content wins over hard viewport locks on short browser windows. */
+  body:has(#play:not(.hidden)) .wrap{height:auto;min-height:100dvh}
+}
+/* Expanded answer bank and exceptional long copy remain scrollable;
+   never force overflow:hidden on gameplay or hide primary controls. */

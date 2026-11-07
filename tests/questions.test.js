@@ -6,7 +6,7 @@ import {dailyPlan} from '../src/lib/daily.js';
 const bank=JSON.parse(fs.readFileSync(new URL('../data/curated-bank.json',import.meta.url),'utf8'));
 const questions=compile(bank);
 test('curated bank counts remain intact',()=>{
- assert.equal(bank.entities.length,501);assert.equal(bank.facts.length,617);assert.equal(questions.length,39);
+ assert.equal(bank.entities.length,603);assert.equal(bank.facts.length,1460);assert.equal(questions.length,79);
  assert.ok(questions.every(q=>q.answers.length>=2));
 });
 test('all canonical answers are accepted and irrelevant guesses rejected',()=>{
