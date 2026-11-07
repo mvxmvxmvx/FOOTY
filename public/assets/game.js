@@ -237,16 +237,16 @@ function animateScene(scene,style,scored){
  if(!scene)return;
  scene.className='shot-scene';
  scene.querySelector('.cin-call').textContent=scored?(style?.call||'GOAL!'):'CHANCE MISSED';
- // The editorial rarity badge belongs to the moving goal graphic itself.
- // Rebuild from the style on every replay, so cloned highlights and previews
- // never display the previous goal's rarity tier.
+ // The editorial rarity caption lives BELOW the pitch, never over the football action.
+ // Rebuild it on every replay so cloned highlights and previews show the chosen tier.
  const badge=scene.querySelector('.goal-rarity');
  const rarity=scored&&style?Rarity.tier(style.points):null;
  if(badge){
   badge.classList.toggle('hidden',!rarity);
   if(rarity){
-   badge.querySelector('.goal-rarity-name').textContent=rarity.short;
+   badge.querySelector('.goal-rarity-name').textContent=rarity.short+' · '+style.name.toUpperCase();
    badge.querySelector('.goal-rarity-score').textContent=style.points+' / 100';
+   badge.querySelector('.goal-rarity-reason').textContent=style.detail;
    badge.dataset.tier=String(rarity.score);
   }
  }
