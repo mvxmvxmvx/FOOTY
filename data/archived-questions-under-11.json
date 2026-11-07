@@ -1,0 +1,241 @@
+{
+  "description": "Archived from playable selection due to fewer than 11 verified canonical answers. Relations, entities and evidence remain in curated-bank.json; do not feed these archived questions into matches unless they are revised and pass the 11-answer gate.",
+  "minimumPlayableAnswers": 11,
+  "questionCount": 14,
+  "questions": [
+    {
+      "id": "q_won_mens_world_cup",
+      "category": "INTERNATIONAL GLORY",
+      "prompt": "Name a country that won the men’s FIFA World Cup.",
+      "hint": "Men’s World Cup winners, 1930–2026. West Germany is grouped with Germany.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_mens_world_cup"
+      ],
+      "sources": [
+        "fifa_wc",
+        "fifa_wc_hist"
+      ],
+      "verifiedAnswerCount": 8
+    },
+    {
+      "id": "q_pl_club_based_london",
+      "category": "LONDON CALLING",
+      "prompt": "Name a London-based club that has played in the Premier League.",
+      "hint": "Since 1992–93. Clubs based in Greater London during their Premier League seasons.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_club_based_london"
+      ],
+      "sources": [
+        "pl_all",
+        "london"
+      ],
+      "verifiedAnswerCount": 10
+    },
+    {
+      "id": "q_won_laliga",
+      "category": "SPANISH CHAMPIONS",
+      "prompt": "Name a club that has won La Liga.",
+      "hint": "Spanish national top-flight winners from 1929 through 2025–26.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_laliga"
+      ],
+      "sources": [
+        "laliga"
+      ],
+      "verifiedAnswerCount": 9
+    },
+    {
+      "id": "q_won_euros",
+      "category": "EURO CHAMPIONS",
+      "prompt": "Name a country that has won the men’s UEFA European Championship.",
+      "hint": "Champions through Euro 2024. Historical nations count.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_euros"
+      ],
+      "sources": [
+        "euro"
+      ],
+      "verifiedAnswerCount": 10
+    },
+    {
+      "id": "q_european_pl_double",
+      "category": "DOUBLE DUTY",
+      "prompt": "Name a Premier League club that has won the European Cup / Champions League.",
+      "hint": "A club must have appeared in the Premier League AND lifted Europe’s top men’s club trophy (1992–2026).",
+      "kind": "classic",
+      "confidence": "derived",
+      "allOf": [
+        "played_premier_league",
+        "won_european_cup"
+      ],
+      "sources": [
+        "pl_all",
+        "pl_51",
+        "uefa_ucl"
+      ],
+      "verifiedAnswerCount": 6
+    },
+    {
+      "id": "q_double_barca_2009_2011",
+      "category": "FOOTBALL CONNECTIONS · TWO FINALS",
+      "prompt": "Name a Barcelona player who STARTED both the 2009 and 2011 Champions League finals.",
+      "hint": "Started against Manchester United in Rome AND at Wembley. Both starting XIs required.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "iconic_barca_2009",
+        "iconic_barca_2011"
+      ],
+      "sources": [
+        "uefa_final_2009",
+        "ucl_2011"
+      ],
+      "verifiedAnswerCount": 6
+    },
+    {
+      "id": "q_double_bayern_2013_2020",
+      "category": "FOOTBALL CONNECTIONS · TWO TREBLES",
+      "prompt": "Name a Bayern Munich player who STARTED both the 2013 and 2020 Champions League finals.",
+      "hint": "2013 versus Borussia Dortmund; 2020 versus Paris Saint-Germain. Starting XIs only.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "iconic_bayern_2013",
+        "iconic_bayern_2020"
+      ],
+      "sources": [
+        "uefa_final_2013",
+        "uefa_final_2020"
+      ],
+      "verifiedAnswerCount": 4
+    },
+    {
+      "id": "q_pl_golden_boot_ballon_dor",
+      "category": "FOOTBALL CONNECTIONS · DOUBLE HONOURS",
+      "prompt": "Name a player who has won BOTH the Premier League Golden Boot and the men’s Ballon d’Or.",
+      "hint": "Intersection of the reviewed individual winners lists through 2025–26 / 2026.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_pl_golden_boot",
+        "won_mens_ballon_dor"
+      ],
+      "sources": [
+        "pl_boot",
+        "ballon"
+      ],
+      "verifiedAnswerCount": 3
+    },
+    {
+      "id": "q_won_euros_world_cup",
+      "category": "FOOTBALL CONNECTIONS · INTERNATIONAL DOUBLE",
+      "prompt": "Name a men's national team that has won BOTH the FIFA World Cup and UEFA Euro.",
+      "hint": "Historic European national-team champions; both titles required.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_mens_world_cup",
+        "won_euros"
+      ],
+      "sources": [
+        "fifa_wc",
+        "fifa_wc_hist",
+        "euro"
+      ],
+      "verifiedAnswerCount": 4
+    },
+    {
+      "id": "q_bundesliga_european_double",
+      "category": "FOOTBALL CONNECTIONS · GERMAN GIANTS",
+      "prompt": "Name a club that has won BOTH the Bundesliga and the European Cup / Champions League.",
+      "hint": "Germany's national league since 1963–64 and all-time European Cup champions.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_bundesliga",
+        "won_european_cup"
+      ],
+      "sources": [
+        "bundes",
+        "uefa_ucl"
+      ],
+      "verifiedAnswerCount": 3
+    },
+    {
+      "id": "q_seriea_european_double",
+      "category": "FOOTBALL CONNECTIONS · ITALIAN GIANTS",
+      "prompt": "Name an Italian champion that has ALSO won the European Cup / Champions League.",
+      "hint": "Both all-time Italian national top-division and European Cup winners.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "won_italian_top_division",
+        "won_european_cup"
+      ],
+      "sources": [
+        "seriea",
+        "uefa_ucl"
+      ],
+      "verifiedAnswerCount": 3
+    },
+    {
+      "id": "q_ucl_chelsea_2008_2012",
+      "category": "FOOTBALL CONNECTIONS · CHELSEA GENERATIONS",
+      "prompt": "Name a Chelsea player who STARTED both the 2008 and 2012 Champions League finals.",
+      "hint": "Moscow 2008 and Munich 2012 — two starting XIs only.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2008_chelsea_xi",
+        "iconic_chelsea_2012"
+      ],
+      "sources": [
+        "uefa_2008_final_lineups",
+        "uefa_final_2012"
+      ],
+      "verifiedAnswerCount": 4
+    },
+    {
+      "id": "q_ucl_madrid_2014_2017",
+      "category": "FOOTBALL CONNECTIONS · MADRID DYNASTY",
+      "prompt": "Name a Real Madrid player who STARTED both the 2014 and 2017 Champions League finals.",
+      "hint": "La Décima in Lisbon and victory against Juventus in Cardiff — started both.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2014_madrid_xi",
+        "iconic_real_2017"
+      ],
+      "sources": [
+        "uefa_2014_final_lineups",
+        "uefa_final_2017"
+      ],
+      "verifiedAnswerCount": 6
+    },
+    {
+      "id": "q_ucl_madrid_2017_2024",
+      "category": "FOOTBALL CONNECTIONS · WEMBLEY RETURN",
+      "prompt": "Name a Real Madrid player who STARTED both the 2017 and 2024 Champions League finals.",
+      "hint": "Cardiff 2017 and Wembley 2024 — only players starting both finals.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "iconic_real_2017",
+        "ucl_final_2024_madrid_xi"
+      ],
+      "sources": [
+        "uefa_final_2017",
+        "uefa_2024_final_lineups"
+      ],
+      "verifiedAnswerCount": 2
+    }
+  ]
+}
