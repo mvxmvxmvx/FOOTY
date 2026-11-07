@@ -554,20 +554,21 @@ body{background:#06120f radial-gradient(ellipse at 50% 0%,#15372b 0%,#071713 68%
 @media(max-width:650px){.rarity-dossier{padding:12px}.rarity-topline{flex-wrap:wrap}.rarity-topline strong{font-size:21px}.rarity-data{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){.rarity-bar>div{transition:none}}
 
-/* Rarity is part of the animated goal graphic, not only the results text.
-   The badge is recreated for each tier and every cloned highlight replay. */
+/* v0.1.16 — Goal-rarity caption is BELOW the pitch, never over the shot.
+   It stays attached to the same .shot-scene so full-time replays inherit it. */
 .shot-scene{position:relative;isolation:isolate}
-.goal-rarity{position:absolute;z-index:8;top:12px;right:12px;min-width:150px;max-width:calc(100% - 26px);display:flex;flex-direction:column;align-items:flex-end;gap:3px;padding:11px 13px;border:1px solid #d6fc69a8;border-radius:11px;background:linear-gradient(135deg,#051d16ed,#183e2be8);box-shadow:0 6px 24px #0009,0 0 25px #a0e25a24;color:#eaffcb;pointer-events:none;text-shadow:0 1px 7px #0009}
-.goal-rarity-kicker{font-size:9px;font-weight:900;letter-spacing:1.05px;color:#d2dfc3}
-.goal-rarity-name{font:900 clamp(19px,2.3vw,29px)/.96 Impact,'Barlow Condensed',sans-serif;letter-spacing:.4px;color:#d6fc69}
-.goal-rarity-score{font:900 14px/1.15 'DM Sans',sans-serif;color:#fff}
-.goal-rarity[data-tier="60"]{border-color:#88caff;background:linear-gradient(135deg,#081b2deb,#193b53e8)}
+.goal-rarity{position:relative;inset:auto;min-width:0;max-width:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:100%;margin:0;padding:13px 20px 15px;border:0;border-top:1px solid #6e9a6699;border-radius:0;background:linear-gradient(110deg,#09271df2,#153d2bed);box-shadow:none;color:#eaffcb;text-align:center;pointer-events:none;text-shadow:none}
+.goal-rarity-kicker{font:900 10px/1.35 'DM Sans',system-ui,sans-serif;letter-spacing:1.4px;color:#bbdfb3}
+.goal-rarity-score{font-weight:900;color:#edfbd6}
+.goal-rarity-name{font:900 clamp(21px,2.8vw,33px)/1 'Barlow Condensed',Impact,sans-serif;letter-spacing:.4px;color:#d6fc69}
+.goal-rarity-reason{font:600 clamp(11px,1.3vw,13px)/1.45 'DM Sans',system-ui,sans-serif;color:#c6dec7;max-width:540px}
+.goal-rarity[data-tier="60"]{border-top-color:#88caff;background:linear-gradient(115deg,#101e30f2,#17384ff2)}
 .goal-rarity[data-tier="60"] .goal-rarity-name{color:#a2d6ff}
-.goal-rarity[data-tier="85"]{border-color:#d6a4ff;background:linear-gradient(135deg,#241435f0,#3f2853ed)}
+.goal-rarity[data-tier="85"]{border-top-color:#d6a4ff;background:linear-gradient(115deg,#251837f2,#382848f2)}
 .goal-rarity[data-tier="85"] .goal-rarity-name{color:#e6bcff}
-.goal-rarity[data-tier="100"]{border-color:#ffe39b;background:linear-gradient(135deg,#30240cf0,#554220ef);box-shadow:0 6px 24px #0009,0 0 30px #ffda7961}
+.goal-rarity[data-tier="100"]{border-top-color:#ffe39b;background:linear-gradient(115deg,#322711f2,#4a3a22f2)}
 .goal-rarity[data-tier="100"] .goal-rarity-name{color:#ffe39b}
-.shot-scene.goal .goal-rarity:not(.hidden){animation:goal-rarity-entrance .5s .3s both}
-@keyframes goal-rarity-entrance{from{transform:translateY(-10px) scale(.94);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
-@media(max-width:650px){.goal-rarity{top:7px;right:7px;min-width:0;padding:8px 9px;gap:2px}.goal-rarity-kicker{font-size:7px}.goal-rarity-name{font-size:18px}.goal-rarity-score{font-size:11px}}
+.shot-scene.goal .goal-rarity:not(.hidden){animation:goal-rarity-enter .4s .25s both}
+@keyframes goal-rarity-enter{from{transform:translateY(5px);opacity:0}to{transform:translateY(0);opacity:1}}
+@media(max-width:650px){.goal-rarity{padding:11px 10px 13px;gap:4px}.goal-rarity-kicker{font-size:9px;letter-spacing:.6px}.goal-rarity-name{font-size:23px}.goal-rarity-reason{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.shot-scene.goal .goal-rarity:not(.hidden){animation:none}}
