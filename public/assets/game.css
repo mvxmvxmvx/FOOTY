@@ -553,3 +553,21 @@ body{background:#06120f radial-gradient(ellipse at 50% 0%,#15372b 0%,#071713 68%
 .rarity-spotlight small{display:block;font-size:11px;line-height:1.5;color:#a9c1ac}
 @media(max-width:650px){.rarity-dossier{padding:12px}.rarity-topline{flex-wrap:wrap}.rarity-topline strong{font-size:21px}.rarity-data{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){.rarity-bar>div{transition:none}}
+
+/* Rarity is part of the animated goal graphic, not only the results text.
+   The badge is recreated for each tier and every cloned highlight replay. */
+.shot-scene{position:relative;isolation:isolate}
+.goal-rarity{position:absolute;z-index:8;top:12px;right:12px;min-width:150px;max-width:calc(100% - 26px);display:flex;flex-direction:column;align-items:flex-end;gap:3px;padding:11px 13px;border:1px solid #d6fc69a8;border-radius:11px;background:linear-gradient(135deg,#051d16ed,#183e2be8);box-shadow:0 6px 24px #0009,0 0 25px #a0e25a24;color:#eaffcb;pointer-events:none;text-shadow:0 1px 7px #0009}
+.goal-rarity-kicker{font-size:9px;font-weight:900;letter-spacing:1.05px;color:#d2dfc3}
+.goal-rarity-name{font:900 clamp(19px,2.3vw,29px)/.96 Impact,'Barlow Condensed',sans-serif;letter-spacing:.4px;color:#d6fc69}
+.goal-rarity-score{font:900 14px/1.15 'DM Sans',sans-serif;color:#fff}
+.goal-rarity[data-tier="60"]{border-color:#88caff;background:linear-gradient(135deg,#081b2deb,#193b53e8)}
+.goal-rarity[data-tier="60"] .goal-rarity-name{color:#a2d6ff}
+.goal-rarity[data-tier="85"]{border-color:#d6a4ff;background:linear-gradient(135deg,#241435f0,#3f2853ed)}
+.goal-rarity[data-tier="85"] .goal-rarity-name{color:#e6bcff}
+.goal-rarity[data-tier="100"]{border-color:#ffe39b;background:linear-gradient(135deg,#30240cf0,#554220ef);box-shadow:0 6px 24px #0009,0 0 30px #ffda7961}
+.goal-rarity[data-tier="100"] .goal-rarity-name{color:#ffe39b}
+.shot-scene.goal .goal-rarity:not(.hidden){animation:goal-rarity-entrance .5s .3s both}
+@keyframes goal-rarity-entrance{from{transform:translateY(-10px) scale(.94);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+@media(max-width:650px){.goal-rarity{top:7px;right:7px;min-width:0;padding:8px 9px;gap:2px}.goal-rarity-kicker{font-size:7px}.goal-rarity-name{font-size:18px}.goal-rarity-score{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.shot-scene.goal .goal-rarity:not(.hidden){animation:none}}
