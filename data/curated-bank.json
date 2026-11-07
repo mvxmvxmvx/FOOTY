@@ -192,6 +192,26 @@
       "publisher": "FIFA",
       "title": "FIFA Argentina–France 2022 final lineups",
       "url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/argentina-france-2022-final-greatest-games"
+    },
+    "uefa_2008_final_lineups": {
+      "publisher": "UEFA",
+      "title": "UEFA Champions League 2008 final confirmed starting lineups",
+      "url": "https://www.uefa.com/uefachampionsleague/news/025a-0ea65cda9562-d0b852985d36-1000--chelsea-seek-to-scale-old-trafford-fortress/"
+    },
+    "uefa_2014_final_lineups": {
+      "publisher": "UEFA",
+      "title": "UEFA Champions League 2014 final confirmed starting lineups",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0220-0e9b110ff81a-60010236cd6e-1000--real-madrid-v-atletico-background/"
+    },
+    "uefa_2024_final_lineups": {
+      "publisher": "UEFA",
+      "title": "UEFA Champions League 2024 final confirmed starting lineups",
+      "url": "https://www.uefa.com/uefachampionsleague/news/028e-1b07e18d875a-ba78e4b9d9fc-1000--report-madrid-win-champions-league/"
+    },
+    "uefa_2025_final_lineups": {
+      "publisher": "UEFA",
+      "title": "UEFA Champions League 2025 final confirmed starting lineups",
+      "url": "https://www.uefa.com/uefachampionsleague/match/2044466--paris-vs-inter/lineups/"
     }
   },
   "entities": [
@@ -3853,6 +3873,413 @@
         "Angel Di Maria",
         "Di Maria"
       ]
+    },
+    {
+      "id": "player_wes_brown",
+      "type": "player",
+      "name": "Wes Brown",
+      "aliases": []
+    },
+    {
+      "id": "player_rio_ferdinand",
+      "type": "player",
+      "name": "Rio Ferdinand",
+      "aliases": []
+    },
+    {
+      "id": "player_nemanja_vidic",
+      "type": "player",
+      "name": "Nemanja Vidić",
+      "aliases": [
+        "Nemanja Vidic"
+      ]
+    },
+    {
+      "id": "player_patrice_evra",
+      "type": "player",
+      "name": "Patrice Evra",
+      "aliases": []
+    },
+    {
+      "id": "player_michael_carrick",
+      "type": "player",
+      "name": "Michael Carrick",
+      "aliases": []
+    },
+    {
+      "id": "player_paul_scholes",
+      "type": "player",
+      "name": "Paul Scholes",
+      "aliases": []
+    },
+    {
+      "id": "player_wayne_rooney",
+      "type": "player",
+      "name": "Wayne Rooney",
+      "aliases": []
+    },
+    {
+      "id": "player_michael_essien",
+      "type": "player",
+      "name": "Michael Essien",
+      "aliases": []
+    },
+    {
+      "id": "player_michael_ballack",
+      "type": "player",
+      "name": "Michael Ballack",
+      "aliases": []
+    },
+    {
+      "id": "player_florent_malouda",
+      "type": "player",
+      "name": "Florent Malouda",
+      "aliases": []
+    },
+    {
+      "id": "player_fabio_coentrao",
+      "type": "player",
+      "name": "Fábio Coentrão",
+      "aliases": [
+        "Fabio Coentrao"
+      ]
+    },
+    {
+      "id": "player_sami_khedira",
+      "type": "player",
+      "name": "Sami Khedira",
+      "aliases": []
+    },
+    {
+      "id": "player_gareth_bale",
+      "type": "player",
+      "name": "Gareth Bale",
+      "aliases": []
+    },
+    {
+      "id": "player_thibaut_courtois",
+      "type": "player",
+      "name": "Thibaut Courtois",
+      "aliases": [
+        "Thibaut Courtois"
+      ]
+    },
+    {
+      "id": "player_juanfran",
+      "type": "player",
+      "name": "Juanfran",
+      "aliases": [
+        "Juanfran Torres"
+      ]
+    },
+    {
+      "id": "player_miranda",
+      "type": "player",
+      "name": "Miranda",
+      "aliases": [
+        "João Miranda",
+        "Joao Miranda"
+      ]
+    },
+    {
+      "id": "player_diego_godin",
+      "type": "player",
+      "name": "Diego Godín",
+      "aliases": []
+    },
+    {
+      "id": "player_filipe_luis",
+      "type": "player",
+      "name": "Filipe Luís",
+      "aliases": [
+        "Filipe Luis"
+      ]
+    },
+    {
+      "id": "player_raul_garcia",
+      "type": "player",
+      "name": "Raúl García",
+      "aliases": [
+        "Raul Garcia"
+      ]
+    },
+    {
+      "id": "player_gabi",
+      "type": "player",
+      "name": "Gabi",
+      "aliases": [
+        "Gabriel Fernández Arenas"
+      ]
+    },
+    {
+      "id": "player_koke",
+      "type": "player",
+      "name": "Koke",
+      "aliases": []
+    },
+    {
+      "id": "player_diego_costa",
+      "type": "player",
+      "name": "Diego Costa",
+      "aliases": []
+    },
+    {
+      "id": "player_gregor_kobel",
+      "type": "player",
+      "name": "Gregor Kobel",
+      "aliases": []
+    },
+    {
+      "id": "player_julian_ryerson",
+      "type": "player",
+      "name": "Julian Ryerson",
+      "aliases": []
+    },
+    {
+      "id": "player_nico_schlotterbeck",
+      "type": "player",
+      "name": "Nico Schlotterbeck",
+      "aliases": []
+    },
+    {
+      "id": "player_ian_maatsen",
+      "type": "player",
+      "name": "Ian Maatsen",
+      "aliases": []
+    },
+    {
+      "id": "player_emre_can",
+      "type": "player",
+      "name": "Emre Can",
+      "aliases": []
+    },
+    {
+      "id": "player_marcel_sabitzer",
+      "type": "player",
+      "name": "Marcel Sabitzer",
+      "aliases": []
+    },
+    {
+      "id": "player_karim_adeyemi",
+      "type": "player",
+      "name": "Karim Adeyemi",
+      "aliases": []
+    },
+    {
+      "id": "player_julian_brandt",
+      "type": "player",
+      "name": "Julian Brandt",
+      "aliases": []
+    },
+    {
+      "id": "player_jadon_sancho",
+      "type": "player",
+      "name": "Jadon Sancho",
+      "aliases": []
+    },
+    {
+      "id": "player_niclas_fullkrug",
+      "type": "player",
+      "name": "Niclas Füllkrug",
+      "aliases": [
+        "Niclas Fullkrug"
+      ]
+    },
+    {
+      "id": "player_nacho_fernandez",
+      "type": "player",
+      "name": "Nacho Fernández",
+      "aliases": [
+        "Nacho"
+      ]
+    },
+    {
+      "id": "player_antonio_rudiger",
+      "type": "player",
+      "name": "Antonio Rüdiger",
+      "aliases": [
+        "Antonio Rudiger"
+      ]
+    },
+    {
+      "id": "player_ferland_mendy",
+      "type": "player",
+      "name": "Ferland Mendy",
+      "aliases": []
+    },
+    {
+      "id": "player_federico_valverde",
+      "type": "player",
+      "name": "Federico Valverde",
+      "aliases": []
+    },
+    {
+      "id": "player_eduardo_camavinga",
+      "type": "player",
+      "name": "Eduardo Camavinga",
+      "aliases": []
+    },
+    {
+      "id": "player_jude_bellingham",
+      "type": "player",
+      "name": "Jude Bellingham",
+      "aliases": []
+    },
+    {
+      "id": "player_rodrygo",
+      "type": "player",
+      "name": "Rodrygo",
+      "aliases": [
+        "Rodrygo Goes"
+      ]
+    },
+    {
+      "id": "player_vinicius_junior",
+      "type": "player",
+      "name": "Vinícius Júnior",
+      "aliases": [
+        "Vinicius Junior",
+        "Vinicius Jr",
+        "Vini Jr"
+      ]
+    },
+    {
+      "id": "player_gianluigi_donnarumma",
+      "type": "player",
+      "name": "Gianluigi Donnarumma",
+      "aliases": []
+    },
+    {
+      "id": "player_achraf_hakimi",
+      "type": "player",
+      "name": "Achraf Hakimi",
+      "aliases": []
+    },
+    {
+      "id": "player_marquinhos",
+      "type": "player",
+      "name": "Marquinhos",
+      "aliases": [
+        "Marcos Aoás Corrêa",
+        "Marcos Aoas Correa"
+      ]
+    },
+    {
+      "id": "player_willian_pacho",
+      "type": "player",
+      "name": "Willian Pacho",
+      "aliases": []
+    },
+    {
+      "id": "player_nuno_mendes",
+      "type": "player",
+      "name": "Nuno Mendes",
+      "aliases": []
+    },
+    {
+      "id": "player_joao_neves",
+      "type": "player",
+      "name": "João Neves",
+      "aliases": [
+        "Joao Neves"
+      ]
+    },
+    {
+      "id": "player_vitinha",
+      "type": "player",
+      "name": "Vitinha",
+      "aliases": [
+        "Vítor Ferreira",
+        "Vitor Ferreira"
+      ]
+    },
+    {
+      "id": "player_fabian_ruiz",
+      "type": "player",
+      "name": "Fabián Ruiz",
+      "aliases": [
+        "Fabian Ruiz"
+      ]
+    },
+    {
+      "id": "player_desire_doue",
+      "type": "player",
+      "name": "Désiré Doué",
+      "aliases": [
+        "Desire Doue"
+      ]
+    },
+    {
+      "id": "player_khvicha_kvaratskhelia",
+      "type": "player",
+      "name": "Khvicha Kvaratskhelia",
+      "aliases": [
+        "Kvaratskhelia"
+      ]
+    },
+    {
+      "id": "player_yann_sommer",
+      "type": "player",
+      "name": "Yann Sommer",
+      "aliases": []
+    },
+    {
+      "id": "player_francesco_acerbi",
+      "type": "player",
+      "name": "Francesco Acerbi",
+      "aliases": []
+    },
+    {
+      "id": "player_alessandro_bastoni",
+      "type": "player",
+      "name": "Alessandro Bastoni",
+      "aliases": []
+    },
+    {
+      "id": "player_denzel_dumfries",
+      "type": "player",
+      "name": "Denzel Dumfries",
+      "aliases": []
+    },
+    {
+      "id": "player_nicolo_barella",
+      "type": "player",
+      "name": "Nicolò Barella",
+      "aliases": [
+        "Nicolo Barella"
+      ]
+    },
+    {
+      "id": "player_hakan_calhanoglu",
+      "type": "player",
+      "name": "Hakan Çalhanoğlu",
+      "aliases": [
+        "Hakan Calhanoglu"
+      ]
+    },
+    {
+      "id": "player_henrikh_mkhitaryan",
+      "type": "player",
+      "name": "Henrikh Mkhitaryan",
+      "aliases": []
+    },
+    {
+      "id": "player_federico_dimarco",
+      "type": "player",
+      "name": "Federico Dimarco",
+      "aliases": []
+    },
+    {
+      "id": "player_marcus_thuram",
+      "type": "player",
+      "name": "Marcus Thuram",
+      "aliases": []
+    },
+    {
+      "id": "player_lautaro_martinez",
+      "type": "player",
+      "name": "Lautaro Martínez",
+      "aliases": []
     }
   ],
   "facts": [
@@ -8906,6 +9333,710 @@
       "sources": [
         "world_2022"
       ]
+    },
+    {
+      "entityId": "player_edwin_van_der_sar",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_wes_brown",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 85,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_rio_ferdinand",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_nemanja_vidic",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_patrice_evra",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_owen_hargreaves",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_michael_carrick",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_paul_scholes",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_cristiano_ronaldo",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_carlos_tevez",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_wayne_rooney",
+      "relation": "ucl_final_2008_united_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_petr_cech",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_michael_essien",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_ricardo_carvalho",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_john_terry",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_ashley_cole",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_michael_ballack",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_claude_makelele",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_frank_lampard",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_joe_cole",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_didier_drogba",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_florent_malouda",
+      "relation": "ucl_final_2008_chelsea_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_iker_casillas",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_dani_carvajal",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_raphael_varane",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_sergio_ramos",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_fabio_coentrao",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_luka_modric",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_sami_khedira",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_angel_di_maria",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_gareth_bale",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_karim_benzema",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_cristiano_ronaldo",
+      "relation": "ucl_final_2014_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_thibaut_courtois",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_juanfran",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_miranda",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 85,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_diego_godin",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_filipe_luis",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_tiago_mendes",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 85,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_raul_garcia",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_gabi",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_koke",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_diego_costa",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_david_villa",
+      "relation": "ucl_final_2014_atletico_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_gregor_kobel",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_julian_ryerson",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_mats_hummels",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_nico_schlotterbeck",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_ian_maatsen",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 85,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_emre_can",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_marcel_sabitzer",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_karim_adeyemi",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_julian_brandt",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_jadon_sancho",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_niclas_fullkrug",
+      "relation": "ucl_final_2024_dortmund_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_thibaut_courtois",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_dani_carvajal",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_nacho_fernandez",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_antonio_rudiger",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_ferland_mendy",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_federico_valverde",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_toni_kroos",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_eduardo_camavinga",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_jude_bellingham",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_rodrygo",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_vinicius_junior",
+      "relation": "ucl_final_2024_madrid_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_gianluigi_donnarumma",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_achraf_hakimi",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_marquinhos",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_willian_pacho",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 85,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_nuno_mendes",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_joao_neves",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_vitinha",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_fabian_ruiz",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_desire_doue",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_ousmane_dembele",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_khvicha_kvaratskhelia",
+      "relation": "ucl_final_2025_psg_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_yann_sommer",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_benjamin_pavard",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_francesco_acerbi",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_alessandro_bastoni",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_denzel_dumfries",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_nicolo_barella",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_hakan_calhanoglu",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_henrikh_mkhitaryan",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_federico_dimarco",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 60,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_marcus_thuram",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 30,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "entityId": "player_lautaro_martinez",
+      "relation": "ucl_final_2025_inter_xi",
+      "points": 10,
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
     }
   ],
   "questions": [
@@ -9558,6 +10689,166 @@
       "sources": [
         "seriea",
         "uefa_ucl"
+      ]
+    },
+    {
+      "id": "q_ucl_final_2008_united",
+      "category": "CHAMPIONS LEAGUE 2008 · MANCHESTER UNITED",
+      "prompt": "Name a Manchester United player who STARTED the 2008 Champions League final.",
+      "hint": "Only the confirmed starting XI counts — not later substitutes.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2008_united_xi"
+      ],
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "id": "q_ucl_final_2008_chelsea",
+      "category": "CHAMPIONS LEAGUE 2008 · CHELSEA",
+      "prompt": "Name a Chelsea player who STARTED the 2008 Champions League final.",
+      "hint": "Only the confirmed starting XI counts — not later substitutes.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2008_chelsea_xi"
+      ],
+      "sources": [
+        "uefa_2008_final_lineups"
+      ]
+    },
+    {
+      "id": "q_ucl_final_2014_madrid",
+      "category": "CHAMPIONS LEAGUE 2014 · REAL MADRID",
+      "prompt": "Name a Real Madrid player who STARTED the 2014 Champions League final.",
+      "hint": "Only the confirmed starting XI counts — not later substitutes.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2014_madrid_xi"
+      ],
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "id": "q_ucl_final_2014_atletico",
+      "category": "CHAMPIONS LEAGUE 2014 · ATLÉTICO MADRID",
+      "prompt": "Name a Atlético Madrid player who STARTED the 2014 Champions League final.",
+      "hint": "Only the confirmed starting XI counts — not later substitutes.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2014_atletico_xi"
+      ],
+      "sources": [
+        "uefa_2014_final_lineups"
+      ]
+    },
+    {
+      "id": "q_ucl_final_2024_dortmund",
+      "category": "CHAMPIONS LEAGUE 2024 · BORUSSIA DORTMUND",
+      "prompt": "Name a Borussia Dortmund player who STARTED the 2024 Champions League final.",
+      "hint": "Only the confirmed starting XI counts — not later substitutes.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2024_dortmund_xi"
+      ],
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "id": "q_ucl_final_2024_madrid",
+      "category": "CHAMPIONS LEAGUE 2024 · REAL MADRID",
+      "prompt": "Name a Real Madrid player who STARTED the 2024 Champions League final.",
+      "hint": "Only the confirmed starting XI counts — not later substitutes.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2024_madrid_xi"
+      ],
+      "sources": [
+        "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "id": "q_ucl_final_2025_psg",
+      "category": "CHAMPIONS LEAGUE 2025 · PARIS SAINT-GERMAIN",
+      "prompt": "Name a Paris Saint-Germain player who STARTED the 2025 Champions League final.",
+      "hint": "Only the confirmed starting XI counts — not later substitutes.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2025_psg_xi"
+      ],
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "id": "q_ucl_final_2025_inter",
+      "category": "CHAMPIONS LEAGUE 2025 · INTER MILAN",
+      "prompt": "Name a Inter Milan player who STARTED the 2025 Champions League final.",
+      "hint": "Only the confirmed starting XI counts — not later substitutes.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2025_inter_xi"
+      ],
+      "sources": [
+        "uefa_2025_final_lineups"
+      ]
+    },
+    {
+      "id": "q_ucl_chelsea_2008_2012",
+      "category": "FOOTBALL CONNECTIONS · CHELSEA GENERATIONS",
+      "prompt": "Name a Chelsea player who STARTED both the 2008 and 2012 Champions League finals.",
+      "hint": "Moscow 2008 and Munich 2012 — two starting XIs only.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2008_chelsea_xi",
+        "iconic_chelsea_2012"
+      ],
+      "sources": [
+        "uefa_2008_final_lineups",
+        "uefa_final_2012"
+      ]
+    },
+    {
+      "id": "q_ucl_madrid_2014_2017",
+      "category": "FOOTBALL CONNECTIONS · MADRID DYNASTY",
+      "prompt": "Name a Real Madrid player who STARTED both the 2014 and 2017 Champions League finals.",
+      "hint": "La Décima in Lisbon and victory against Juventus in Cardiff — started both.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "ucl_final_2014_madrid_xi",
+        "iconic_real_2017"
+      ],
+      "sources": [
+        "uefa_2014_final_lineups",
+        "uefa_final_2017"
+      ]
+    },
+    {
+      "id": "q_ucl_madrid_2017_2024",
+      "category": "FOOTBALL CONNECTIONS · WEMBLEY RETURN",
+      "prompt": "Name a Real Madrid player who STARTED both the 2017 and 2024 Champions League finals.",
+      "hint": "Cardiff 2017 and Wembley 2024 — only players starting both finals.",
+      "kind": "europe",
+      "confidence": "reviewed",
+      "allOf": [
+        "iconic_real_2017",
+        "ucl_final_2024_madrid_xi"
+      ],
+      "sources": [
+        "uefa_final_2017",
+        "uefa_2024_final_lineups"
       ]
     }
   ]
