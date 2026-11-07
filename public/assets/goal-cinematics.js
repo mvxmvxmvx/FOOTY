@@ -4,11 +4,11 @@
  'use strict';
  const styles=Object.freeze([
   {points:10,key:'tap-in',name:'Tap-in',call:'CALM FINISH',detail:'A familiar answer earns a simple, composed finish.'},
-  {points:15,key:'driven',name:'Driven finish',call:'LOW AND HARD',detail:'A solid shout earns a stronger, more decisive finish.'},
+  {points:15,key:'driven',name:'Driven finish',call:'LOW AND HARD',detail:'A solid answer earns a stronger, more decisive finish.'},
   {points:30,key:'finesse',name:'Finesse',call:'BENT INTO THE CORNER',detail:'A clever answer earns a finish with extra finesse.'},
   {points:60,key:'volley',name:'Volley',call:'ON THE VOLLEY',detail:'A rare answer deserves the technique of a volley.'},
   {points:85,key:'screamer',name:'Top-bins screamer',call:'WHAT A STRIKE!',detail:'A deep-cut answer deserves an outrageous top-corner strike.'},
-  {points:100,key:'bicycle',name:'Bicycle kick',call:'GOAL OF THE SEASON?!',detail:'The rarest editorial grade earns our most spectacular finish.'}
+  {points:100,key:'bicycle',name:'Bicycle kick',call:'GOAL OF THE SEASON?!',detail:'The rarest editorial answer earns our most spectacular finish.'}
  ]);
  function forPoints(points){
   const p=Number(points);
