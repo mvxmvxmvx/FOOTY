@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "13.0",
-    "asOf": "2026-11-04",
-    "description": "V13 modular database-backed FOOTY. The inherited question bank is curated; expanded career coverage is not yet imported.",
+    "asOf": "2026-11-06",
+    "description": "V13 curated knowledge bank plus v0.1.16 reviewed Champions League final XI and 1992/93–2026/27 Premier League club-season membership expansion; full player career history is not yet imported.",
     "scoring": "Editorial rarity estimates, not crowd frequencies.",
     "limits": "Closed-world answer bank. New historical records require reviewed imports. Reported missing answers are not scored automatically.",
     "schema_version": "13.0"
@@ -212,6 +212,21 @@
       "publisher": "UEFA",
       "title": "UEFA Champions League 2025 final confirmed starting lineups",
       "url": "https://www.uefa.com/uefachampionsleague/match/2044466--paris-vs-inter/lineups/"
+    },
+    "pl_season_clubs_history": {
+      "publisher": "Premier League / historical seasons cross-check",
+      "title": "Premier League historical club membership by season, 1992/93–2025/26",
+      "url": "https://www.premierleague.com/en/clubs"
+    },
+    "pl_club_spells_reference": {
+      "publisher": "Wikipedia contributors (cross-check)",
+      "title": "List of Premier League clubs: club season spells",
+      "url": "https://en.wikipedia.org/wiki/List_of_Premier_League_clubs"
+    },
+    "pl_2026_27_official": {
+      "publisher": "Premier League",
+      "title": "2026/27 Premier League officially starts — confirmed promoted teams and league members",
+      "url": "https://www.premierleague.com/en/news/4673099/the-202627-premier-league-season-officially-starts/"
     }
   },
   "entities": [
@@ -10037,6 +10052,6360 @@
       "sources": [
         "uefa_2025_final_lineups"
       ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_1992_1993",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2009_2010",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2011_2012",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2016_2017",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_arsenal",
+      "relation": "pl_season_2026_2027",
+      "points": 10,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_1992_1993",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2009_2010",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2011_2012",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_aston_villa",
+      "relation": "pl_season_2026_2027",
+      "points": 10,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_barnsley",
+      "relation": "pl_season_1997_1998",
+      "points": 85,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_birmingham_city",
+      "relation": "pl_season_2002_2003",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_birmingham_city",
+      "relation": "pl_season_2003_2004",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_birmingham_city",
+      "relation": "pl_season_2004_2005",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_birmingham_city",
+      "relation": "pl_season_2005_2006",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_birmingham_city",
+      "relation": "pl_season_2007_2008",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_birmingham_city",
+      "relation": "pl_season_2009_2010",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_birmingham_city",
+      "relation": "pl_season_2010_2011",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_1992_1993",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_1993_1994",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_1994_1995",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_1995_1996",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_1996_1997",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_1997_1998",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_1998_1999",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2001_2002",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2002_2003",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2003_2004",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2004_2005",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2005_2006",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2006_2007",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2007_2008",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2008_2009",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2009_2010",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2010_2011",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackburn_rovers",
+      "relation": "pl_season_2011_2012",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_blackpool",
+      "relation": "pl_season_2010_2011",
+      "points": 85,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_1995_1996",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_1997_1998",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2001_2002",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2002_2003",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2003_2004",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2004_2005",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2005_2006",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2006_2007",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2007_2008",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2008_2009",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2009_2010",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2010_2011",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bolton_wanderers",
+      "relation": "pl_season_2011_2012",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2015_2016",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2016_2017",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2017_2018",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2018_2019",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2019_2020",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2022_2023",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2023_2024",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2024_2025",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2025_2026",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_afc_bournemouth",
+      "relation": "pl_season_2026_2027",
+      "points": 30,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bradford_city",
+      "relation": "pl_season_1999_2000",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_bradford_city",
+      "relation": "pl_season_2000_2001",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brentford",
+      "relation": "pl_season_2021_2022",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brentford",
+      "relation": "pl_season_2022_2023",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brentford",
+      "relation": "pl_season_2023_2024",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brentford",
+      "relation": "pl_season_2024_2025",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brentford",
+      "relation": "pl_season_2025_2026",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brentford",
+      "relation": "pl_season_2026_2027",
+      "points": 30,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2017_2018",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2018_2019",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2019_2020",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2020_2021",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2021_2022",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2022_2023",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2023_2024",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2024_2025",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2025_2026",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_brighton_hove_albion",
+      "relation": "pl_season_2026_2027",
+      "points": 30,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2009_2010",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2014_2015",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2016_2017",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2017_2018",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2018_2019",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2019_2020",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2020_2021",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2021_2022",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2023_2024",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_burnley",
+      "relation": "pl_season_2025_2026",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_cardiff_city",
+      "relation": "pl_season_2013_2014",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_cardiff_city",
+      "relation": "pl_season_2018_2019",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_charlton_athletic",
+      "relation": "pl_season_1998_1999",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_charlton_athletic",
+      "relation": "pl_season_2000_2001",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_charlton_athletic",
+      "relation": "pl_season_2001_2002",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_charlton_athletic",
+      "relation": "pl_season_2002_2003",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_charlton_athletic",
+      "relation": "pl_season_2003_2004",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_charlton_athletic",
+      "relation": "pl_season_2004_2005",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_charlton_athletic",
+      "relation": "pl_season_2005_2006",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_charlton_athletic",
+      "relation": "pl_season_2006_2007",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_1992_1993",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2009_2010",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2011_2012",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2016_2017",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_chelsea",
+      "relation": "pl_season_2026_2027",
+      "points": 10,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_1992_1993",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_1993_1994",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_1994_1995",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_1995_1996",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_1996_1997",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_1997_1998",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_1998_1999",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_1999_2000",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_2000_2001",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_coventry_city",
+      "relation": "pl_season_2026_2027",
+      "points": 30,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_1992_1993",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_1994_1995",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_1997_1998",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2004_2005",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2013_2014",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2014_2015",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2015_2016",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2016_2017",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2017_2018",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2018_2019",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2019_2020",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2020_2021",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2021_2022",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2022_2023",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2023_2024",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2024_2025",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2025_2026",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_crystal_palace",
+      "relation": "pl_season_2026_2027",
+      "points": 15,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_derby_county",
+      "relation": "pl_season_1996_1997",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_derby_county",
+      "relation": "pl_season_1997_1998",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_derby_county",
+      "relation": "pl_season_1998_1999",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_derby_county",
+      "relation": "pl_season_1999_2000",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_derby_county",
+      "relation": "pl_season_2000_2001",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_derby_county",
+      "relation": "pl_season_2001_2002",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_derby_county",
+      "relation": "pl_season_2007_2008",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_1992_1993",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2009_2010",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2011_2012",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2016_2017",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_everton",
+      "relation": "pl_season_2026_2027",
+      "points": 10,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2001_2002",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2002_2003",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2003_2004",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2004_2005",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2005_2006",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2006_2007",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2007_2008",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2008_2009",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2009_2010",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2010_2011",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2011_2012",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2012_2013",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2013_2014",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2018_2019",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2020_2021",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2022_2023",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2023_2024",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2024_2025",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2025_2026",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_fulham",
+      "relation": "pl_season_2026_2027",
+      "points": 15,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_huddersfield_town",
+      "relation": "pl_season_2017_2018",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_huddersfield_town",
+      "relation": "pl_season_2018_2019",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_hull_city",
+      "relation": "pl_season_2008_2009",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_hull_city",
+      "relation": "pl_season_2009_2010",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_hull_city",
+      "relation": "pl_season_2013_2014",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_hull_city",
+      "relation": "pl_season_2014_2015",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_hull_city",
+      "relation": "pl_season_2016_2017",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_hull_city",
+      "relation": "pl_season_2026_2027",
+      "points": 30,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_ipswich_town",
+      "relation": "pl_season_1992_1993",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_ipswich_town",
+      "relation": "pl_season_1993_1994",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_ipswich_town",
+      "relation": "pl_season_1994_1995",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_ipswich_town",
+      "relation": "pl_season_2000_2001",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_ipswich_town",
+      "relation": "pl_season_2001_2002",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_ipswich_town",
+      "relation": "pl_season_2024_2025",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_ipswich_town",
+      "relation": "pl_season_2026_2027",
+      "points": 30,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_1992_1993",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_1993_1994",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_1994_1995",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_1995_1996",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_1996_1997",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_1997_1998",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_1998_1999",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_1999_2000",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_2000_2001",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_2001_2002",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_2002_2003",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_2003_2004",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_2020_2021",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_2021_2022",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_2022_2023",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_2025_2026",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leeds_united",
+      "relation": "pl_season_2026_2027",
+      "points": 15,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_1994_1995",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_1996_1997",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_1997_1998",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_1998_1999",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_1999_2000",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2000_2001",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2001_2002",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2003_2004",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2014_2015",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2015_2016",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2016_2017",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2017_2018",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2018_2019",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2019_2020",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2020_2021",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2021_2022",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2022_2023",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_leicester_city",
+      "relation": "pl_season_2024_2025",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_1992_1993",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2009_2010",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2011_2012",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2016_2017",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_liverpool",
+      "relation": "pl_season_2026_2027",
+      "points": 10,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_luton_town",
+      "relation": "pl_season_2023_2024",
+      "points": 85,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_1992_1993",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2009_2010",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2011_2012",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2016_2017",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_city",
+      "relation": "pl_season_2026_2027",
+      "points": 10,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_1992_1993",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2009_2010",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2011_2012",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2016_2017",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_manchester_united",
+      "relation": "pl_season_2026_2027",
+      "points": 10,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_1992_1993",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_1995_1996",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_1996_1997",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_1998_1999",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_1999_2000",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2000_2001",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2001_2002",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2002_2003",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2003_2004",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2004_2005",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2005_2006",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2006_2007",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2007_2008",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2008_2009",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_middlesbrough",
+      "relation": "pl_season_2016_2017",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2011_2012",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_newcastle_united",
+      "relation": "pl_season_2026_2027",
+      "points": 10,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_1992_1993",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_1993_1994",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_1994_1995",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_2004_2005",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_2011_2012",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_2012_2013",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_2013_2014",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_2015_2016",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_2019_2020",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_norwich_city",
+      "relation": "pl_season_2021_2022",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_1992_1993",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_1994_1995",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_1995_1996",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_1996_1997",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_1998_1999",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_2022_2023",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_2023_2024",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_2024_2025",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_2025_2026",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_nottingham_forest",
+      "relation": "pl_season_2026_2027",
+      "points": 30,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_oldham_athletic",
+      "relation": "pl_season_1992_1993",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_oldham_athletic",
+      "relation": "pl_season_1993_1994",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_portsmouth",
+      "relation": "pl_season_2003_2004",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_portsmouth",
+      "relation": "pl_season_2004_2005",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_portsmouth",
+      "relation": "pl_season_2005_2006",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_portsmouth",
+      "relation": "pl_season_2006_2007",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_portsmouth",
+      "relation": "pl_season_2007_2008",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_portsmouth",
+      "relation": "pl_season_2008_2009",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_portsmouth",
+      "relation": "pl_season_2009_2010",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_queens_park_rangers",
+      "relation": "pl_season_1992_1993",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_queens_park_rangers",
+      "relation": "pl_season_1993_1994",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_queens_park_rangers",
+      "relation": "pl_season_1994_1995",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_queens_park_rangers",
+      "relation": "pl_season_1995_1996",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_queens_park_rangers",
+      "relation": "pl_season_2011_2012",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_queens_park_rangers",
+      "relation": "pl_season_2012_2013",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_queens_park_rangers",
+      "relation": "pl_season_2014_2015",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_reading",
+      "relation": "pl_season_2006_2007",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_reading",
+      "relation": "pl_season_2007_2008",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_reading",
+      "relation": "pl_season_2012_2013",
+      "points": 60,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_united",
+      "relation": "pl_season_1992_1993",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_united",
+      "relation": "pl_season_1993_1994",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_united",
+      "relation": "pl_season_2006_2007",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_united",
+      "relation": "pl_season_2019_2020",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_united",
+      "relation": "pl_season_2020_2021",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_united",
+      "relation": "pl_season_2023_2024",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_wednesday",
+      "relation": "pl_season_1992_1993",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_wednesday",
+      "relation": "pl_season_1993_1994",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_wednesday",
+      "relation": "pl_season_1994_1995",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_wednesday",
+      "relation": "pl_season_1995_1996",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_wednesday",
+      "relation": "pl_season_1996_1997",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_wednesday",
+      "relation": "pl_season_1997_1998",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_wednesday",
+      "relation": "pl_season_1998_1999",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sheffield_wednesday",
+      "relation": "pl_season_1999_2000",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_1992_1993",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2016_2017",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_southampton",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2008_2009",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2009_2010",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2010_2011",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2011_2012",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2012_2013",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2013_2014",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2014_2015",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2015_2016",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2016_2017",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_stoke_city",
+      "relation": "pl_season_2017_2018",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_1996_1997",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_1999_2000",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2000_2001",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2001_2002",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2002_2003",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2005_2006",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2007_2008",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2008_2009",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2009_2010",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2010_2011",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2011_2012",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2012_2013",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2013_2014",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2014_2015",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2015_2016",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2016_2017",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2025_2026",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_sunderland",
+      "relation": "pl_season_2026_2027",
+      "points": 15,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_swansea_city",
+      "relation": "pl_season_2011_2012",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_swansea_city",
+      "relation": "pl_season_2012_2013",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_swansea_city",
+      "relation": "pl_season_2013_2014",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_swansea_city",
+      "relation": "pl_season_2014_2015",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_swansea_city",
+      "relation": "pl_season_2015_2016",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_swansea_city",
+      "relation": "pl_season_2016_2017",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_swansea_city",
+      "relation": "pl_season_2017_2018",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_swindon_town",
+      "relation": "pl_season_1993_1994",
+      "points": 85,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_1992_1993",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2003_2004",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2004_2005",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2009_2010",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2011_2012",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2016_2017",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_tottenham_hotspur",
+      "relation": "pl_season_2026_2027",
+      "points": 10,
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_watford",
+      "relation": "pl_season_1999_2000",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_watford",
+      "relation": "pl_season_2006_2007",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_watford",
+      "relation": "pl_season_2015_2016",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_watford",
+      "relation": "pl_season_2016_2017",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_watford",
+      "relation": "pl_season_2017_2018",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_watford",
+      "relation": "pl_season_2018_2019",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_watford",
+      "relation": "pl_season_2019_2020",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_watford",
+      "relation": "pl_season_2021_2022",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2002_2003",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2004_2005",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2005_2006",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2008_2009",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2010_2011",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2011_2012",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2012_2013",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2013_2014",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2014_2015",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2015_2016",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2016_2017",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2017_2018",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_bromwich_albion",
+      "relation": "pl_season_2020_2021",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_1993_1994",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_1994_1995",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_1995_1996",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_1996_1997",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_1997_1998",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_1998_1999",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_1999_2000",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2000_2001",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2001_2002",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2002_2003",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2005_2006",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2006_2007",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2007_2008",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2008_2009",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2009_2010",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2010_2011",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2012_2013",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2013_2014",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2014_2015",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2015_2016",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2016_2017",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2017_2018",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2018_2019",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2019_2020",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2020_2021",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2021_2022",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2022_2023",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2023_2024",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2024_2025",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_west_ham_united",
+      "relation": "pl_season_2025_2026",
+      "points": 10,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wigan_athletic",
+      "relation": "pl_season_2005_2006",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wigan_athletic",
+      "relation": "pl_season_2006_2007",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wigan_athletic",
+      "relation": "pl_season_2007_2008",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wigan_athletic",
+      "relation": "pl_season_2008_2009",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wigan_athletic",
+      "relation": "pl_season_2009_2010",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wigan_athletic",
+      "relation": "pl_season_2010_2011",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wigan_athletic",
+      "relation": "pl_season_2011_2012",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wigan_athletic",
+      "relation": "pl_season_2012_2013",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wimbledon_fc",
+      "relation": "pl_season_1992_1993",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wimbledon_fc",
+      "relation": "pl_season_1993_1994",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wimbledon_fc",
+      "relation": "pl_season_1994_1995",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wimbledon_fc",
+      "relation": "pl_season_1995_1996",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wimbledon_fc",
+      "relation": "pl_season_1996_1997",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wimbledon_fc",
+      "relation": "pl_season_1997_1998",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wimbledon_fc",
+      "relation": "pl_season_1998_1999",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wimbledon_fc",
+      "relation": "pl_season_1999_2000",
+      "points": 30,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2003_2004",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2009_2010",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2010_2011",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2011_2012",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2018_2019",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2019_2020",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2020_2021",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2021_2022",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2022_2023",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2023_2024",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2024_2025",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "entityId": "club_wolverhampton_wanderers",
+      "relation": "pl_season_2025_2026",
+      "points": 15,
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
     }
   ],
   "questions": [
@@ -10849,6 +17218,531 @@
       "sources": [
         "uefa_final_2017",
         "uefa_2024_final_lineups"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_1992_1993",
+      "category": "PREMIER LEAGUE ARCHIVE · 1992/93",
+      "prompt": "Name a club that played in the 1992/93 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_1992_1993"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_1993_1994",
+      "category": "PREMIER LEAGUE ARCHIVE · 1993/94",
+      "prompt": "Name a club that played in the 1993/94 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_1993_1994"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_1994_1995",
+      "category": "PREMIER LEAGUE ARCHIVE · 1994/95",
+      "prompt": "Name a club that played in the 1994/95 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_1994_1995"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_1995_1996",
+      "category": "PREMIER LEAGUE ARCHIVE · 1995/96",
+      "prompt": "Name a club that played in the 1995/96 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_1995_1996"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_1996_1997",
+      "category": "PREMIER LEAGUE ARCHIVE · 1996/97",
+      "prompt": "Name a club that played in the 1996/97 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_1996_1997"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_1997_1998",
+      "category": "PREMIER LEAGUE ARCHIVE · 1997/98",
+      "prompt": "Name a club that played in the 1997/98 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_1997_1998"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_1998_1999",
+      "category": "PREMIER LEAGUE ARCHIVE · 1998/99",
+      "prompt": "Name a club that played in the 1998/99 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_1998_1999"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_1999_2000",
+      "category": "PREMIER LEAGUE ARCHIVE · 1999/00",
+      "prompt": "Name a club that played in the 1999/00 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_1999_2000"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2000_2001",
+      "category": "PREMIER LEAGUE ARCHIVE · 2000/01",
+      "prompt": "Name a club that played in the 2000/01 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2000_2001"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2001_2002",
+      "category": "PREMIER LEAGUE ARCHIVE · 2001/02",
+      "prompt": "Name a club that played in the 2001/02 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2001_2002"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2002_2003",
+      "category": "PREMIER LEAGUE ARCHIVE · 2002/03",
+      "prompt": "Name a club that played in the 2002/03 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2002_2003"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2003_2004",
+      "category": "PREMIER LEAGUE ARCHIVE · 2003/04",
+      "prompt": "Name a club that played in the 2003/04 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2003_2004"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2004_2005",
+      "category": "PREMIER LEAGUE ARCHIVE · 2004/05",
+      "prompt": "Name a club that played in the 2004/05 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2004_2005"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2005_2006",
+      "category": "PREMIER LEAGUE ARCHIVE · 2005/06",
+      "prompt": "Name a club that played in the 2005/06 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2005_2006"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2006_2007",
+      "category": "PREMIER LEAGUE ARCHIVE · 2006/07",
+      "prompt": "Name a club that played in the 2006/07 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2006_2007"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2007_2008",
+      "category": "PREMIER LEAGUE ARCHIVE · 2007/08",
+      "prompt": "Name a club that played in the 2007/08 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2007_2008"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2008_2009",
+      "category": "PREMIER LEAGUE ARCHIVE · 2008/09",
+      "prompt": "Name a club that played in the 2008/09 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2008_2009"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2009_2010",
+      "category": "PREMIER LEAGUE ARCHIVE · 2009/10",
+      "prompt": "Name a club that played in the 2009/10 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2009_2010"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2010_2011",
+      "category": "PREMIER LEAGUE ARCHIVE · 2010/11",
+      "prompt": "Name a club that played in the 2010/11 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2010_2011"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2011_2012",
+      "category": "PREMIER LEAGUE ARCHIVE · 2011/12",
+      "prompt": "Name a club that played in the 2011/12 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2011_2012"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2012_2013",
+      "category": "PREMIER LEAGUE ARCHIVE · 2012/13",
+      "prompt": "Name a club that played in the 2012/13 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2012_2013"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2013_2014",
+      "category": "PREMIER LEAGUE ARCHIVE · 2013/14",
+      "prompt": "Name a club that played in the 2013/14 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2013_2014"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2014_2015",
+      "category": "PREMIER LEAGUE ARCHIVE · 2014/15",
+      "prompt": "Name a club that played in the 2014/15 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2014_2015"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2015_2016",
+      "category": "PREMIER LEAGUE ARCHIVE · 2015/16",
+      "prompt": "Name a club that played in the 2015/16 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2015_2016"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2016_2017",
+      "category": "PREMIER LEAGUE ARCHIVE · 2016/17",
+      "prompt": "Name a club that played in the 2016/17 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2016_2017"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2017_2018",
+      "category": "PREMIER LEAGUE ARCHIVE · 2017/18",
+      "prompt": "Name a club that played in the 2017/18 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2017_2018"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2018_2019",
+      "category": "PREMIER LEAGUE ARCHIVE · 2018/19",
+      "prompt": "Name a club that played in the 2018/19 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2018_2019"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2019_2020",
+      "category": "PREMIER LEAGUE ARCHIVE · 2019/20",
+      "prompt": "Name a club that played in the 2019/20 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2019_2020"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2020_2021",
+      "category": "PREMIER LEAGUE ARCHIVE · 2020/21",
+      "prompt": "Name a club that played in the 2020/21 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2020_2021"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2021_2022",
+      "category": "PREMIER LEAGUE ARCHIVE · 2021/22",
+      "prompt": "Name a club that played in the 2021/22 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2021_2022"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2022_2023",
+      "category": "PREMIER LEAGUE ARCHIVE · 2022/23",
+      "prompt": "Name a club that played in the 2022/23 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2022_2023"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2023_2024",
+      "category": "PREMIER LEAGUE ARCHIVE · 2023/24",
+      "prompt": "Name a club that played in the 2023/24 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2023_2024"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2024_2025",
+      "category": "PREMIER LEAGUE ARCHIVE · 2024/25",
+      "prompt": "Name a club that played in the 2024/25 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2024_2025"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2025_2026",
+      "category": "PREMIER LEAGUE ARCHIVE · 2025/26",
+      "prompt": "Name a club that played in the 2025/26 Premier League season.",
+      "hint": "Clubs in that season's top division only. Promotion and relegation change the answer pool.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2025_2026"
+      ],
+      "sources": [
+        "pl_season_clubs_history",
+        "pl_club_spells_reference"
+      ]
+    },
+    {
+      "id": "q_pl_clubs_2026_2027",
+      "category": "PREMIER LEAGUE ARCHIVE · 2026/27",
+      "prompt": "Name a club that played in the 2026/27 Premier League season.",
+      "hint": "Current 2026/27 season: all 20 confirmed member clubs count.",
+      "kind": "classic",
+      "confidence": "reviewed",
+      "allOf": [
+        "pl_season_2026_2027"
+      ],
+      "sources": [
+        "pl_2026_27_official",
+        "pl_club_spells_reference"
       ]
     }
   ]
